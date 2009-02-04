@@ -1,0 +1,1 @@
+The server side of ShopMii is PRIVATE. Note to devs: Make sure you don't accidently commit server source code to here, commit it to the private repo instead.
