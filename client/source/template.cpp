@@ -398,12 +398,12 @@ int main(int argc, char **argv) {
 	// * Help
 	// * Credits
 	// * Exit
+	// It will be in a separate function.
 	
-	
-	// Insert 
-	int chosen = 0; // This will be the variable returned from the menu
+	// Insert list of games here - for simplicity's sake, this will ideally be in the same function as much as possible.
+	int chosen = 0; // This will be the variable returned from the list
 	displayGameInfo(choice[chosen]);
-	// Add some form of loop
+	// Add some form of loop to go back to the list or the menu.
 	while(1) {
 
 		// Call WPAD_ScanPads each loop, this reads the latest controller states
