@@ -15,7 +15,7 @@ using namespace std;
 #include <stdlib.h>
 #include <string.h>
  
-struct VCGame {
+struct VCGame { // Structure for the data from a review page
         char name[50+1];
         char system[30+1];
         char URLOfBoxArt[100+1];
@@ -34,19 +34,19 @@ struct VCGame {
         char controllerSupport[40+1];
 };
  
-void error (char *msg)
+void error (char *msg) // Quick function to be called in error.
 {
         printf ("%s\n", msg);
         exit (1);
 }
  
-void readLine(char *line, FILE *fp)
+void readLine(char *line, FILE *fp) // Reads one line
 {
         fgets(line, 1024, fp);
         line[strlen(line)-2]='\0';
 }
  
-char *processHTML(char *result)
+char *processHTML(char *result) // Removes/replaces some HTML tags
 {
 char *replacedString;
  
@@ -64,6 +64,7 @@ char *replacedString;
 }
  
 void parseReviewPage(char *filename, VCGame *game) // char *URL
+// Parses the review page (currently only supports loading local files). NOTE: Not tested lately, proceed with caution!
 {
 int i;
 FILE *fpIn;
@@ -72,7 +73,7 @@ char result[1024+1], line[1024+1];
         // OPEN OUR SOURCE FILE
         fpIn = fopen(filename, "r");
         if (!fpIn)
-                error ("Couldn't open source file");
+                error ((char*)"Couldn't open source file");
         
         // FOR THE WHOLE SOURCE FILE
         while (!feof(fpIn))
@@ -206,7 +207,7 @@ char result[1024+1], line[1024+1];
 }
  
 
-struct database { 
+struct database { // Structure for stuff parsed from database.txt
 	string title;
 	string id;
 	string url;
@@ -219,7 +220,7 @@ struct database {
 	float price;
 };
 
-int howManyLines ( char *filename ) {
+int howManyLines ( char *filename ) { // Function stolen from txt-read, counts the number of lines in a file.
 //Init variables and open the file, also init the wiilight and clear the screen.
 	FILE *fp;
 	int numLines;
@@ -259,7 +260,7 @@ int howManyLines ( char *filename ) {
 	return numLines;
 }
 
-char **createArrayFromFile ( char *filename, float numLines ) {
+char **createArrayFromFile ( char *filename, float numLines ) { // Function stolen from txt-read, creates an array from a given file.
 	//init some variables, open the file and init the wiilight
 	int i;
 	FILE *fp;
@@ -328,6 +329,11 @@ char **createArrayFromFile ( char *filename, float numLines ) {
 	}
 }
 
+void displayGameInfo(database game){
+	VCGame current;
+	parseReviewPage((char*)game.url.c_str(), &current);
+	// Put displaying code here.
+}
 
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
@@ -340,40 +346,44 @@ int main(int argc, char **argv) {
 	// we can use variables for this with format codes too
 	// e.g. printf ("\x1b[%d;%dH", row, column );
 	cout << "\x1b[2;0H" << endl;
-	char *database_uk = (char*)"fat3:/database_uk.txt";
-	WII_LaunchTitleWithArgs(0x0000000100000002, 0,"", NULL /*terminator*/ );
-	int lns = howManyLines ( database_uk );
+	// Ask what DB to use here and set the filename appropriately
+	char *datachoice = (char*)"fat3:/database_uk.txt";
+	int lns = howManyLines ( datachoice );
 	string tmp;
 	char **lines;
 	int i;
-	database uk[lns];
-	lines = createArrayFromFile(database_uk,lns);
+	database choice[lns];
+	lines = createArrayFromFile(datachoice,lns);
+	// Parse the DB into a struct array
 	for(i=0;i!=lns;++i){
-		uk[i].title = strtok(lines[i],"|");
-		uk[i].id = strtok(NULL,"|");
-		uk[i].url = strtok(NULL,"|");
-		uk[i].system = strtok(NULL,"|");
-		uk[i].publisher = strtok(NULL,"|");
+		choice[i].title = strtok(lines[i],"|");
+		choice[i].id = strtok(NULL,"|");
+		choice[i].url = strtok(NULL,"|");
+		choice[i].system = strtok(NULL,"|");
+		choice[i].publisher = strtok(NULL,"|");
 		istringstream buffer(strtok(NULL,"|"));
-		buffer >> uk[i].players;
-		uk[i].genre = strtok(NULL,"|");
-		uk[i].date = strtok(NULL,"|");
+		buffer >> choice[i].players;
+		choice[i].genre = strtok(NULL,"|");
+		choice[i].date = strtok(NULL,"|");
 		istringstream buffer2(strtok(NULL,"|"));
-		buffer2 >> uk[i].rank;
+		buffer2 >> choice[i].rank;
 		istringstream buffer3(strtok(NULL,"|"));
-		buffer3 >> uk[i].price;
+		buffer3 >> choice[i].price;
 	}
-	VCGame uk_fulldetails[1];
-        parseReviewPage("sonic.txt", &uk_fulldetails[0]);
+	// Will be removed (of course)
 	cout << "Random couts of random bits of data" << endl << endl;sleep(2);
-	cout << uk[0].title << endl;
-	cout << uk[4].title << endl;
-	cout << uk[1].title << endl;
-	cout << uk[1].date << endl;
-	cout << uk[288].title << endl;
-	cout << uk[7].price << endl;
-	cout << uk[10].title << " " << uk[10].id << " " << uk[10].url << " " << uk[10].system << " " << uk[10].publisher << " " << uk[10].players << " " << uk[10].genre << " " << uk[10].date << " " << uk[10].rank << " " << uk[10].price << endl;
-	cout << uk[152].title << endl;
+	cout << choice[0].title << endl;
+	cout << choice[4].title << endl;
+	cout << choice[1].title << endl;
+	cout << choice[1].date << endl;
+	cout << choice[288].title << endl;
+	cout << choice[7].price << endl;
+	cout << choice[10].title << " " << choice[10].id << " " << choice[10].url << " " << choice[10].system << " " << choice[10].publisher << " " << choice[10].players << " " << choice[10].genre << " " << choice[10].date << " " << choice[10].rank << " " << choice[10].price << endl;
+	cout << choice[152].title << endl;
+	// Insert menu here
+	int chosen = 0;
+	displayGameInfo(choice[chosen]);
+	// Add some form of loop
 	while(1) {
 
 		// Call WPAD_ScanPads each loop, this reads the latest controller states
