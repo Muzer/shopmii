@@ -348,6 +348,7 @@ int main(int argc, char **argv) {
 	cout << "\x1b[2;0H" << endl;
 	// Ask what DB to use here and set the filename appropriately
 	char *datachoice = (char*)"fat3:/database_uk.txt";
+	// Add checking for update code here
 	int lns = howManyLines ( datachoice );
 	string tmp;
 	char **lines;
@@ -380,10 +381,29 @@ int main(int argc, char **argv) {
 	cout << choice[7].price << endl;
 	cout << choice[10].title << " " << choice[10].id << " " << choice[10].url << " " << choice[10].system << " " << choice[10].publisher << " " << choice[10].players << " " << choice[10].genre << " " << choice[10].date << " " << choice[10].rank << " " << choice[10].price << endl;
 	cout << choice[152].title << endl;
-	// Insert menu here
-	int chosen = 0;
+	// Insert menu here - This will be quite advanced, with the following options:
+	// * View entire database
+	// * Filter database by...
+	// ** Name (search)
+	// ** Publishers (list of publishers, filter by the selected one)
+	// ** system (list of systems, filter by the selected one)
+	// ** Max number of players (simple enough, just select an integer from a set list)
+	// ** Genre (list)
+	// ** Original release date (probably the hardest, between two dates set by the user)
+	// ** Review score (choose the minimum score, it will list that upwards)
+	// ** Price (choose maximum price, it will list that downwards)
+	// * View legal homebrew channel database
+	// * Launch homebrew browser
+	// * Settings
+	// * Help
+	// * Credits
+	// * Exit
+	// It will be in a separate function.
+	
+	// Insert list of games here - for simplicity's sake, this will ideally be in the same function as much as possible.
+	int chosen = 0; // This will be the variable returned from the list
 	displayGameInfo(choice[chosen]);
-	// Add some form of loop
+	// Add some form of loop to go back to the list or the menu.
 	while(1) {
 
 		// Call WPAD_ScanPads each loop, this reads the latest controller states
