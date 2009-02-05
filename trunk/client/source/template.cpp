@@ -389,7 +389,7 @@ int main(int argc, char **argv) {
 	// ** system (list of systems, filter by the selected one)
 	// ** Max number of players (simple enough, just select an integer from a set list)
 	// ** Genre (list)
-	// ** Original release date (probably the hardest, between two dates set by the user)
+	// ** Release date (probably the hardest, between two dates set by the user, can be avoided)
 	// ** Review score (choose the minimum score, it will list that upwards)
 	// ** Price (choose maximum price, it will list that downwards)
 	// * View legal homebrew channel database
@@ -398,12 +398,12 @@ int main(int argc, char **argv) {
 	// * Help
 	// * Credits
 	// * Exit
-	// It will be in a separate function.
 	
-	// Insert list of games here - for simplicity's sake, this will ideally be in the same function as much as possible.
-	int chosen = 0; // This will be the variable returned from the list
+	
+	// Insert 
+	int chosen = 0; // This will be the variable returned from the menu
 	displayGameInfo(choice[chosen]);
-	// Add some form of loop to go back to the list or the menu.
+	// Add some form of loop
 	while(1) {
 
 		// Call WPAD_ScanPads each loop, this reads the latest controller states
