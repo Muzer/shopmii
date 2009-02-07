@@ -5,6 +5,9 @@
 #include <string>
 #include <sstream>
 #include <unistd.h>
+extern "C"{
+#include "stringFuncs.h"
+}
 
 using namespace std;
 
@@ -44,15 +47,16 @@ void readLine(char *line, FILE *fp) { // Reads one line
 }
  
 char *processHTML(char *result) { // Removes/replaces some HTML tags
-	char *replacedString;
+	char *replacedString = result;
 	// REMOVE <p>
-	replacedString = replaceString (result, "<p>", "");
+	replaceString (replacedString, "<p>", "");
 	// REMOVE <p></div>
-	replacedString = replaceString (replacedString, "</p></div>", "");
+	replaceString (replacedString, "</p></div>", "");
 	// REPLACE <\p> WITH \n\n
-	replacedString = replaceString (replacedString, "</p>", "\n\n");
+	replaceString (replacedString, "</p>", "\n\n");
 	// AND &quot WITH "
-	return replaceString (replacedString, "&quot;", "\"");
+	replaceString (replacedString, "&quot;", "\"");
+	return replacedString;
 }
  
 void parseReviewPage(char *filename /* Will be char *url */, VCGame *game) { // Parses the review page (currently only supports loading local files). NOTE: Not tested lately, proceed with caution!
@@ -284,8 +288,8 @@ int main(int argc, char **argv) {
 		buffer3 >> choice[i].price;
 		istringstream buffer4(strtok(NULL,"|"));
 		buffer4 >> choice[i].blocks;
-		db2[i].controllers = strtok(NULL,"|");
-		db2[i].originaldate = strtok(NULL,"|");
+		choice[i].controllers = strtok(NULL,"|");
+		choice[i].originaldate = strtok(NULL,"|");
 	}
 	// Will be removed (of course)
 	cout << "Random couts of random bits of data" << endl << endl;sleep(2);
