@@ -265,6 +265,20 @@ int main(int argc, char **argv) {
 				}
 			}
 		}
+		if(done == 0){ // If none of the strings were equal
+			for(j=0;j!=lns2 && done == 0;++j){
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+					if ( strstr(StringToUpper(fixstring(db1[i].title)).c_str(), StringToUpper(fixstring(db2[j].title)).c_str()) != NULL){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed appears in the other string, then take it as being the same.
+						done = 1;
+						a[i] = j;
+					}
+					if ( strstr(StringToUpper(fixstring(db2[j].title)).c_str(), StringToUpper(fixstring(db1[i].title)).c_str()) != NULL){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed appears in the other string, then take it as being the same.
+						done = 1;
+						a[i] = j;
+					}
+				}
+			}
+		}
 		if(done == 0) {
 			cout << "No matching title found for " << db1[i].title << " on the " << db1[i].system << "!\n";
 			a[i] = -1;
