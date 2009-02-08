@@ -187,6 +187,7 @@ struct database { // Structure for stuff parsed from database.txt
 	float blocks;
 	string controllers;
 	string originaldate;
+	string video;
 };
 
 int howManyLines ( char *filename ) { // Function stolen from txt-read, counts the number of lines in a file.
@@ -290,6 +291,7 @@ int main(int argc, char **argv) {
 		buffer4 >> choice[i].blocks;
 		choice[i].controllers = strtok(NULL,"|");
 		choice[i].originaldate = strtok(NULL,"|");
+		choice[i].video = strtok(NULL,"|");
 	}
 	// Will be removed (of course)
 	cout << "Random couts of random bits of data" << endl << endl;sleep(2);
