@@ -85,6 +85,7 @@ struct database2 { // Structure for stuff parsed from database.txt
 	float blocks;
 	string controllers;
 	string originaldate;
+	string video;
 };
 
 string StringToUpper(string myString) {
@@ -177,6 +178,7 @@ int main(int argc, char **argv) {
 		buffer4 >> db2[i].blocks;
 		db2[i].controllers = strtok(NULL,"|");
 		db2[i].originaldate = strtok(NULL,"|");
+		db2[i].video = strtok(NULL,"|");
 	}
 	int j;
 	bool done;
@@ -286,7 +288,7 @@ int main(int argc, char **argv) {
 		
 	}
 	for(i=0;i!=lns1;++i){
-		if(a[i] != -1) fprintf(fp, (char*)"%s|%s|%s|%s|%s|%i|%s|%s|%f|%f|%f|%s|%s|\n", db1[i].title.c_str(), db1[i].id.c_str(), db2[a[i]].url.c_str(), db2[a[i]].system.c_str(), db1[i].publisher.c_str(), db2[a[i]].players, db2[a[i]].genre.c_str(), db2[a[i]].date.c_str(), db2[a[i]].rank, db1[i].price, db2[a[i]].blocks, db2[a[i]].controllers.c_str(), db2[a[i]].originaldate.c_str());
+		if(a[i] != -1) fprintf(fp, (char*)"%s|%s|%s|%s|%s|%i|%s|%s|%f|%f|%f|%s|%s|%s|\n", db1[i].title.c_str(), db1[i].id.c_str(), db2[a[i]].url.c_str(), db2[a[i]].system.c_str(), db1[i].publisher.c_str(), db2[a[i]].players, db2[a[i]].genre.c_str(), db2[a[i]].date.c_str(), db2[a[i]].rank, db1[i].price, db2[a[i]].blocks, db2[a[i]].controllers.c_str(), db2[a[i]].originaldate.c_str(), db2[a[i]].video.c_str());
 	}
 	fclose(fp);
 	cout << "All done!\n";
