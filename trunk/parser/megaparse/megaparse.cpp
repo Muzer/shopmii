@@ -103,7 +103,7 @@ Returns: 1 if must be replaced, 0 if must be retained
 */
 int replaceme(char ch)
 {
-if(isalnum(ch))
+if(isalnum(ch) && ch != '"')
 return 0;
 else
 return 1;
@@ -121,8 +121,10 @@ string fixstring(string str)
 int n;
 for(n=0;n<str.length();++n)
 {
-if(replaceme(str[n]))
+if(replaceme(str[n])){
 str.erase(n,1);
+--n;
+}
 }
 return str;
 }
@@ -186,7 +188,7 @@ int main(int argc, char **argv) {
 	for(i=0;i!=lns1;++i){
 		done = 0;
 		for(j=0;j!=lns2 && done == 0;++j){
-			if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+			if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 				if ( StringToUpper(db1[i].title) == StringToUpper(db2[j].title)){ // If the upper case-ified versions of the string are equal, then take it as being the same
 					done = 1;
 					a[i] = j;
@@ -195,7 +197,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					if ( StringToUpper(fixstring(db1[i].title)) == StringToUpper(fixstring(db2[j].title))){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed are equal, then take it as being the same.
 						done = 1;
 						a[i] = j;
@@ -205,7 +207,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					char *tmp = strdup(db1[i].title.c_str());
 					if ( StringToUpper(fixstring(strtok(tmp,"("))) == StringToUpper(fixstring(db2[j].title))){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed as well as everything including and after "(" removed are equal, then take it as being the same.
 						done = 1;
@@ -216,7 +218,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					char *tmpslash = strdup(db2[j].title.c_str());
 					if ( StringToUpper(fixstring(db1[i].title)) == StringToUpper(fixstring(strtok(tmpslash,"/")))){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed and everything including and after "/" removed are equal, then take it as being the same.
 						done = 1;
@@ -227,7 +229,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					char *tmp = strdup(db1[i].title.c_str());
 					char *tmpslash = strdup(db2[j].title.c_str());
 					if ( StringToUpper(fixstring(strtok(tmp,"("))) == StringToUpper(fixstring(strtok(tmpslash,"/")))){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed and everything including and after "/" removed and including and after "(" removed are equal, then take it as being the same.
@@ -239,7 +241,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					char *tmp = strdup(db2[j].title.c_str());
 					char *tmp2;
 					strtok(tmp,"/");
@@ -254,7 +256,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					string tmpchar = strtok(strdup(db1[i].title.c_str()),"(");
 					char *tmp = strdup(db2[j].title.c_str());
 					strtok(tmp,"/");
@@ -269,7 +271,7 @@ int main(int argc, char **argv) {
 		}
 		if(done == 0){ // If none of the strings were equal
 			for(j=0;j!=lns2 && done == 0;++j){
-				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( db1[i].system == "Super NES" && db2[j].system == "SNES" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "N64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "SMS" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "MD" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TG-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "C64" )) { // If the games are on the same system, then it could be the same.
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
 					if ( strstr(StringToUpper(fixstring(db1[i].title)).c_str(), StringToUpper(fixstring(db2[j].title)).c_str()) != NULL){ // If the upper case-ified versions of the string with all non-alphanumeric characters removed appears in the other string, then take it as being the same.
 						done = 1;
 						a[i] = j;
@@ -278,6 +280,17 @@ int main(int argc, char **argv) {
 						done = 1;
 						a[i] = j;
 					}
+				}
+			}
+		}
+		if(done == 0){ // If none of the strings were equal
+			for(j=0;j!=lns2 && done == 0;++j){
+				if( ( db1[i].system == "NES" && db2[j].system == "NES" ) || ( (db1[i].system == "Super NES" || db1[i].system == "Super Nintendo") && db2[j].system == "Super Nintendo" ) || ( db1[i].system == "Nintendo 64" && db2[j].system == "Nintendo 64" ) || ( (db1[i].system == "MASTER SYSTEM" || db1[i].system == "SEGA Master System") && db2[j].system == "Master System" ) || ((db1[i].system == "Sega Genesis" || db1[i].system == "SEGA MEGA DRIVE") && db2[j].system == "Sega Mega Drive" ) || /* MSX: Implementing for possible future; it's in Japan right now. */ (db1[i].system == "MSX" && db2[j].system == "MSX" ) || (( db1[i].system == "TurboGrafx16" || db1[i].system == "Turbografx" ) && db2[j].system == "TurboGrafx-16" ) || (db1[i].system == "NEOGEO" && db2[j].system == "Neo Geo" ) || (db1[i].system == "Commodore 64" && db2[j].system == "Commodore 64" )) { // If the games are on the same system, then it could be the same.
+					if(db1[i].title.length() > 9 && db2[j].title.length() > 9 )
+					if ( StringToUpper(fixstring(db1[i].title.substr(db1[i].title.length() - 9,9))) == StringToUpper(fixstring(db2[j].title.substr(db2[j].title.length() - 9,9)))){ // If the upper case-ified versions of the last nine chars of the strings with all non-alphanumeric characters removed are equal, then take it as being the same.
+						done = 1;
+						a[i] = j;
+					};
 				}
 			}
 		}
