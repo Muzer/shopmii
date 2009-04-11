@@ -1280,7 +1280,7 @@ _Z8MenuMainv:
 	.loc 1 303 0
 	mflr 0
 .LCFI54:
-	stwu 1,-5928(1)
+	stwu 1,-4984(1)
 .LCFI55:
 .LBB29:
 	.loc 1 307 0
@@ -1288,78 +1288,75 @@ _Z8MenuMainv:
 	li 5,28
 .LBE29:
 	.loc 1 303 0
-	stw 21,5884(1)
+	stw 20,4936(1)
 .LCFI56:
-.LBB32:
+.LBB30:
 	.loc 1 307 0
-	li 21,-1
-.LBE32:
+	li 20,-1
+.LBE30:
 	.loc 1 303 0
-	stw 0,5932(1)
+	stw 0,4988(1)
 .LCFI57:
 	li 0,0
-.LBB33:
+.LBB31:
 	.loc 1 307 0
-	rlwimi 0,21,24,0,7
-.LBE33:
+	rlwimi 0,20,24,0,7
+.LBE31:
 	.loc 1 303 0
-	stw 18,5872(1)
+	stw 18,4928(1)
 .LCFI58:
-.LBB34:
+.LBB32:
 	.loc 1 307 0
-	rlwimi 0,21,16,8,15
-	addi 18,1,5848
-	rlwimi 0,21,8,16,23
+	rlwimi 0,20,16,8,15
+	addi 18,1,4904
+	rlwimi 0,20,8,16,23
 	la 4,.LC12@l(4)
-	rlwimi 0,21,0,24,31
+	rlwimi 0,20,0,24,31
 	addi 3,1,224
 	mr 6,18
-.LBE34:
+.LBE32:
 	.loc 1 303 0
-	stw 17,5868(1)
+	stw 19,4932(1)
 .LCFI59:
-	stw 19,5876(1)
+	stw 26,4960(1)
 .LCFI60:
-	li 17,0
-	stw 22,5888(1)
-.LCFI61:
 	li 19,0
-	stw 24,5896(1)
-.LCFI62:
-	li 22,0
-	stw 26,5904(1)
-.LCFI63:
-	li 24,0
-	stw 27,5908(1)
-.LCFI64:
+	stw 27,4964(1)
+.LCFI61:
 	li 26,0
-	stw 28,5912(1)
-.LCFI65:
+	stw 28,4968(1)
+.LCFI62:
 	li 27,0
-	stw 29,5916(1)
-.LCFI66:
+	stw 29,4972(1)
+.LCFI63:
 	li 28,0
-	stw 31,5924(1)
-.LCFI67:
+	stw 31,4980(1)
+.LCFI64:
 	li 29,0
-	stw 14,5856(1)
-.LCFI68:
+	stw 14,4912(1)
+.LCFI65:
 	li 31,0
-	stw 15,5860(1)
+	stw 15,4916(1)
+.LCFI66:
+	stw 16,4920(1)
+.LCFI67:
+	stw 17,4924(1)
+.LCFI68:
+	stw 21,4940(1)
 .LCFI69:
-	stw 16,5864(1)
+	stw 22,4944(1)
 .LCFI70:
-	stw 20,5880(1)
+	stw 23,4948(1)
 .LCFI71:
-	stw 23,5892(1)
+	stw 24,4952(1)
 .LCFI72:
-	stw 25,5900(1)
+	stw 25,4956(1)
 .LCFI73:
-	stw 30,5920(1)
+	stw 30,4976(1)
 .LCFI74:
-.LBB35:
+.LBB33:
 	.loc 1 307 0
-	stw 0,5848(1)
+	stw 0,4904(1)
 .LEHB38:
 	bl _ZN7GuiTextC1EPKci9_gx_color
 .LEHE38:
@@ -1385,9 +1382,10 @@ _Z8MenuMainv:
 	bl _ZN8GuiSoundC1EPKhii
 .LEHE39:
 	.loc 1 312 0
+	addi 15,1,8
 	lis 4,button_png@ha
-	addi 3,1,8
 	la 4,button_png@l(4)
+	mr 3,15
 .LEHB40:
 	bl _ZN12GuiImageDataC1EPKh
 .LEHE40:
@@ -1399,10 +1397,10 @@ _Z8MenuMainv:
 	bl _ZN12GuiImageDataC1EPKh
 .LEHE41:
 	.loc 1 314 0
-	addi 25,1,32
+	addi 21,1,32
 	lis 4,button_large_png@ha
 	la 4,button_large_png@l(4)
-	mr 3,25
+	mr 3,21
 .LEHB42:
 	bl _ZN12GuiImageDataC1EPKh
 .LEHE42:
@@ -1414,26 +1412,26 @@ _Z8MenuMainv:
 	bl _ZN12GuiImageDataC1EPKh
 .LEHE43:
 	.loc 1 317 0
-	addi 15,1,5132
-	mr 3,15
+	addi 17,1,4192
+	mr 3,17
 .LEHB44:
 	bl _ZN10GuiTriggerC1Ev
 .LEHE44:
 	.loc 1 318 0
 	lis 5,0x10
-	mr 3,15
+	mr 3,17
 	ori 5,5,8
 	li 4,-1
 	li 6,256
 .LEHB45:
 	bl _ZN10GuiTrigger16SetSimpleTriggerEijt
 	.loc 1 319 0
-	addi 3,1,5488
+	addi 3,1,4548
 	bl _ZN10GuiTriggerC1Ev
 .LEHE45:
 	.loc 1 320 0
 	lis 5,0x800
-	addi 3,1,5488
+	addi 3,1,4548
 	ori 5,5,128
 	li 4,-1
 	li 6,0
@@ -1448,13 +1446,13 @@ _Z8MenuMainv:
 	addi 3,1,376
 	rlwimi 31,30,8,16,23
 	li 5,22
-	rlwimi 31,21,0,24,31
+	rlwimi 31,20,0,24,31
 	mr 6,18
-	stw 31,5848(1)
+	stw 31,4904(1)
 	bl _ZN7GuiTextC1EPKci9_gx_color
 .LEHE46:
 	.loc 1 323 0
-	mr 3,25
+	mr 3,21
 .LEHB47:
 	bl _ZN12GuiImageData8GetWidthEv
 	addi 4,3,-30
@@ -1462,7 +1460,7 @@ _Z8MenuMainv:
 	bl _ZN7GuiText11SetMaxWidthEi
 	.loc 1 324 0
 	addi 3,1,528
-	mr 4,25
+	mr 4,21
 	bl _ZN8GuiImageC1EP12GuiImageData
 .LEHE47:
 	.loc 1 325 0
@@ -1472,51 +1470,51 @@ _Z8MenuMainv:
 	bl _ZN8GuiImageC1EP12GuiImageData
 .LEHE48:
 	.loc 1 326 0
-	mr 3,25
+	mr 3,21
 .LEHB49:
 	bl _ZN12GuiImageData8GetWidthEv
 	mr 31,3
-	mr 3,25
+	mr 3,21
 	bl _ZN12GuiImageData9GetHeightEv
-	addi 23,1,3872
+	addi 22,1,3112
 	mr 5,3
 	mr 4,31
-	mr 3,23
+	mr 3,22
 	bl _ZN9GuiButtonC1Eii
 .LEHE49:
 	.loc 1 327 0
-	mr 3,23
-	li 4,0
+	mr 3,22
+	li 4,2
 	li 5,3
 .LEHB50:
 	bl _ZN10GuiElement12SetAlignmentEii
 	.loc 1 328 0
-	mr 3,23
-	li 4,50
+	mr 3,22
+	li 4,-125
 	li 5,120
 	bl _ZN10GuiElement11SetPositionEii
 	.loc 1 329 0
-	mr 3,23
+	mr 3,22
 	addi 4,1,376
 	bl _ZN9GuiButton8SetLabelEP7GuiText
 	.loc 1 330 0
-	mr 3,23
+	mr 3,22
 	addi 4,1,528
 	bl _ZN9GuiButton8SetImageEP8GuiImage
 	.loc 1 331 0
-	mr 3,23
+	mr 3,22
 	addi 4,1,680
 	bl _ZN9GuiButton12SetImageOverEP8GuiImage
 	.loc 1 332 0
-	mr 3,23
+	mr 3,22
 	mr 4,14
 	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
 	.loc 1 333 0
-	mr 3,23
-	mr 4,15
+	mr 3,22
+	mr 4,17
 	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
 	.loc 1 334 0
-	mr 3,23
+	mr 3,22
 	bl _ZN10GuiElement13SetEffectGrowEv
 	.loc 1 336 0
 	rlwimi 29,30,24,0,7
@@ -1525,14 +1523,14 @@ _Z8MenuMainv:
 	la 4,.LC14@l(4)
 	rlwimi 29,30,8,16,23
 	addi 3,1,832
-	rlwimi 29,21,0,24,31
+	rlwimi 29,20,0,24,31
 	li 5,22
-	stw 29,5848(1)
+	stw 29,4904(1)
 	mr 6,18
 	bl _ZN7GuiTextC1EPKci9_gx_color
 .LEHE50:
 	.loc 1 337 0
-	mr 3,25
+	mr 3,21
 .LEHB51:
 	bl _ZN12GuiImageData8GetWidthEv
 	addi 4,3,-30
@@ -1540,7 +1538,7 @@ _Z8MenuMainv:
 	bl _ZN7GuiText11SetMaxWidthEi
 	.loc 1 338 0
 	addi 3,1,984
-	mr 4,25
+	mr 4,21
 	bl _ZN8GuiImageC1EP12GuiImageData
 .LEHE51:
 	.loc 1 339 0
@@ -1550,51 +1548,51 @@ _Z8MenuMainv:
 	bl _ZN8GuiImageC1EP12GuiImageData
 .LEHE52:
 	.loc 1 340 0
-	mr 3,25
+	mr 3,21
 .LEHB53:
 	bl _ZN12GuiImageData8GetWidthEv
 	mr 31,3
-	mr 3,25
+	mr 3,21
 	bl _ZN12GuiImageData9GetHeightEv
-	addi 20,1,4052
+	addi 23,1,3292
 	mr 5,3
 	mr 4,31
-	mr 3,20
+	mr 3,23
 	bl _ZN9GuiButtonC1Eii
 .LEHE53:
 	.loc 1 341 0
-	mr 3,20
+	mr 3,23
 	li 4,2
 	li 5,3
 .LEHB54:
 	bl _ZN10GuiElement12SetAlignmentEii
 	.loc 1 342 0
-	mr 3,20
-	li 4,0
+	mr 3,23
+	li 4,125
 	li 5,120
 	bl _ZN10GuiElement11SetPositionEii
 	.loc 1 343 0
-	mr 3,20
+	mr 3,23
 	addi 4,1,832
 	bl _ZN9GuiButton8SetLabelEP7GuiText
 	.loc 1 344 0
-	mr 3,20
+	mr 3,23
 	addi 4,1,984
 	bl _ZN9GuiButton8SetImageEP8GuiImage
 	.loc 1 345 0
-	mr 3,20
+	mr 3,23
 	addi 4,1,1136
 	bl _ZN9GuiButton12SetImageOverEP8GuiImage
 	.loc 1 346 0
-	mr 3,20
+	mr 3,23
 	mr 4,14
 	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
 	.loc 1 347 0
-	mr 3,20
-	mr 4,15
+	mr 3,23
+	mr 4,17
 	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
 	.loc 1 348 0
-	mr 3,20
+	mr 3,23
 	bl _ZN10GuiElement13SetEffectGrowEv
 	.loc 1 350 0
 	rlwimi 28,30,24,0,7
@@ -1603,430 +1601,303 @@ _Z8MenuMainv:
 	la 4,.LC15@l(4)
 	rlwimi 28,30,8,16,23
 	addi 3,1,1288
-	rlwimi 28,21,0,24,31
-	li 5,22
-	stw 28,5848(1)
+	rlwimi 28,20,0,24,31
+	li 5,18
+	stw 28,4904(1)
 	mr 6,18
 	bl _ZN7GuiTextC1EPKci9_gx_color
 .LEHE54:
 	.loc 1 351 0
+	addi 3,1,1440
+	mr 4,21
+.LEHB55:
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE55:
+	.loc 1 352 0
+	addi 3,1,1592
+	addi 4,1,44
+.LEHB56:
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE56:
+	.loc 1 353 0
+	mr 3,21
+.LEHB57:
+	bl _ZN12GuiImageData8GetWidthEv
+	mr 31,3
+	mr 3,21
+	bl _ZN12GuiImageData9GetHeightEv
+	addi 24,1,3472
+	mr 5,3
+	mr 4,31
+	mr 3,24
+	bl _ZN9GuiButtonC1Eii
+.LEHE57:
+	.loc 1 354 0
+	mr 3,24
+	li 4,2
+	li 5,3
+.LEHB58:
+	bl _ZN10GuiElement12SetAlignmentEii
+	.loc 1 355 0
+	mr 3,24
+	li 4,125
+	li 5,250
+	bl _ZN10GuiElement11SetPositionEii
+	.loc 1 356 0
+	mr 3,24
+	addi 4,1,1288
+	bl _ZN9GuiButton8SetLabelEP7GuiText
+	.loc 1 357 0
+	mr 3,24
+	addi 4,1,1440
+	bl _ZN9GuiButton8SetImageEP8GuiImage
+	.loc 1 358 0
+	mr 3,24
+	addi 4,1,1592
+	bl _ZN9GuiButton12SetImageOverEP8GuiImage
+	.loc 1 359 0
+	mr 3,24
+	mr 4,14
+	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
+	.loc 1 360 0
+	mr 3,24
+	mr 4,17
+	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
+	.loc 1 361 0
+	mr 3,24
+	bl _ZN10GuiElement13SetEffectGrowEv
+	.loc 1 363 0
 	rlwimi 27,30,24,0,7
 	lis 4,.LC16@ha
 	rlwimi 27,30,16,8,15
 	la 4,.LC16@l(4)
 	rlwimi 27,30,8,16,23
-	addi 3,1,1440
-	rlwimi 27,21,0,24,31
-	li 5,18
-	stw 27,5848(1)
+	addi 3,1,1744
+	rlwimi 27,20,0,24,31
+	li 5,22
+	stw 27,4904(1)
 	mr 6,18
-.LEHB55:
 	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE55:
-	.loc 1 352 0
+.LEHE58:
+	.loc 1 364 0
+	mr 3,21
+.LEHB59:
+	bl _ZN12GuiImageData8GetWidthEv
+	addi 4,3,-30
+	addi 3,1,1744
+	bl _ZN7GuiText11SetMaxWidthEi
+	.loc 1 365 0
+	addi 3,1,1896
+	mr 4,21
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE59:
+	.loc 1 366 0
+	addi 3,1,2048
+	addi 4,1,44
+.LEHB60:
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE60:
+	.loc 1 367 0
+	mr 3,21
+.LEHB61:
+	bl _ZN12GuiImageData8GetWidthEv
+	mr 31,3
+	mr 3,21
+	bl _ZN12GuiImageData9GetHeightEv
+	addi 25,1,3652
+	mr 5,3
+	mr 4,31
+	mr 3,25
+	bl _ZN9GuiButtonC1Eii
+.LEHE61:
+	.loc 1 368 0
+	mr 3,25
+	li 4,2
+	li 5,3
+.LEHB62:
+	bl _ZN10GuiElement12SetAlignmentEii
+	.loc 1 369 0
+	mr 3,25
+	li 4,-125
+	li 5,250
+	bl _ZN10GuiElement11SetPositionEii
+	.loc 1 370 0
+	mr 3,25
+	addi 4,1,1744
+	bl _ZN9GuiButton8SetLabelEP7GuiText
+	.loc 1 371 0
+	mr 3,25
+	addi 4,1,1896
+	bl _ZN9GuiButton8SetImageEP8GuiImage
+	.loc 1 372 0
+	mr 3,25
+	addi 4,1,2048
+	bl _ZN9GuiButton12SetImageOverEP8GuiImage
+	.loc 1 373 0
+	mr 3,25
+	mr 4,14
+	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
+	.loc 1 374 0
+	mr 3,25
+	mr 4,17
+	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
+	.loc 1 375 0
+	mr 3,25
+	bl _ZN10GuiElement13SetEffectGrowEv
+	.loc 1 377 0
 	rlwimi 26,30,24,0,7
 	lis 4,.LC17@ha
 	rlwimi 26,30,16,8,15
 	la 4,.LC17@l(4)
 	rlwimi 26,30,8,16,23
-	addi 3,1,1592
-	rlwimi 26,21,0,24,31
-	li 5,22
-	stw 26,5848(1)
-	mr 6,18
-.LEHB56:
-	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE56:
-	.loc 1 353 0
-	addi 3,1,1288
-	li 4,0
-	li 5,-20
-.LEHB57:
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 354 0
-	addi 3,1,1592
-	li 4,0
-	li 5,20
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 355 0
-	addi 3,1,1744
-	mr 4,25
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE57:
-	.loc 1 356 0
-	addi 3,1,1896
-	addi 4,1,44
-.LEHB58:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE58:
-	.loc 1 357 0
-	mr 3,25
-.LEHB59:
-	bl _ZN12GuiImageData8GetWidthEv
-	mr 31,3
-	mr 3,25
-	bl _ZN12GuiImageData9GetHeightEv
-	addi 28,1,4232
-	mr 5,3
-	mr 4,31
-	mr 3,28
-	bl _ZN9GuiButtonC1Eii
-.LEHE59:
-	.loc 1 358 0
-	mr 3,28
-	li 4,1
-	li 5,3
-.LEHB60:
-	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 359 0
-	mr 3,28
-	li 4,-50
-	li 5,120
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 360 0
-	mr 3,28
-	addi 4,1,1288
-	li 5,0
-	bl _ZN9GuiButton8SetLabelEP7GuiTexti
-	.loc 1 361 0
-	mr 3,28
-	addi 4,1,1440
-	li 5,1
-	bl _ZN9GuiButton8SetLabelEP7GuiTexti
-	.loc 1 362 0
-	mr 3,28
-	addi 4,1,1592
-	li 5,2
-	bl _ZN9GuiButton8SetLabelEP7GuiTexti
-	.loc 1 363 0
-	mr 3,28
-	addi 4,1,1744
-	bl _ZN9GuiButton8SetImageEP8GuiImage
-	.loc 1 364 0
-	mr 3,28
-	addi 4,1,1896
-	bl _ZN9GuiButton12SetImageOverEP8GuiImage
-	.loc 1 365 0
-	mr 3,28
-	mr 4,14
-	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
-	.loc 1 366 0
-	mr 3,28
-	mr 4,15
-	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 367 0
-	mr 3,28
-	bl _ZN10GuiElement13SetEffectGrowEv
-	.loc 1 369 0
-	rlwimi 24,30,24,0,7
-	lis 4,.LC18@ha
-	rlwimi 24,30,16,8,15
-	la 4,.LC18@l(4)
-	rlwimi 24,30,8,16,23
-	addi 3,1,2048
-	rlwimi 24,21,0,24,31
-	li 5,22
-	stw 24,5848(1)
-	mr 6,18
-	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE60:
-	.loc 1 370 0
-	mr 3,25
-.LEHB61:
-	bl _ZN12GuiImageData8GetWidthEv
-	addi 4,3,-30
-	addi 3,1,2048
-	bl _ZN7GuiText11SetMaxWidthEi
-	.loc 1 371 0
 	addi 3,1,2200
-	mr 4,25
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE61:
-	.loc 1 372 0
-	addi 3,1,2352
-	addi 4,1,44
-.LEHB62:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE62:
-	.loc 1 373 0
-	mr 3,25
-.LEHB63:
-	bl _ZN12GuiImageData8GetWidthEv
-	mr 31,3
-	mr 3,25
-	bl _ZN12GuiImageData9GetHeightEv
-	addi 26,1,4412
-	mr 5,3
-	mr 4,31
-	mr 3,26
-	bl _ZN9GuiButtonC1Eii
-.LEHE63:
-	.loc 1 374 0
-	mr 3,26
-	li 4,2
-	li 5,3
-.LEHB64:
-	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 375 0
-	mr 3,26
-	li 4,-125
-	li 5,250
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 376 0
-	mr 3,26
-	addi 4,1,2048
-	bl _ZN9GuiButton8SetLabelEP7GuiText
-	.loc 1 377 0
-	mr 3,26
-	addi 4,1,2200
-	bl _ZN9GuiButton8SetImageEP8GuiImage
-	.loc 1 378 0
-	mr 3,26
-	addi 4,1,2352
-	bl _ZN9GuiButton12SetImageOverEP8GuiImage
-	.loc 1 379 0
-	mr 3,26
-	mr 4,14
-	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
-	.loc 1 380 0
-	mr 3,26
-	mr 4,15
-	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 381 0
-	mr 3,26
-	bl _ZN10GuiElement13SetEffectGrowEv
-	.loc 1 383 0
-	rlwimi 22,30,24,0,7
-	lis 4,.LC19@ha
-	rlwimi 22,30,16,8,15
-	la 4,.LC19@l(4)
-	rlwimi 22,30,8,16,23
-	addi 3,1,2504
-	rlwimi 22,21,0,24,31
+	rlwimi 26,20,0,24,31
 	li 5,22
-	stw 22,5848(1)
+	stw 26,4904(1)
 	mr 6,18
 	bl _ZN7GuiTextC1EPKci9_gx_color
+.LEHE62:
+	.loc 1 378 0
+	addi 3,1,2352
+	mr 4,15
+.LEHB63:
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE63:
+	.loc 1 379 0
+	addi 3,1,2504
+	addi 4,1,20
+.LEHB64:
+	bl _ZN8GuiImageC1EP12GuiImageData
 .LEHE64:
-	.loc 1 384 0
-	mr 3,25
+	.loc 1 380 0
+	mr 3,15
 .LEHB65:
 	bl _ZN12GuiImageData8GetWidthEv
-	addi 4,3,-30
-	addi 3,1,2504
-	bl _ZN7GuiText11SetMaxWidthEi
-	.loc 1 385 0
-	addi 3,1,2656
-	mr 4,25
-	bl _ZN8GuiImageC1EP12GuiImageData
+	mr 31,3
+	mr 3,15
+	bl _ZN12GuiImageData9GetHeightEv
+	addi 26,1,3832
+	mr 5,3
+	mr 4,31
+	mr 3,26
+	bl _ZN9GuiButtonC1Eii
 .LEHE65:
-	.loc 1 386 0
-	addi 3,1,2808
-	addi 4,1,44
-.LEHB66:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE66:
-	.loc 1 387 0
-	mr 3,25
-.LEHB67:
-	bl _ZN12GuiImageData8GetWidthEv
-	mr 31,3
-	mr 3,25
-	bl _ZN12GuiImageData9GetHeightEv
-	addi 27,1,4592
-	mr 5,3
-	mr 4,31
-	mr 3,27
-	bl _ZN9GuiButtonC1Eii
-.LEHE67:
-	.loc 1 388 0
-	mr 3,27
-	li 4,2
-	li 5,3
-.LEHB68:
-	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 389 0
-	mr 3,27
-	li 4,125
-	li 5,250
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 390 0
-	mr 3,27
-	addi 4,1,2504
-	bl _ZN9GuiButton8SetLabelEP7GuiText
-	.loc 1 391 0
-	mr 3,27
-	addi 4,1,2656
-	bl _ZN9GuiButton8SetImageEP8GuiImage
-	.loc 1 392 0
-	mr 3,27
-	addi 4,1,2808
-	bl _ZN9GuiButton12SetImageOverEP8GuiImage
-	.loc 1 393 0
-	mr 3,27
-	mr 4,14
-	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
-	.loc 1 394 0
-	mr 3,27
-	mr 4,15
-	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 395 0
-	mr 3,27
-	bl _ZN10GuiElement13SetEffectGrowEv
-	.loc 1 397 0
-	rlwimi 19,30,24,0,7
-	lis 4,.LC20@ha
-	rlwimi 19,30,16,8,15
-	la 4,.LC20@l(4)
-	rlwimi 19,30,8,16,23
-	addi 3,1,2960
-	rlwimi 19,21,0,24,31
-	li 5,22
-	stw 19,5848(1)
-	mr 6,18
-	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE68:
-	.loc 1 398 0
-	addi 3,1,3112
-	addi 4,1,8
-.LEHB69:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE69:
-	.loc 1 399 0
-	addi 3,1,3264
-	addi 4,1,20
-.LEHB70:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE70:
-	.loc 1 400 0
-	addi 3,1,8
-.LEHB71:
-	bl _ZN12GuiImageData8GetWidthEv
-	mr 31,3
-	addi 3,1,8
-	bl _ZN12GuiImageData9GetHeightEv
-	addi 29,1,4772
-	mr 5,3
-	mr 4,31
-	mr 3,29
-	bl _ZN9GuiButtonC1Eii
-.LEHE71:
-	.loc 1 401 0
-	mr 3,29
+	.loc 1 381 0
+	mr 3,26
 	li 4,0
 	li 5,4
-.LEHB72:
+.LEHB66:
 	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 402 0
-	mr 3,29
+	.loc 1 382 0
+	mr 3,26
 	li 4,100
 	li 5,-35
 	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 403 0
-	mr 3,29
-	addi 4,1,2960
+	.loc 1 383 0
+	mr 3,26
+	addi 4,1,2200
 	bl _ZN9GuiButton8SetLabelEP7GuiText
-	.loc 1 404 0
-	mr 3,29
-	addi 4,1,3112
+	.loc 1 384 0
+	mr 3,26
+	addi 4,1,2352
 	bl _ZN9GuiButton8SetImageEP8GuiImage
-	.loc 1 405 0
-	mr 3,29
-	addi 4,1,3264
+	.loc 1 385 0
+	mr 3,26
+	addi 4,1,2504
 	bl _ZN9GuiButton12SetImageOverEP8GuiImage
-	.loc 1 406 0
-	mr 3,29
+	.loc 1 386 0
+	mr 3,26
 	mr 4,14
 	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
-	.loc 1 407 0
-	mr 3,29
-	mr 4,15
+	.loc 1 387 0
+	mr 3,26
+	mr 4,17
 	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 408 0
-	mr 3,29
-	addi 4,1,5488
+	.loc 1 388 0
+	mr 3,26
+	addi 4,1,4548
 	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 409 0
-	mr 3,29
+	.loc 1 389 0
+	mr 3,26
 	bl _ZN10GuiElement13SetEffectGrowEv
-	.loc 1 411 0
-	rlwimi 17,30,24,0,7
-	addi 16,1,3416
-	rlwimi 17,30,16,8,15
-	lis 9,.LC25@ha
-	rlwimi 17,30,8,16,23
+	.loc 1 391 0
+	rlwimi 19,30,24,0,7
+	addi 16,1,2656
+	rlwimi 19,30,16,8,15
+	lis 4,.LC18@ha
+	rlwimi 19,30,8,16,23
+	la 4,.LC18@l(4)
+	rlwimi 19,20,0,24,31
 	mr 6,18
-	rlwimi 17,21,0,24,31
+	stw 19,4904(1)
 	mr 3,16
-	stw 17,5848(1)
 	li 5,22
-	lwz 4,.LC25@l(9)
 	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE72:
-	.loc 1 412 0
-	addi 19,1,3568
-	addi 4,1,8
+.LEHE66:
+	.loc 1 392 0
+	addi 19,1,2808
+	mr 4,15
 	mr 3,19
-.LEHB73:
+.LEHB67:
 	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE73:
-	.loc 1 413 0
-	addi 22,1,3720
+.LEHE67:
+	.loc 1 393 0
+	addi 20,1,2960
 	addi 4,1,20
-	mr 3,22
-.LEHB74:
+	mr 3,20
+.LEHB68:
 	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE74:
-	.loc 1 414 0
-	addi 3,1,8
-.LEHB75:
+.LEHE68:
+	.loc 1 394 0
+	mr 3,15
+.LEHB69:
 	bl _ZN12GuiImageData8GetWidthEv
 	mr 31,3
-	addi 3,1,8
+	mr 3,15
 	bl _ZN12GuiImageData9GetHeightEv
-	addi 30,1,4952
+	addi 30,1,4012
 	mr 5,3
 	mr 4,31
 	mr 3,30
 	bl _ZN9GuiButtonC1Eii
-.LEHE75:
-	.loc 1 415 0
+.LEHE69:
+	.loc 1 395 0
 	mr 3,30
 	li 4,1
 	li 5,4
-.LEHB76:
+.LEHB70:
 	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 416 0
+	.loc 1 396 0
 	mr 3,30
 	li 4,-100
 	li 5,-35
 	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 417 0
+	.loc 1 397 0
 	mr 3,30
 	mr 4,16
 	bl _ZN9GuiButton8SetLabelEP7GuiText
-	.loc 1 418 0
+	.loc 1 398 0
 	mr 3,30
 	mr 4,19
 	bl _ZN9GuiButton8SetImageEP8GuiImage
-	.loc 1 419 0
+	.loc 1 399 0
 	mr 3,30
-	mr 4,22
+	mr 4,20
 	bl _ZN9GuiButton12SetImageOverEP8GuiImage
-	.loc 1 420 0
+	.loc 1 400 0
 	mr 3,30
 	mr 4,14
 	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
-	.loc 1 421 0
+	.loc 1 401 0
 	mr 3,30
-	mr 4,15
+	mr 4,17
 	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 422 0
+	.loc 1 402 0
 	mr 3,30
 	bl _ZN10GuiElement13SetEffectGrowEv
-	.loc 1 424 0
+	.loc 1 404 0
 	bl _Z7HaltGuiv
-	.loc 1 425 0
+	.loc 1 405 0
 	addi 31,1,80
 	lis 9,screenwidth@ha
 	lis 11,screenheight@ha
@@ -2034,624 +1905,487 @@ _Z8MenuMainv:
 	lwz 5,screenheight@l(11)
 	mr 3,31
 	bl _ZN9GuiWindowC1Eii
-.LEHE76:
-	.loc 1 426 0
+.LEHE70:
+	.loc 1 406 0
 	mr 3,31
 	addi 4,1,224
-.LEHB77:
+.LEHB71:
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 427 0
+	.loc 1 407 0
+	mr 3,31
+	mr 4,22
+	bl _ZN9GuiWindow6AppendEP10GuiElement
+	.loc 1 408 0
 	mr 3,31
 	mr 4,23
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 428 0
+	.loc 1 409 0
 	mr 3,31
-	mr 4,20
+	mr 4,24
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 429 0
+	.loc 1 410 0
 	mr 3,31
-	mr 4,28
+	mr 4,25
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 430 0
+	.loc 1 411 0
 	mr 3,31
 	mr 4,26
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 433 0
-	mr 3,31
-	mr 4,27
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 436 0
-	mr 3,31
-	mr 4,29
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 437 0
+	.loc 1 412 0
 	mr 3,31
 	mr 4,30
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 439 0
+	.loc 1 414 0
 	lis 9,.LANCHOR0@ha
 	mr 4,31
-	la 21,.LANCHOR0@l(9)
-	lwz 3,4(21)
+	la 18,.LANCHOR0@l(9)
+	lwz 3,4(18)
 	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 441 0
+	.loc 1 416 0
 	bl _Z9ResumeGuiv
-.LBB31:
-	.loc 1 479 0
-	lis 9,.LC22@ha
-	lis 11,.LC23@ha
-	la 24,.LC22@l(9)
-	lis 9,.LC24@ha
-	la 18,.LC23@l(11)
-	la 17,.LC24@l(9)
-.L303:
-.LBE31:
-	.loc 1 445 0
+	.loc 1 474 0
+	lis 9,.LC19@ha
+	lis 11,.LC20@ha
+	la 27,.LC19@l(9)
+	lis 9,.LC21@ha
+	la 28,.LC20@l(11)
+	la 29,.LC21@l(9)
+.L285:
+	.loc 1 420 0
 	bl VIDEO_WaitVSync
-	.loc 1 447 0
+	.loc 1 422 0
+	mr 3,22
+	bl _ZN10GuiElement8GetStateEv
+	cmpwi 7,3,2
+	beq- 7,.L286
+	.loc 1 432 0
 	mr 3,23
 	bl _ZN10GuiElement8GetStateEv
 	cmpwi 7,3,2
-	beq- 7,.L132
-	.loc 1 451 0
-	mr 3,20
+	beq- 7,.L287
+	.loc 1 442 0
+	mr 3,24
 	bl _ZN10GuiElement8GetStateEv
 	cmpwi 7,3,2
-	beq- 7,.L132
-	.loc 1 455 0
-	mr 3,28
+	beq- 7,.L288
+	.loc 1 452 0
+	mr 3,25
 	bl _ZN10GuiElement8GetStateEv
 	cmpwi 7,3,2
-	beq- 7,.L132
-	.loc 1 459 0
+	beq- 7,.L289
+	.loc 1 462 0
 	mr 3,26
 	bl _ZN10GuiElement8GetStateEv
 	cmpwi 7,3,2
-	beq- 7,.L132
-	.loc 1 463 0
-	mr 3,27
-	bl _ZN10GuiElement8GetStateEv
-	cmpwi 7,3,2
-	beq- 7,.L132
-	.loc 1 467 0
-	mr 3,29
-	bl _ZN10GuiElement8GetStateEv
-	cmpwi 7,3,2
-	beq- 7,.L138
-	.loc 1 471 0
+	beq- 7,.L140
+	.loc 1 466 0
 	mr 3,30
 	bl _ZN10GuiElement8GetStateEv
 	cmpwi 7,3,2
-	bne+ 7,.L303
-.LBB30:
-	.loc 1 473 0
+	bne+ 7,.L285
+	.loc 1 468 0
 	mr 3,30
 	bl _ZN10GuiElement10ResetStateEv
-	.loc 1 479 0
-	lis 9,.LC25@ha
-	mr 4,24
-	lwz 3,.LC25@l(9)
-	mr 5,18
-	mr 6,17
+	b .L281
+.L286:
+	.loc 1 424 0
+	mr 3,22
+	bl _ZN10GuiElement10ResetStateEv
+.L281:
+	.loc 1 474 0
+	mr 3,27
+	mr 4,28
+	mr 5,29
+	li 6,0
 	bl _Z12WindowPromptPKcS0_S0_S0_
-	b .L303
-.L132:
-.LBE30:
-	.loc 1 489 0
-	li 24,2
-.LVL31:
-.L219:
-	.loc 1 487 0
+	b .L285
+.L287:
+	.loc 1 434 0
+	mr 3,23
+	bl _ZN10GuiElement10ResetStateEv
+	b .L281
+.L288:
+	.loc 1 444 0
+	mr 3,24
+	bl _ZN10GuiElement10ResetStateEv
+	b .L281
+.L140:
+	.loc 1 478 0
 	bl _Z7HaltGuiv
-	.loc 1 488 0
-	lwz 3,4(21)
+	.loc 1 479 0
+	lwz 3,4(18)
 	mr 4,31
 	bl _ZN9GuiWindow6RemoveEP10GuiElement
-.LEHE77:
-	.loc 1 489 0
+.LEHE71:
+	.loc 1 480 0
 	mr 3,31
-.LEHB78:
+.LEHB72:
 	bl _ZN9GuiWindowD1Ev
-.LEHE78:
+.LEHE72:
 	mr 3,30
-.LEHB79:
+.LEHB73:
 	bl _ZN9GuiButtonD1Ev
-.LEHE79:
-	mr 3,22
-.LEHB80:
-	bl _ZN8GuiImageD1Ev
-.LEHE80:
-	mr 3,19
-.LEHB81:
-	bl _ZN8GuiImageD1Ev
-.LEHE81:
-	mr 3,16
-.LEHB82:
-	bl _ZN7GuiTextD1Ev
-.LEHE82:
-	mr 3,29
-.LEHB83:
-	bl _ZN9GuiButtonD1Ev
-.LEHE83:
-	addi 3,1,3264
-.LEHB84:
-	bl _ZN8GuiImageD1Ev
-.LEHE84:
-	addi 3,1,3112
-.LEHB85:
-	bl _ZN8GuiImageD1Ev
-.LEHE85:
-	addi 3,1,2960
-.LEHB86:
-	bl _ZN7GuiTextD1Ev
-.LEHE86:
-	mr 3,27
-.LEHB87:
-	bl _ZN9GuiButtonD1Ev
-.LEHE87:
-	addi 3,1,2808
-.LEHB88:
-	bl _ZN8GuiImageD1Ev
-.LEHE88:
-	addi 3,1,2656
-.LEHB89:
-	bl _ZN8GuiImageD1Ev
-.LEHE89:
-	addi 3,1,2504
-.LEHB90:
-	bl _ZN7GuiTextD1Ev
-.LEHE90:
-	mr 3,26
-.LEHB91:
-	bl _ZN9GuiButtonD1Ev
-.LEHE91:
-	addi 3,1,2352
-.LEHB92:
-	bl _ZN8GuiImageD1Ev
-.LEHE92:
-	addi 3,1,2200
-.LEHB93:
-	bl _ZN8GuiImageD1Ev
-.LEHE93:
-	addi 3,1,2048
-.LEHB94:
-	bl _ZN7GuiTextD1Ev
-.LEHE94:
-	mr 3,28
-.LEHB95:
-	bl _ZN9GuiButtonD1Ev
-.LEHE95:
-	addi 3,1,1896
-.LEHB96:
-	bl _ZN8GuiImageD1Ev
-.LEHE96:
-	addi 3,1,1744
-.LEHB97:
-	bl _ZN8GuiImageD1Ev
-.LEHE97:
-	addi 3,1,1592
-.LEHB98:
-	bl _ZN7GuiTextD1Ev
-.LEHE98:
-	addi 3,1,1440
-.LEHB99:
-	bl _ZN7GuiTextD1Ev
-.LEHE99:
-	addi 3,1,1288
-.LEHB100:
-	bl _ZN7GuiTextD1Ev
-.LEHE100:
+.LEHE73:
 	mr 3,20
-.LEHB101:
+.LEHB74:
+	bl _ZN8GuiImageD1Ev
+.LEHE74:
+	mr 3,19
+.LEHB75:
+	bl _ZN8GuiImageD1Ev
+.LEHE75:
+	mr 3,16
+.LEHB76:
+	bl _ZN7GuiTextD1Ev
+.LEHE76:
+	mr 3,26
+.LEHB77:
 	bl _ZN9GuiButtonD1Ev
-.LEHE101:
+.LEHE77:
+	addi 3,1,2504
+.LEHB78:
+	bl _ZN8GuiImageD1Ev
+.LEHE78:
+	addi 3,1,2352
+.LEHB79:
+	bl _ZN8GuiImageD1Ev
+.LEHE79:
+	addi 3,1,2200
+.LEHB80:
+	bl _ZN7GuiTextD1Ev
+.LEHE80:
+	mr 3,25
+.LEHB81:
+	bl _ZN9GuiButtonD1Ev
+.LEHE81:
+	addi 3,1,2048
+.LEHB82:
+	bl _ZN8GuiImageD1Ev
+.LEHE82:
+	addi 3,1,1896
+.LEHB83:
+	bl _ZN8GuiImageD1Ev
+.LEHE83:
+	addi 3,1,1744
+.LEHB84:
+	bl _ZN7GuiTextD1Ev
+.LEHE84:
+	mr 3,24
+.LEHB85:
+	bl _ZN9GuiButtonD1Ev
+.LEHE85:
+	addi 3,1,1592
+.LEHB86:
+	bl _ZN8GuiImageD1Ev
+.LEHE86:
+	addi 3,1,1440
+.LEHB87:
+	bl _ZN8GuiImageD1Ev
+.LEHE87:
+	addi 3,1,1288
+.LEHB88:
+	bl _ZN7GuiTextD1Ev
+.LEHE88:
+	mr 3,23
+.LEHB89:
+	bl _ZN9GuiButtonD1Ev
+.LEHE89:
 	addi 3,1,1136
-.LEHB102:
+.LEHB90:
 	bl _ZN8GuiImageD1Ev
-.LEHE102:
+.LEHE90:
 	addi 3,1,984
-.LEHB103:
+.LEHB91:
 	bl _ZN8GuiImageD1Ev
-.LEHE103:
+.LEHE91:
 	addi 3,1,832
+.LEHB92:
+	bl _ZN7GuiTextD1Ev
+.LEHE92:
+	mr 3,22
+.LEHB93:
+	bl _ZN9GuiButtonD1Ev
+.LEHE93:
+	addi 3,1,680
+.LEHB94:
+	bl _ZN8GuiImageD1Ev
+.LEHE94:
+	addi 3,1,528
+.LEHB95:
+	bl _ZN8GuiImageD1Ev
+.LEHE95:
+	addi 3,1,376
+.LEHB96:
+	bl _ZN7GuiTextD1Ev
+.LEHE96:
+	addi 3,1,4548
+.LEHB97:
+	bl _ZN10GuiTriggerD1Ev
+.LEHE97:
+	mr 3,17
+.LEHB98:
+	bl _ZN10GuiTriggerD1Ev
+.LEHE98:
+	addi 3,1,44
+.LEHB99:
+	bl _ZN12GuiImageDataD1Ev
+.LEHE99:
+	mr 3,21
+.LEHB100:
+	bl _ZN12GuiImageDataD1Ev
+.LEHE100:
+	addi 3,1,20
+.LEHB101:
+	bl _ZN12GuiImageDataD1Ev
+.LEHE101:
+	mr 3,15
+.LEHB102:
+	bl _ZN12GuiImageDataD1Ev
+.LEHE102:
+	mr 3,14
+.LEHB103:
+	bl _ZN8GuiSoundD1Ev
+.LEHE103:
+	addi 3,1,224
 .LEHB104:
 	bl _ZN7GuiTextD1Ev
 .LEHE104:
-	mr 3,23
-.LEHB105:
-	bl _ZN9GuiButtonD1Ev
-.LEHE105:
-	addi 3,1,680
-.LEHB106:
-	bl _ZN8GuiImageD1Ev
-.LEHE106:
-	addi 3,1,528
-.LEHB107:
-	bl _ZN8GuiImageD1Ev
-.LEHE107:
-	addi 3,1,376
-.LEHB108:
-	bl _ZN7GuiTextD1Ev
-.LEHE108:
-	addi 3,1,5488
-.LEHB109:
-	bl _ZN10GuiTriggerD1Ev
-.LEHE109:
-	mr 3,15
-.LEHB110:
-	bl _ZN10GuiTriggerD1Ev
-.LEHE110:
-	addi 3,1,44
-.LEHB111:
-	bl _ZN12GuiImageDataD1Ev
-.LEHE111:
-	mr 3,25
-.LEHB112:
-	bl _ZN12GuiImageDataD1Ev
-.LEHE112:
-	addi 3,1,20
-.LEHB113:
-	bl _ZN12GuiImageDataD1Ev
-.LEHE113:
-	addi 3,1,8
-.LEHB114:
-	bl _ZN12GuiImageDataD1Ev
-.LEHE114:
-	mr 3,14
-.LEHB115:
-	bl _ZN8GuiSoundD1Ev
-.LEHE115:
-	addi 3,1,224
-.LEHB116:
-	bl _ZN7GuiTextD1Ev
-.LEHE116:
-.LBE35:
-	.loc 1 490 0
-	lwz 0,5932(1)
-	mr 3,24
-	lwz 14,5856(1)
-	lwz 15,5860(1)
+.LBE33:
+	.loc 1 481 0
+	lwz 0,4988(1)
+	li 3,-1
+	lwz 14,4912(1)
+	lwz 15,4916(1)
 	mtlr 0
-	lwz 16,5864(1)
-	lwz 17,5868(1)
-	lwz 18,5872(1)
-	lwz 19,5876(1)
-	lwz 20,5880(1)
-	lwz 21,5884(1)
-	lwz 22,5888(1)
-	lwz 23,5892(1)
-	lwz 24,5896(1)
-.LVL32:
-	lwz 25,5900(1)
-	lwz 26,5904(1)
-	lwz 27,5908(1)
-	lwz 28,5912(1)
-	lwz 29,5916(1)
-	lwz 30,5920(1)
-	lwz 31,5924(1)
-	addi 1,1,5928
+	lwz 16,4920(1)
+	lwz 17,4924(1)
+	lwz 18,4928(1)
+	lwz 19,4932(1)
+	lwz 20,4936(1)
+	lwz 21,4940(1)
+	lwz 22,4944(1)
+	lwz 23,4948(1)
+	lwz 24,4952(1)
+	lwz 25,4956(1)
+	lwz 26,4960(1)
+	lwz 27,4964(1)
+	lwz 28,4968(1)
+	lwz 29,4972(1)
+	lwz 30,4976(1)
+	lwz 31,4980(1)
+	addi 1,1,4984
 	blr
-.L138:
-.LBB36:
-	.loc 1 489 0
-	li 24,-1
-.LVL33:
-	b .L219
-.L221:
-.L143:
-	mr 24,3
-.LVL34:
+.L289:
+.LBB34:
+	.loc 1 454 0
+	mr 3,25
+.LEHB105:
+	bl _ZN10GuiElement10ResetStateEv
+.LEHE105:
+	b .L281
+.L242:
+	mr 29,3
+.L208:
+	.loc 1 480 0
+	addi 3,1,224
+	bl _ZN7GuiTextD1Ev
+	mr 3,29
+.LEHB106:
+	bl _Unwind_Resume
+.LEHE106:
+.L210:
+.L145:
+	mr 29,3
 	mr 3,31
 	bl _ZN9GuiWindowD1Ev
-.L144:
+.L146:
 	mr 3,30
 	bl _ZN9GuiButtonD1Ev
-.L146:
-	mr 3,22
-	bl _ZN8GuiImageD1Ev
 .L148:
-	mr 3,19
+	mr 3,20
 	bl _ZN8GuiImageD1Ev
 .L150:
+	mr 3,19
+	bl _ZN8GuiImageD1Ev
+.L152:
 	mr 3,16
 	bl _ZN7GuiTextD1Ev
-.L152:
-	mr 3,29
-	bl _ZN9GuiButtonD1Ev
 .L154:
-	addi 3,1,3264
-	bl _ZN8GuiImageD1Ev
-.L156:
-	addi 3,1,3112
-	bl _ZN8GuiImageD1Ev
-.L158:
-	addi 3,1,2960
-	bl _ZN7GuiTextD1Ev
-.L160:
-	mr 3,27
-	bl _ZN9GuiButtonD1Ev
-.L162:
-	addi 3,1,2808
-	bl _ZN8GuiImageD1Ev
-.L164:
-	addi 3,1,2656
-	bl _ZN8GuiImageD1Ev
-.L166:
-	addi 3,1,2504
-	bl _ZN7GuiTextD1Ev
-.L168:
 	mr 3,26
 	bl _ZN9GuiButtonD1Ev
-.L170:
+.L156:
+	addi 3,1,2504
+	bl _ZN8GuiImageD1Ev
+.L158:
 	addi 3,1,2352
 	bl _ZN8GuiImageD1Ev
-.L172:
+.L160:
 	addi 3,1,2200
-	bl _ZN8GuiImageD1Ev
-.L174:
-	addi 3,1,2048
 	bl _ZN7GuiTextD1Ev
-.L176:
-	mr 3,28
+.L162:
+	mr 3,25
 	bl _ZN9GuiButtonD1Ev
-.L178:
+.L164:
+	addi 3,1,2048
+	bl _ZN8GuiImageD1Ev
+.L166:
 	addi 3,1,1896
 	bl _ZN8GuiImageD1Ev
-.L180:
+.L168:
 	addi 3,1,1744
-	bl _ZN8GuiImageD1Ev
-.L182:
+	bl _ZN7GuiTextD1Ev
+.L170:
+	mr 3,24
+	bl _ZN9GuiButtonD1Ev
+.L172:
 	addi 3,1,1592
-	bl _ZN7GuiTextD1Ev
-.L184:
+	bl _ZN8GuiImageD1Ev
+.L174:
 	addi 3,1,1440
-	bl _ZN7GuiTextD1Ev
-.L186:
+	bl _ZN8GuiImageD1Ev
+.L176:
 	addi 3,1,1288
 	bl _ZN7GuiTextD1Ev
-.L188:
-	mr 3,20
-	bl _ZN9GuiButtonD1Ev
-.L190:
-	addi 3,1,1136
-	bl _ZN8GuiImageD1Ev
-.L192:
-	addi 3,1,984
-	bl _ZN8GuiImageD1Ev
-.L194:
-	addi 3,1,832
-	bl _ZN7GuiTextD1Ev
-.L196:
+.L178:
 	mr 3,23
 	bl _ZN9GuiButtonD1Ev
-.L198:
+.L180:
+	addi 3,1,1136
+	bl _ZN8GuiImageD1Ev
+.L182:
+	addi 3,1,984
+	bl _ZN8GuiImageD1Ev
+.L184:
+	addi 3,1,832
+	bl _ZN7GuiTextD1Ev
+.L186:
+	mr 3,22
+	bl _ZN9GuiButtonD1Ev
+.L188:
 	addi 3,1,680
 	bl _ZN8GuiImageD1Ev
-.L200:
+.L190:
 	addi 3,1,528
 	bl _ZN8GuiImageD1Ev
-.L202:
+.L192:
 	addi 3,1,376
 	bl _ZN7GuiTextD1Ev
-.L204:
-	addi 3,1,5488
+.L194:
+	addi 3,1,4548
 	bl _ZN10GuiTriggerD1Ev
-.L206:
-	mr 3,15
+.L196:
+	mr 3,17
 	bl _ZN10GuiTriggerD1Ev
-.L208:
+.L198:
 	addi 3,1,44
 	bl _ZN12GuiImageDataD1Ev
-.L210:
-	mr 3,25
+.L200:
+	mr 3,21
 	bl _ZN12GuiImageDataD1Ev
-.L212:
+.L202:
 	addi 3,1,20
 	bl _ZN12GuiImageDataD1Ev
-.L214:
-	addi 3,1,8
+.L204:
+	mr 3,15
 	bl _ZN12GuiImageDataD1Ev
-.L216:
+.L206:
 	mr 3,14
 	bl _ZN8GuiSoundD1Ev
-.L218:
-	addi 3,1,224
-	bl _ZN7GuiTextD1Ev
-	mr 3,24
-.LEHB117:
-	bl _Unwind_Resume
-.LEHE117:
-.LVL35:
-.L222:
-	mr 24,3
-.LVL36:
-	b .L144
-.LVL37:
-.L223:
-	mr 24,3
-.LVL38:
-	b .L146
-.LVL39:
-.L224:
-	mr 24,3
-.LVL40:
-	b .L148
-.LVL41:
-.L225:
-	mr 24,3
-.LVL42:
-	b .L150
-.LVL43:
-.L226:
-	mr 24,3
-.LVL44:
-	b .L152
-.LVL45:
-.L227:
-	mr 24,3
-.LVL46:
-	b .L154
-.LVL47:
-.L228:
-	mr 24,3
-.LVL48:
-	b .L156
-.LVL49:
-.L229:
-	mr 24,3
-.LVL50:
-	b .L158
-.LVL51:
-.L230:
-	mr 24,3
-.LVL52:
-	b .L160
-.LVL53:
-.L231:
-	mr 24,3
-.LVL54:
-	b .L162
-.LVL55:
-.L232:
-	mr 24,3
-.LVL56:
-	b .L164
-.LVL57:
-.L233:
-	mr 24,3
-.LVL58:
-	b .L166
-.LVL59:
-.L234:
-	mr 24,3
-.LVL60:
-	b .L168
-.LVL61:
-.L235:
-	mr 24,3
-.LVL62:
-	b .L170
-.LVL63:
-.L236:
-	mr 24,3
-.LVL64:
-	b .L172
-.LVL65:
-.L237:
-	mr 24,3
-.LVL66:
-	b .L174
-.LVL67:
-.L238:
-	mr 24,3
-.LVL68:
-	b .L176
-.LVL69:
-.L239:
-	mr 24,3
-.LVL70:
-	b .L178
-.LVL71:
-.L240:
-	mr 24,3
-.LVL72:
-	b .L180
-.LVL73:
-.L241:
-	mr 24,3
-.LVL74:
-	b .L182
-.LVL75:
-.L242:
-	mr 24,3
-.LVL76:
-	b .L184
-.LVL77:
-.L243:
-	mr 24,3
-.LVL78:
-	b .L186
-.LVL79:
-.L244:
-	mr 24,3
-.LVL80:
-	b .L188
-.LVL81:
-.L245:
-	mr 24,3
-.LVL82:
-	b .L190
-.LVL83:
-.L246:
-	mr 24,3
-.LVL84:
-	b .L192
-.LVL85:
-.L247:
-	mr 24,3
-.LVL86:
-	b .L194
-.LVL87:
-.L248:
-	mr 24,3
-.LVL88:
-	b .L196
-.LVL89:
-.L249:
-	mr 24,3
-.LVL90:
-	b .L198
-.LVL91:
-.L250:
-	mr 24,3
-.LVL92:
-	b .L200
-.LVL93:
-.L251:
-	mr 24,3
-.LVL94:
-	b .L202
-.LVL95:
-.L252:
-	mr 24,3
-.LVL96:
-	b .L204
-.LVL97:
-.L253:
-	mr 24,3
-.LVL98:
-	b .L206
-.LVL99:
-.L254:
-	mr 24,3
-.LVL100:
 	b .L208
-.LVL101:
-.L255:
-	mr 24,3
-.LVL102:
-	b .L210
-.LVL103:
-.L256:
-	mr 24,3
-.LVL104:
-	b .L212
-.LVL105:
-.L257:
-	mr 24,3
-.LVL106:
-	b .L214
-.LVL107:
-.L258:
-	mr 24,3
-.LVL108:
-	b .L216
-.LVL109:
-.L259:
-	mr 24,3
-.LVL110:
-	b .L218
-.LBE36:
+.L211:
+	mr 29,3
+	b .L146
+.L212:
+	mr 29,3
+	b .L148
+.L213:
+	mr 29,3
+	b .L150
+.L214:
+	mr 29,3
+	b .L152
+.L215:
+	mr 29,3
+	b .L154
+.L216:
+	mr 29,3
+	b .L156
+.L217:
+	mr 29,3
+	b .L158
+.L218:
+	mr 29,3
+	b .L160
+.L219:
+	mr 29,3
+	b .L162
+.L220:
+	mr 29,3
+	b .L164
+.L221:
+	mr 29,3
+	b .L166
+.L222:
+	mr 29,3
+	b .L168
+.L223:
+	mr 29,3
+	b .L170
+.L224:
+	mr 29,3
+	b .L172
+.L225:
+	mr 29,3
+	b .L174
+.L226:
+	mr 29,3
+	b .L176
+.L227:
+	mr 29,3
+	b .L178
+.L228:
+	mr 29,3
+	b .L180
+.L229:
+	mr 29,3
+	b .L182
+.L230:
+	mr 29,3
+	b .L184
+.L231:
+	mr 29,3
+	b .L186
+.L232:
+	mr 29,3
+	b .L188
+.L233:
+	mr 29,3
+	b .L190
+.L234:
+	mr 29,3
+	b .L192
+.L235:
+	mr 29,3
+	b .L194
+.L236:
+	mr 29,3
+	b .L196
+.L237:
+	mr 29,3
+	b .L198
+.L238:
+	mr 29,3
+	b .L200
+.L239:
+	mr 29,3
+	b .L202
+.L240:
+	mr 29,3
+	b .L204
+.L241:
+	mr 29,3
+	b .L206
+.LBE34:
 .LFE797:
 	.size	_Z8MenuMainv, .-_Z8MenuMainv
 	.section	.gcc_except_table
@@ -2667,318 +2401,274 @@ _Z8MenuMainv:
 	.uleb128 0x0
 	.uleb128 .LEHB39-.LFB797
 	.uleb128 .LEHE39-.LEHB39
-	.uleb128 .L259-.LFB797
+	.uleb128 .L242-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB40-.LFB797
 	.uleb128 .LEHE40-.LEHB40
-	.uleb128 .L258-.LFB797
+	.uleb128 .L241-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB41-.LFB797
 	.uleb128 .LEHE41-.LEHB41
-	.uleb128 .L257-.LFB797
+	.uleb128 .L240-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB42-.LFB797
 	.uleb128 .LEHE42-.LEHB42
-	.uleb128 .L256-.LFB797
+	.uleb128 .L239-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB43-.LFB797
 	.uleb128 .LEHE43-.LEHB43
-	.uleb128 .L255-.LFB797
+	.uleb128 .L238-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB44-.LFB797
 	.uleb128 .LEHE44-.LEHB44
-	.uleb128 .L254-.LFB797
+	.uleb128 .L237-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB45-.LFB797
 	.uleb128 .LEHE45-.LEHB45
-	.uleb128 .L253-.LFB797
+	.uleb128 .L236-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB46-.LFB797
 	.uleb128 .LEHE46-.LEHB46
-	.uleb128 .L252-.LFB797
+	.uleb128 .L235-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB47-.LFB797
 	.uleb128 .LEHE47-.LEHB47
-	.uleb128 .L251-.LFB797
+	.uleb128 .L234-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB48-.LFB797
 	.uleb128 .LEHE48-.LEHB48
-	.uleb128 .L250-.LFB797
+	.uleb128 .L233-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB49-.LFB797
 	.uleb128 .LEHE49-.LEHB49
-	.uleb128 .L249-.LFB797
+	.uleb128 .L232-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB50-.LFB797
 	.uleb128 .LEHE50-.LEHB50
-	.uleb128 .L248-.LFB797
+	.uleb128 .L231-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB51-.LFB797
 	.uleb128 .LEHE51-.LEHB51
-	.uleb128 .L247-.LFB797
+	.uleb128 .L230-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB52-.LFB797
 	.uleb128 .LEHE52-.LEHB52
-	.uleb128 .L246-.LFB797
+	.uleb128 .L229-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB53-.LFB797
 	.uleb128 .LEHE53-.LEHB53
-	.uleb128 .L245-.LFB797
+	.uleb128 .L228-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB54-.LFB797
 	.uleb128 .LEHE54-.LEHB54
-	.uleb128 .L244-.LFB797
+	.uleb128 .L227-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB55-.LFB797
 	.uleb128 .LEHE55-.LEHB55
-	.uleb128 .L243-.LFB797
+	.uleb128 .L226-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB56-.LFB797
 	.uleb128 .LEHE56-.LEHB56
-	.uleb128 .L242-.LFB797
+	.uleb128 .L225-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB57-.LFB797
 	.uleb128 .LEHE57-.LEHB57
-	.uleb128 .L241-.LFB797
+	.uleb128 .L224-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB58-.LFB797
 	.uleb128 .LEHE58-.LEHB58
-	.uleb128 .L240-.LFB797
+	.uleb128 .L223-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB59-.LFB797
 	.uleb128 .LEHE59-.LEHB59
-	.uleb128 .L239-.LFB797
+	.uleb128 .L222-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB60-.LFB797
 	.uleb128 .LEHE60-.LEHB60
-	.uleb128 .L238-.LFB797
+	.uleb128 .L221-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB61-.LFB797
 	.uleb128 .LEHE61-.LEHB61
-	.uleb128 .L237-.LFB797
+	.uleb128 .L220-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB62-.LFB797
 	.uleb128 .LEHE62-.LEHB62
-	.uleb128 .L236-.LFB797
+	.uleb128 .L219-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB63-.LFB797
 	.uleb128 .LEHE63-.LEHB63
-	.uleb128 .L235-.LFB797
+	.uleb128 .L218-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB64-.LFB797
 	.uleb128 .LEHE64-.LEHB64
-	.uleb128 .L234-.LFB797
+	.uleb128 .L217-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB65-.LFB797
 	.uleb128 .LEHE65-.LEHB65
-	.uleb128 .L233-.LFB797
+	.uleb128 .L216-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB66-.LFB797
 	.uleb128 .LEHE66-.LEHB66
-	.uleb128 .L232-.LFB797
+	.uleb128 .L215-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB67-.LFB797
 	.uleb128 .LEHE67-.LEHB67
-	.uleb128 .L231-.LFB797
+	.uleb128 .L214-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB68-.LFB797
 	.uleb128 .LEHE68-.LEHB68
-	.uleb128 .L230-.LFB797
+	.uleb128 .L213-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB69-.LFB797
 	.uleb128 .LEHE69-.LEHB69
-	.uleb128 .L229-.LFB797
+	.uleb128 .L212-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB70-.LFB797
 	.uleb128 .LEHE70-.LEHB70
-	.uleb128 .L228-.LFB797
+	.uleb128 .L211-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB71-.LFB797
 	.uleb128 .LEHE71-.LEHB71
-	.uleb128 .L227-.LFB797
+	.uleb128 .L210-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB72-.LFB797
 	.uleb128 .LEHE72-.LEHB72
-	.uleb128 .L226-.LFB797
+	.uleb128 .L211-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB73-.LFB797
 	.uleb128 .LEHE73-.LEHB73
-	.uleb128 .L225-.LFB797
+	.uleb128 .L212-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB74-.LFB797
 	.uleb128 .LEHE74-.LEHB74
-	.uleb128 .L224-.LFB797
+	.uleb128 .L213-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB75-.LFB797
 	.uleb128 .LEHE75-.LEHB75
-	.uleb128 .L223-.LFB797
+	.uleb128 .L214-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB76-.LFB797
 	.uleb128 .LEHE76-.LEHB76
-	.uleb128 .L222-.LFB797
+	.uleb128 .L215-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB77-.LFB797
 	.uleb128 .LEHE77-.LEHB77
-	.uleb128 .L221-.LFB797
+	.uleb128 .L216-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB78-.LFB797
 	.uleb128 .LEHE78-.LEHB78
-	.uleb128 .L222-.LFB797
+	.uleb128 .L217-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB79-.LFB797
 	.uleb128 .LEHE79-.LEHB79
-	.uleb128 .L223-.LFB797
+	.uleb128 .L218-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB80-.LFB797
 	.uleb128 .LEHE80-.LEHB80
-	.uleb128 .L224-.LFB797
+	.uleb128 .L219-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB81-.LFB797
 	.uleb128 .LEHE81-.LEHB81
-	.uleb128 .L225-.LFB797
+	.uleb128 .L220-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB82-.LFB797
 	.uleb128 .LEHE82-.LEHB82
-	.uleb128 .L226-.LFB797
+	.uleb128 .L221-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB83-.LFB797
 	.uleb128 .LEHE83-.LEHB83
-	.uleb128 .L227-.LFB797
+	.uleb128 .L222-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB84-.LFB797
 	.uleb128 .LEHE84-.LEHB84
-	.uleb128 .L228-.LFB797
+	.uleb128 .L223-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB85-.LFB797
 	.uleb128 .LEHE85-.LEHB85
-	.uleb128 .L229-.LFB797
+	.uleb128 .L224-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB86-.LFB797
 	.uleb128 .LEHE86-.LEHB86
-	.uleb128 .L230-.LFB797
+	.uleb128 .L225-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB87-.LFB797
 	.uleb128 .LEHE87-.LEHB87
-	.uleb128 .L231-.LFB797
+	.uleb128 .L226-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB88-.LFB797
 	.uleb128 .LEHE88-.LEHB88
-	.uleb128 .L232-.LFB797
+	.uleb128 .L227-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB89-.LFB797
 	.uleb128 .LEHE89-.LEHB89
-	.uleb128 .L233-.LFB797
+	.uleb128 .L228-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB90-.LFB797
 	.uleb128 .LEHE90-.LEHB90
-	.uleb128 .L234-.LFB797
+	.uleb128 .L229-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB91-.LFB797
 	.uleb128 .LEHE91-.LEHB91
-	.uleb128 .L235-.LFB797
+	.uleb128 .L230-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB92-.LFB797
 	.uleb128 .LEHE92-.LEHB92
-	.uleb128 .L236-.LFB797
+	.uleb128 .L231-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB93-.LFB797
 	.uleb128 .LEHE93-.LEHB93
-	.uleb128 .L237-.LFB797
+	.uleb128 .L232-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB94-.LFB797
 	.uleb128 .LEHE94-.LEHB94
-	.uleb128 .L238-.LFB797
+	.uleb128 .L233-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB95-.LFB797
 	.uleb128 .LEHE95-.LEHB95
-	.uleb128 .L239-.LFB797
+	.uleb128 .L234-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB96-.LFB797
 	.uleb128 .LEHE96-.LEHB96
-	.uleb128 .L240-.LFB797
+	.uleb128 .L235-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB97-.LFB797
 	.uleb128 .LEHE97-.LEHB97
-	.uleb128 .L241-.LFB797
+	.uleb128 .L236-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB98-.LFB797
 	.uleb128 .LEHE98-.LEHB98
-	.uleb128 .L242-.LFB797
+	.uleb128 .L237-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB99-.LFB797
 	.uleb128 .LEHE99-.LEHB99
-	.uleb128 .L243-.LFB797
+	.uleb128 .L238-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB100-.LFB797
 	.uleb128 .LEHE100-.LEHB100
-	.uleb128 .L244-.LFB797
+	.uleb128 .L239-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB101-.LFB797
 	.uleb128 .LEHE101-.LEHB101
-	.uleb128 .L245-.LFB797
+	.uleb128 .L240-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB102-.LFB797
 	.uleb128 .LEHE102-.LEHB102
-	.uleb128 .L246-.LFB797
+	.uleb128 .L241-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB103-.LFB797
 	.uleb128 .LEHE103-.LEHB103
-	.uleb128 .L247-.LFB797
+	.uleb128 .L242-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB104-.LFB797
 	.uleb128 .LEHE104-.LEHB104
-	.uleb128 .L248-.LFB797
+	.uleb128 0x0
 	.uleb128 0x0
 	.uleb128 .LEHB105-.LFB797
 	.uleb128 .LEHE105-.LEHB105
-	.uleb128 .L249-.LFB797
+	.uleb128 .L210-.LFB797
 	.uleb128 0x0
 	.uleb128 .LEHB106-.LFB797
 	.uleb128 .LEHE106-.LEHB106
-	.uleb128 .L250-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB107-.LFB797
-	.uleb128 .LEHE107-.LEHB107
-	.uleb128 .L251-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB108-.LFB797
-	.uleb128 .LEHE108-.LEHB108
-	.uleb128 .L252-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB109-.LFB797
-	.uleb128 .LEHE109-.LEHB109
-	.uleb128 .L253-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB110-.LFB797
-	.uleb128 .LEHE110-.LEHB110
-	.uleb128 .L254-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB111-.LFB797
-	.uleb128 .LEHE111-.LEHB111
-	.uleb128 .L255-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB112-.LFB797
-	.uleb128 .LEHE112-.LEHB112
-	.uleb128 .L256-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB113-.LFB797
-	.uleb128 .LEHE113-.LEHB113
-	.uleb128 .L257-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB114-.LFB797
-	.uleb128 .LEHE114-.LEHB114
-	.uleb128 .L258-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB115-.LFB797
-	.uleb128 .LEHE115-.LEHB115
-	.uleb128 .L259-.LFB797
-	.uleb128 0x0
-	.uleb128 .LEHB116-.LFB797
-	.uleb128 .LEHE116-.LEHB116
-	.uleb128 0x0
-	.uleb128 0x0
-	.uleb128 .LEHB117-.LFB797
-	.uleb128 .LEHE117-.LEHB117
 	.uleb128 0x0
 	.uleb128 0x0
 .LLSDACSE797:
@@ -2989,26 +2679,26 @@ _Z8MenuMainv:
 _Z8MainMenui:
 .LFB799:
 	.loc 1 625 0
-.LVL111:
+.LVL31:
 	mflr 0
 .LCFI75:
 	stwu 1,-11336(1)
 .LCFI76:
-.LBB42:
+.LBB40:
 	.loc 1 630 0
 	li 3,12
-.LVL112:
-.LBE42:
+.LVL32:
+.LBE40:
 	.loc 1 625 0
-	stw 17,11276(1)
+	stw 22,11296(1)
 .LCFI77:
-	li 17,0
-	stw 18,11280(1)
+	li 22,0
+	stw 23,11300(1)
 .LCFI78:
-	li 18,0
-	stw 19,11284(1)
+	li 23,0
+	stw 24,11304(1)
 .LCFI79:
-	li 19,0
+	li 24,0
 	stw 28,11320(1)
 .LCFI80:
 	stw 29,11324(1)
@@ -3020,15 +2710,15 @@ _Z8MainMenui:
 .LCFI83:
 	stw 16,11272(1)
 .LCFI84:
-	stw 20,11288(1)
+	stw 17,11276(1)
 .LCFI85:
-	stw 21,11292(1)
+	stw 18,11280(1)
 .LCFI86:
-	stw 22,11296(1)
+	stw 19,11284(1)
 .LCFI87:
-	stw 23,11300(1)
+	stw 20,11288(1)
 .LCFI88:
-	stw 24,11304(1)
+	stw 21,11292(1)
 .LCFI89:
 	stw 25,11308(1)
 .LCFI90:
@@ -3042,81 +2732,81 @@ _Z8MainMenui:
 .LCFI94:
 	stw 0,11340(1)
 .LCFI95:
-.LEHB118:
-.LBB56:
+.LEHB107:
+.LBB59:
 	.loc 1 630 0
 	bl _Znwj
-.LEHE118:
+.LEHE107:
 	lis 4,player1_point_png@ha
 	mr 28,3
 	la 4,player1_point_png@l(4)
-.LEHB119:
+.LEHB108:
 	bl _ZN12GuiImageDataC1EPKh
-.LEHE119:
-.L306:
+.LEHE108:
+.L292:
 	lis 9,.LANCHOR0@ha
 	.loc 1 631 0
 	li 3,12
 	.loc 1 630 0
-	la 30,.LANCHOR0@l(9)
-	stw 28,8(30)
-.LEHB120:
+	la 14,.LANCHOR0@l(9)
+	stw 28,8(14)
+.LEHB109:
 	.loc 1 631 0
 	bl _Znwj
-.LEHE120:
+.LEHE109:
 	lis 4,player2_point_png@ha
 	mr 28,3
 	la 4,player2_point_png@l(4)
-.LEHB121:
+.LEHB110:
 	bl _ZN12GuiImageDataC1EPKh
-.LEHE121:
+.LEHE110:
 	.loc 1 632 0
 	li 3,12
 	.loc 1 631 0
-	stw 28,12(30)
-.LEHB122:
+	stw 28,12(14)
+.LEHB111:
 	.loc 1 632 0
 	bl _Znwj
-.LEHE122:
+.LEHE111:
 	lis 4,player3_point_png@ha
 	mr 28,3
 	la 4,player3_point_png@l(4)
-.LEHB123:
+.LEHB112:
 	bl _ZN12GuiImageDataC1EPKh
-.LEHE123:
-.L310:
+.LEHE112:
+.L296:
 	.loc 1 633 0
 	li 3,12
 	.loc 1 632 0
-	stw 28,16(30)
-.LEHB124:
+	stw 28,16(14)
+.LEHB113:
 	.loc 1 633 0
 	bl _Znwj
-.LEHE124:
+.LEHE113:
 	lis 4,player4_point_png@ha
 	mr 28,3
 	la 4,player4_point_png@l(4)
-.LEHB125:
+.LEHB114:
 	bl _ZN12GuiImageDataC1EPKh
-.LEHE125:
-.L312:
+.LEHE114:
+.L298:
 	.loc 1 636 0
 	li 3,144
 	.loc 1 633 0
-	stw 28,20(30)
+	stw 28,20(14)
+.LEHB115:
 	.loc 1 636 0
-	lis 15,screenwidth@ha
-.LEHB126:
 	bl _Znwj
-.LEHE126:
-	lis 16,screenheight@ha
+.LEHE115:
+	lis 5,screenwidth@ha
+	lis 8,screenheight@ha
+	lwz 4,screenwidth@l(5)
 	mr 28,3
-	lwz 4,screenwidth@l(15)
-	lwz 5,screenheight@l(16)
-.LEHB127:
+	lwz 5,screenheight@l(8)
+.LEHB116:
 	bl _ZN9GuiWindowC1Eii
-.LEHE127:
-.L314:
+.LEHE116:
+.L300:
 	.loc 1 638 0
 	li 0,50
 	li 9,-1
@@ -3124,679 +2814,763 @@ _Z8MainMenui:
 	li 3,152
 	rlwimi 29,0,16,8,15
 	.loc 1 636 0
-	stw 28,4(30)
+	stw 28,4(14)
 	.loc 1 638 0
 	rlwimi 29,0,8,16,23
-	addi 14,1,11256
 	rlwimi 29,9,0,24,31
-.LEHB128:
+.LEHB117:
 	bl _Znwj
-.LEHE128:
+.LEHE117:
+	lis 5,screenwidth@ha
+	lis 8,screenheight@ha
+	lwz 4,screenwidth@l(5)
 	mr 28,3
 	stw 29,11256(1)
-	lwz 4,screenwidth@l(15)
-	mr 6,14
-	lwz 5,screenheight@l(16)
-.LEHB129:
+	addi 6,1,11256
+	lwz 5,screenheight@l(8)
+.LEHB118:
 	bl _ZN8GuiImageC1Eii9_gx_color
-.LEHE129:
-.L316:
+.LEHE118:
+.L302:
 	.loc 1 639 0
 	mr 3,28
 	li 4,30
 	.loc 1 638 0
-	stw 28,24(30)
-.LEHB130:
+	stw 28,24(14)
+.LEHB119:
 	.loc 1 639 0
 	bl _ZN8GuiImage11ColorStripeEi
 	.loc 1 640 0
-	lwz 4,24(30)
-	lwz 3,4(30)
+	lwz 4,24(14)
+	.loc 1 642 0
+	addi 15,1,1140
+	.loc 1 640 0
+	lwz 3,4(14)
 	bl _ZN9GuiWindow6AppendEP10GuiElement
 	.loc 1 642 0
-	addi 3,1,1140
+	mr 3,15
 	bl _ZN10GuiTriggerC1Ev
-.LEHE130:
+.LEHE119:
 	.loc 1 643 0
 	lis 5,0x10
-	addi 3,1,1140
+	mr 3,15
 	ori 5,5,8
 	li 4,-1
 	li 6,256
-.LEHB131:
+.LEHB120:
 	bl _ZN10GuiTrigger16SetSimpleTriggerEijt
 	.loc 1 645 0
 	bl _Z9ResumeGuiv
 	.loc 1 647 0
 	li 3,24
 	bl _Znwj
-.LEHE131:
+.LEHE120:
 	lis 4,bg_music_ogg@ha
 	lis 9,bg_music_ogg_size@ha
 	mr 28,3
 	la 4,bg_music_ogg@l(4)
 	lwz 5,bg_music_ogg_size@l(9)
 	li 6,1
-.LEHB132:
+.LEHB121:
 	bl _ZN8GuiSoundC1EPKhii
-.LEHE132:
-	stw 28,28(30)
+.LEHE121:
+	stw 28,28(14)
 	.loc 1 648 0
 	mr 3,28
 	li 4,50
-.LEHB133:
+.LEHB122:
 	bl _ZN8GuiSound9SetVolumeEi
 	.loc 1 649 0
-	lwz 3,28(30)
+	lwz 3,28(14)
 	bl _ZN8GuiSound4PlayEv
-.LBB43:
+.LBB41:
 	.loc 1 656 0
-	lis 3,.LC26@ha
-	lis 4,.LC27@ha
-	lis 5,.LC23@ha
-	lis 6,.LC24@ha
-	la 3,.LC26@l(3)
-	la 4,.LC27@l(4)
-	la 5,.LC23@l(5)
-	la 6,.LC24@l(6)
+	lis 3,.LC22@ha
+	lis 4,.LC23@ha
+	lis 5,.LC24@ha
+	lis 6,.LC25@ha
+	la 3,.LC22@l(3)
+	la 4,.LC23@l(4)
+	la 5,.LC24@l(5)
+	la 6,.LC25@l(6)
 	bl _Z12WindowPromptPKcS0_S0_S0_
-.LBE43:
-.LBB44:
+.LBE41:
+.LBB42:
 .LBB48:
-.LBB51:
-	.loc 1 503 0
-	lis 10,.LC28@ha
-	.loc 1 507 0
-	lis 8,.LC29@ha
-	.loc 1 509 0
-	lis 7,.LC30@ha
-	.loc 1 511 0
-	lis 6,.LC31@ha
-	.loc 1 513 0
-	lis 3,.LC32@ha
-	.loc 1 509 0
-	la 29,.LC30@l(7)
-	.loc 1 513 0
-	la 28,.LC32@l(3)
-	.loc 1 503 0
-	la 9,.LC28@l(10)
-	.loc 1 507 0
-	la 11,.LC29@l(8)
-	.loc 1 511 0
-	la 4,.LC31@l(6)
-	.loc 1 509 0
-	lhz 22,4(29)
-	.loc 1 505 0
-	lis 0,0x5553
-	.loc 1 503 0
-	lhz 27,.LC28@l(10)
-	.loc 1 515 0
-	lis 5,.LC33@ha
-	.loc 1 507 0
-	lwz 10,.LC29@l(8)
-	.loc 1 505 0
-	ori 0,0,16640
-	.loc 1 509 0
-	lwz 8,.LC30@l(7)
-	.loc 1 522 0
-	li 31,-1
-	.loc 1 511 0
-	lwz 7,.LC31@l(6)
-	.loc 1 522 0
-	rlwimi 19,31,24,0,7
-	.loc 1 513 0
-	lwz 6,.LC32@l(3)
-	.loc 1 522 0
-	rlwimi 19,31,16,8,15
-	.loc 1 503 0
-	lbz 26,2(9)
-	.loc 1 502 0
-	li 9,8192
-	.loc 1 507 0
-	lwz 25,4(11)
-	.loc 1 522 0
-	rlwimi 19,31,8,16,23
-	.loc 1 509 0
-	lbz 24,6(29)
-	.loc 1 517 0
-	lis 29,.LC34@ha
-	.loc 1 511 0
-	lhz 23,4(4)
-	.loc 1 517 0
-	la 11,.LC34@l(29)
-	.loc 1 513 0
-	lhz 4,8(28)
-	.loc 1 522 0
-	rlwimi 19,31,0,24,31
-	.loc 1 513 0
-	lwz 21,4(28)
-	.loc 1 519 0
-	lis 28,.LC35@ha
-	.loc 1 515 0
-	lwz 3,.LC33@l(5)
-	la 5,.LC33@l(5)
-	.loc 1 505 0
-	stw 0,2394(1)
-	.loc 1 519 0
-	la 20,.LC35@l(28)
-	.loc 1 507 0
-	stw 10,2544(1)
-	.loc 1 509 0
-	stw 8,2694(1)
-	sth 22,2698(1)
-	.loc 1 522 0
-	addi 22,1,200
-	.loc 1 511 0
-	stw 7,2844(1)
-	.loc 1 513 0
-	sth 4,3002(1)
-	.loc 1 503 0
-	sth 27,2244(1)
-	stb 26,2246(1)
-	.loc 1 507 0
-	stw 25,2548(1)
-	.loc 1 509 0
-	stb 24,2700(1)
-	.loc 1 511 0
-	sth 23,2848(1)
-	.loc 1 513 0
-	stw 6,2994(1)
-	stw 21,2998(1)
-	.loc 1 515 0
-	lwz 6,8(5)
-	.loc 1 502 0
-	sth 9,6744(1)
-	.loc 1 504 0
-	sth 9,6894(1)
-	.loc 1 506 0
-	sth 9,7044(1)
-	.loc 1 508 0
-	sth 9,7194(1)
-	.loc 1 510 0
-	sth 9,7344(1)
-	.loc 1 512 0
-	sth 9,7494(1)
-	.loc 1 514 0
-	sth 9,7644(1)
-	.loc 1 515 0
-	lwz 0,4(5)
-	stw 3,3144(1)
-	.loc 1 519 0
-	lwz 4,.LC35@l(28)
-	.loc 1 517 0
-	lwz 5,12(11)
-	.loc 1 519 0
-	lbz 3,4(20)
-	.loc 1 517 0
-	lwz 10,.LC34@l(29)
-	lwz 8,4(11)
-	lwz 7,8(11)
-	.loc 1 515 0
-	stw 0,3148(1)
-	.loc 1 520 0
-	li 0,9
-	.loc 1 519 0
-	stw 4,3444(1)
-	.loc 1 522 0
-	lis 4,.LC36@ha
-	.loc 1 515 0
-	stw 6,3152(1)
-	.loc 1 522 0
-	la 4,.LC36@l(4)
-	.loc 1 517 0
-	stw 5,3306(1)
-	.loc 1 522 0
-	mr 6,14
-	.loc 1 519 0
-	stb 3,3448(1)
-	.loc 1 522 0
-	li 5,28
-	.loc 1 517 0
-	stw 10,3294(1)
-	.loc 1 522 0
-	mr 3,22
-	.loc 1 517 0
-	stw 8,3298(1)
-	stw 7,3302(1)
-	.loc 1 518 0
-	sth 9,7944(1)
-	.loc 1 520 0
-	stw 0,2240(1)
-	.loc 1 522 0
-	stw 19,11256(1)
-	.loc 1 516 0
-	sth 9,7794(1)
-	.loc 1 522 0
-	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE133:
-	.loc 1 523 0
-	mr 3,22
-	li 4,0
-	li 5,3
-.LEHB134:
-	bl _ZN7GuiText12SetAlignmentEii
-	.loc 1 524 0
-	mr 3,22
-	li 4,50
-	li 5,50
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 526 0
-	rlwimi 18,31,24,0,7
-	addi 21,1,352
-	rlwimi 18,31,16,8,15
-	lis 4,.LC37@ha
-	rlwimi 18,31,8,16,23
-	la 4,.LC37@l(4)
-	rlwimi 18,31,0,24,31
-	mr 3,21
-	stw 18,11256(1)
-	li 5,16
-	mr 6,14
-	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE134:
-	.loc 1 527 0
-	mr 3,21
-	li 4,0
-	li 5,3
-.LEHB135:
-	bl _ZN7GuiText12SetAlignmentEii
-	.loc 1 528 0
-	mr 3,21
-	li 4,50
-	li 5,100
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 529 0
-	mr 3,21
-	li 4,530
-	bl _ZN7GuiText11SetMaxWidthEi
-	.loc 1 531 0
-	addi 23,1,32
-	lis 4,button_over_pcm@ha
-	lis 9,button_over_pcm_size@ha
-	la 4,button_over_pcm@l(4)
-	lwz 5,button_over_pcm_size@l(9)
-	mr 3,23
-	li 6,0
-	bl _ZN8GuiSoundC1EPKhii
-.LEHE135:
-	.loc 1 532 0
-	addi 26,1,8
-	lis 4,button_png@ha
-	la 4,button_png@l(4)
-	mr 3,26
-.LEHB136:
-	bl _ZN12GuiImageDataC1EPKh
-.LEHE136:
-	.loc 1 533 0
-	addi 25,1,20
-	lis 4,button_over_png@ha
-	la 4,button_over_png@l(4)
-	mr 3,25
-.LEHB137:
-	bl _ZN12GuiImageDataC1EPKh
-.LEHE137:
-	.loc 1 535 0
-	addi 24,1,1496
-	mr 3,24
-.LEHB138:
-	bl _ZN10GuiTriggerC1Ev
-.LEHE138:
-	.loc 1 536 0
-	lis 5,0x10
-	mr 3,24
-	ori 5,5,8
-	li 4,-1
-	li 6,256
-.LEHB139:
-	bl _ZN10GuiTrigger16SetSimpleTriggerEijt
-	.loc 1 538 0
-	li 0,0
-	addi 20,1,504
-	rlwimi 17,0,24,0,7
-	lis 4,.LC20@ha
-	rlwimi 17,0,16,8,15
-	la 4,.LC20@l(4)
-	rlwimi 17,0,8,16,23
-	mr 6,14
-	rlwimi 17,31,0,24,31
-	mr 3,20
-	stw 17,11256(1)
-	li 5,22
-	bl _ZN7GuiTextC1EPKci9_gx_color
-.LEHE139:
-	.loc 1 539 0
-	addi 19,1,656
-	mr 4,26
-	mr 3,19
-.LEHB140:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE140:
-	.loc 1 540 0
-	addi 18,1,808
-	mr 4,25
-	mr 3,18
-.LEHB141:
-	bl _ZN8GuiImageC1EP12GuiImageData
-.LEHE141:
-.LBE51:
-.LBE48:
-	.loc 1 541 0
-	mr 3,26
-.LEHB142:
-	bl _ZN12GuiImageData8GetWidthEv
-	mr 29,3
-	mr 3,26
-	bl _ZN12GuiImageData9GetHeightEv
-.LBB47:
-.LBB50:
-	addi 28,1,960
-.LBE50:
-.LBE47:
-	mr 5,3
-.LBB46:
 .LBB52:
-	mr 4,29
-	mr 3,28
-	bl _ZN9GuiButtonC1Eii
-.LEHE142:
-	.loc 1 542 0
-	mr 3,28
-	li 4,0
-	li 5,4
-.LEHB143:
-	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 543 0
-	mr 3,28
-	li 4,100
-	li 5,-28
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 544 0
-	mr 3,28
-	mr 4,20
-	bl _ZN9GuiButton8SetLabelEP7GuiText
-	.loc 1 545 0
-	mr 3,28
-	mr 4,19
-	bl _ZN9GuiButton8SetImageEP8GuiImage
-	.loc 1 546 0
-	mr 3,28
-	mr 4,18
-	bl _ZN9GuiButton12SetImageOverEP8GuiImage
-	.loc 1 547 0
-	mr 3,28
-	mr 4,23
-	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
-	.loc 1 548 0
-	mr 3,28
-	mr 4,24
-	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
-	.loc 1 549 0
-	mr 3,28
-	bl _ZN10GuiElement13SetEffectGrowEv
-	.loc 1 551 0
-	addi 27,1,1852
-	addi 6,1,2240
-	mr 3,27
-	li 4,552
-	li 5,248
-	bl _ZN16GuiOptionBrowserC1EiiP11_optionlist
-.LEHE143:
-	.loc 1 552 0
-	mr 3,27
-	li 4,0
-	li 5,160
-.LEHB144:
-	bl _ZN10GuiElement11SetPositionEii
-	.loc 1 553 0
-	mr 3,27
-	li 4,2
-	li 5,3
-	bl _ZN10GuiElement12SetAlignmentEii
-	.loc 1 554 0
-	mr 3,27
-	li 4,185
-	bl _ZN16GuiOptionBrowser15SetCol2PositionEi
-	.loc 1 556 0
-	bl _Z7HaltGuiv
-	.loc 1 557 0
-	addi 31,1,56
-	lwz 4,screenwidth@l(15)
-	lwz 5,screenheight@l(16)
-	mr 3,31
-	bl _ZN9GuiWindowC1Eii
-.LEHE144:
-	.loc 1 558 0
-	mr 3,31
-	mr 4,28
-.LEHB145:
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 559 0
-	lwz 3,4(30)
-	mr 4,27
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 560 0
-	lwz 3,4(30)
-	mr 4,31
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 561 0
-	lwz 3,4(30)
-	mr 4,22
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 562 0
-	lwz 3,4(30)
-	mr 4,21
-	bl _ZN9GuiWindow6AppendEP10GuiElement
-	.loc 1 563 0
-	bl _Z9ResumeGuiv
-.L369:
-	.loc 1 567 0
-	bl VIDEO_WaitVSync
+	.loc 1 522 0
+	lis 9,button_over_pcm_size@ha
+	li 29,2
+.LVL33:
+	lwz 30,button_over_pcm_size@l(9)
+.L306:
 .LBE52:
-.LBE46:
-	.loc 1 570 0
-	mr 3,27
-	bl _ZN16GuiOptionBrowser16GetClickedOptionEv
-	.loc 1 610 0
-	mr 3,28
-	bl _ZN10GuiElement8GetStateEv
-.LBB45:
-.LBB49:
-	cmpwi 7,3,2
-	bne+ 7,.L369
-	.loc 1 615 0
-	bl _Z7HaltGuiv
-	.loc 1 616 0
-	lwz 3,4(30)
-	mr 4,27
-	bl _ZN9GuiWindow6RemoveEP10GuiElement
-	.loc 1 617 0
-	lwz 3,4(30)
-	mr 4,31
-	bl _ZN9GuiWindow6RemoveEP10GuiElement
-	.loc 1 618 0
-	lwz 3,4(30)
-	mr 4,22
-	bl _ZN9GuiWindow6RemoveEP10GuiElement
-.LEHE145:
-	.loc 1 619 0
-	mr 3,31
-.LEHB146:
-	bl _ZN9GuiWindowD1Ev
-.LEHE146:
-	mr 3,27
-.LEHB147:
-	bl _ZN16GuiOptionBrowserD1Ev
-.LEHE147:
-	mr 3,28
-.LEHB148:
-	bl _ZN9GuiButtonD1Ev
-.LEHE148:
-	mr 3,18
-.LEHB149:
-	bl _ZN8GuiImageD1Ev
-.LEHE149:
-	mr 3,19
-.LEHB150:
-	bl _ZN8GuiImageD1Ev
-.LEHE150:
-	mr 3,20
-.LEHB151:
-	bl _ZN7GuiTextD1Ev
-.LEHE151:
-	mr 3,24
-.LEHB152:
-	bl _ZN10GuiTriggerD1Ev
-.LEHE152:
-	mr 3,25
-.LEHB153:
-	bl _ZN12GuiImageDataD1Ev
-.LEHE153:
-	mr 3,26
-.LEHB154:
-	bl _ZN12GuiImageDataD1Ev
-.LEHE154:
-	mr 3,23
-.LEHB155:
-	bl _ZN8GuiSoundD1Ev
-.LEHE155:
-	mr 3,21
-.LEHB156:
-	bl _ZN7GuiTextD1Ev
-.LEHE156:
-	mr 3,22
-.LEHB157:
-	bl _ZN7GuiTextD1Ev
-.LBE49:
-.LBE45:
-.LBE44:
+.LBE48:
+.LBE42:
+	.loc 1 666 0
+	cmpwi 7,29,1
+	beq- 7,.L375
+	cmpwi 7,29,2
+	beq- 7,.L391
+.L375:
+	.loc 1 675 0
+	bl _Z8MenuMainv
+	mr 29,3
+.L310:
+	.loc 1 664 0
+	cmpwi 7,29,-1
+	bne+ 7,.L306
 	.loc 1 680 0
 	bl _Z9ResumeGuiv
 	.loc 1 681 0
 	li 0,1
 	lis 9,ExitRequested@ha
 	stw 0,ExitRequested@l(9)
-.L346:
+.L342:
 	.loc 1 682 0
 	li 3,50
 	bl usleep
-.LEHE157:
-	b .L346
-.L349:
-.L323:
-	mr 29,3
-.LBB55:
-.LBB54:
-.LBB53:
-	.loc 1 619 0
-	mr 3,31
-	bl _ZN9GuiWindowD1Ev
-.L324:
-	mr 3,27
-	bl _ZN16GuiOptionBrowserD1Ev
-.L326:
-	mr 3,28
-	bl _ZN9GuiButtonD1Ev
-.L328:
+	b .L342
+.L391:
+.LBB57:
+.LBB47:
+.LBB51:
+	.loc 1 498 0
+	lis 5,.LC27@ha
+	.loc 1 494 0
+	lis 3,.LC26@ha
+	.loc 1 498 0
+	la 9,.LC27@l(5)
+	.loc 1 494 0
+	lhz 11,.LC26@l(3)
+	.loc 1 498 0
+	lwz 7,4(9)
+	.loc 1 494 0
+	la 4,.LC26@l(3)
+	.loc 1 502 0
+	lis 9,.LC29@ha
+	.loc 1 500 0
+	lis 3,.LC28@ha
+	.loc 1 494 0
+	lbz 10,2(4)
+	.loc 1 500 0
+	la 4,.LC28@l(3)
+	lwz 6,.LC28@l(3)
+	.loc 1 496 0
+	lis 0,0x5553
+	.loc 1 502 0
+	lwz 3,.LC29@l(9)
+	la 9,.LC29@l(9)
+	lhz 29,4(9)
+.LVL34:
+	.loc 1 504 0
+	lis 9,.LC30@ha
+	lwz 28,.LC30@l(9)
+	la 9,.LC30@l(9)
+	lwz 27,4(9)
+	.loc 1 496 0
+	ori 0,0,16640
+	.loc 1 504 0
+	lhz 26,8(9)
+	.loc 1 506 0
+	lis 9,.LC31@ha
+	.loc 1 498 0
+	lwz 8,.LC27@l(5)
+	.loc 1 513 0
+	li 31,-1
+	.loc 1 500 0
+	lhz 5,4(4)
+	.loc 1 513 0
+	rlwimi 24,31,24,0,7
+	.loc 1 500 0
+	lbz 4,6(4)
+	.loc 1 513 0
+	rlwimi 24,31,16,8,15
+	.loc 1 506 0
+	lwz 25,.LC31@l(9)
+	.loc 1 493 0
+	li 9,8192
+	.loc 1 494 0
+	sth 11,2244(1)
+	.loc 1 508 0
+	lis 11,.LC32@ha
+	.loc 1 494 0
+	stb 10,2246(1)
+	.loc 1 506 0
+	lis 10,.LC31@ha
+	.loc 1 496 0
+	stw 0,2394(1)
+	.loc 1 506 0
+	la 10,.LC31@l(10)
+	.loc 1 498 0
+	stw 8,2544(1)
+	.loc 1 513 0
+	rlwimi 24,31,8,16,23
+	.loc 1 500 0
+	sth 5,2698(1)
+	.loc 1 513 0
+	rlwimi 24,31,0,24,31
+	.loc 1 500 0
+	stb 4,2700(1)
+	.loc 1 510 0
+	lis 4,.LC33@ha
+	.loc 1 502 0
+	stw 3,2844(1)
+	.loc 1 508 0
+	la 3,.LC32@l(11)
+	.loc 1 498 0
+	stw 7,2548(1)
+	.loc 1 513 0
+	addi 16,1,200
+	.loc 1 500 0
+	stw 6,2694(1)
+	.loc 1 502 0
+	sth 29,2848(1)
+	.loc 1 504 0
+	stw 28,2994(1)
+	stw 27,2998(1)
+	sth 26,3002(1)
+	.loc 1 493 0
+	sth 9,6744(1)
+	.loc 1 495 0
+	sth 9,6894(1)
+	.loc 1 497 0
+	sth 9,7044(1)
+	.loc 1 499 0
+	sth 9,7194(1)
+	.loc 1 501 0
+	sth 9,7344(1)
+	.loc 1 503 0
+	sth 9,7494(1)
+	.loc 1 505 0
+	sth 9,7644(1)
+	.loc 1 506 0
+	lwz 6,8(10)
+	lwz 7,4(10)
+	stw 25,3144(1)
+	.loc 1 508 0
+	lwz 10,8(3)
+	lwz 8,12(3)
+	lwz 0,.LC32@l(11)
+	.loc 1 510 0
+	lwz 5,.LC33@l(4)
+	.loc 1 508 0
+	lwz 11,4(3)
+	.loc 1 510 0
+	la 3,.LC33@l(4)
+	lbz 4,4(3)
+	.loc 1 513 0
+	mr 3,16
+	.loc 1 508 0
+	stw 0,3294(1)
+	.loc 1 511 0
+	li 0,9
+	.loc 1 510 0
+	stw 5,3444(1)
+	.loc 1 513 0
+	lis 5,.LC36@ha
+	.loc 1 506 0
+	stw 6,3152(1)
+	.loc 1 513 0
+	addi 6,1,11256
+	.loc 1 510 0
+	stb 4,3448(1)
+	.loc 1 506 0
+	stw 7,3148(1)
+	.loc 1 513 0
+	lwz 4,.LC36@l(5)
+	li 5,28
+	.loc 1 508 0
+	stw 11,3298(1)
+	stw 10,3302(1)
+	stw 8,3306(1)
+	.loc 1 509 0
+	sth 9,7944(1)
+	.loc 1 511 0
+	stw 0,2240(1)
+	.loc 1 507 0
+	sth 9,7794(1)
+	.loc 1 513 0
+	stw 24,11256(1)
+	bl _ZN7GuiTextC1EPKci9_gx_color
+.LEHE122:
+	.loc 1 514 0
+	mr 3,16
+	li 4,0
+	li 5,3
+.LEHB123:
+	bl _ZN7GuiText12SetAlignmentEii
+	.loc 1 515 0
+	mr 3,16
+	li 4,50
+	li 5,50
+	bl _ZN10GuiElement11SetPositionEii
+	.loc 1 517 0
+	rlwimi 23,31,24,0,7
+	lis 5,.LC37@ha
+	rlwimi 23,31,16,8,15
+	addi 17,1,352
+	rlwimi 23,31,8,16,23
+	lwz 4,.LC37@l(5)
+	rlwimi 23,31,0,24,31
+	mr 3,17
+	stw 23,11256(1)
+	li 5,16
+	addi 6,1,11256
+	bl _ZN7GuiTextC1EPKci9_gx_color
+.LEHE123:
+	.loc 1 518 0
+	mr 3,17
+	li 4,0
+	li 5,3
+.LEHB124:
+	bl _ZN7GuiText12SetAlignmentEii
+	.loc 1 519 0
+	mr 3,17
+	li 4,50
+	li 5,100
+	bl _ZN10GuiElement11SetPositionEii
+	.loc 1 520 0
+	mr 3,17
+	li 4,530
+	bl _ZN7GuiText11SetMaxWidthEi
+	.loc 1 522 0
+	lis 5,.LC38@ha
+	addi 21,1,32
+	lwz 4,.LC38@l(5)
+	mr 3,21
+	mr 5,30
+	li 6,0
+	bl _ZN8GuiSoundC1EPKhii
+.LEHE124:
+	.loc 1 523 0
+	addi 26,1,8
+	lis 5,.LC39@ha
+	mr 3,26
+	lwz 4,.LC39@l(5)
+.LEHB125:
+	bl _ZN12GuiImageDataC1EPKh
+.LEHE125:
+	.loc 1 524 0
+	addi 25,1,20
+	lis 4,button_over_png@ha
+	la 4,button_over_png@l(4)
+	mr 3,25
+.LEHB126:
+	bl _ZN12GuiImageDataC1EPKh
+.LEHE126:
+	.loc 1 526 0
+	addi 3,1,1496
+.LEHB127:
+	bl _ZN10GuiTriggerC1Ev
+.LEHE127:
+	.loc 1 527 0
+	lis 5,0x10
+	addi 3,1,1496
+	ori 5,5,8
+	li 4,-1
+	li 6,256
+.LEHB128:
+	bl _ZN10GuiTrigger16SetSimpleTriggerEijt
+	.loc 1 529 0
+	li 0,0
+	addi 18,1,504
+	rlwimi 22,0,24,0,7
+	lis 4,.LC17@ha
+	rlwimi 22,0,16,8,15
+	la 4,.LC17@l(4)
+	rlwimi 22,0,8,16,23
 	mr 3,18
+	rlwimi 22,31,0,24,31
+	li 5,22
+	stw 22,11256(1)
+	addi 6,1,11256
+	bl _ZN7GuiTextC1EPKci9_gx_color
+.LEHE128:
+	.loc 1 530 0
+	addi 19,1,656
+	mr 4,26
+	mr 3,19
+.LEHB129:
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE129:
+	.loc 1 531 0
+	addi 20,1,808
+	mr 4,25
+	mr 3,20
+.LEHB130:
+	bl _ZN8GuiImageC1EP12GuiImageData
+.LEHE130:
+.LBE51:
+.LBE47:
+	.loc 1 532 0
+	mr 3,26
+.LEHB131:
+	bl _ZN12GuiImageData8GetWidthEv
+	mr 29,3
+	mr 3,26
+	bl _ZN12GuiImageData9GetHeightEv
+.LBB46:
+.LBB53:
+	addi 31,1,960
+.LBE53:
+.LBE46:
+	mr 5,3
+.LBB45:
+.LBB50:
+	mr 4,29
+	mr 3,31
+	bl _ZN9GuiButtonC1Eii
+.LEHE131:
+	.loc 1 533 0
+	mr 3,31
+	li 4,0
+	li 5,4
+.LEHB132:
+	bl _ZN10GuiElement12SetAlignmentEii
+	.loc 1 534 0
+	mr 3,31
+	li 4,100
+	li 5,-28
+	bl _ZN10GuiElement11SetPositionEii
+	.loc 1 535 0
+	mr 3,31
+	mr 4,18
+	bl _ZN9GuiButton8SetLabelEP7GuiText
+	.loc 1 536 0
+	mr 3,31
+	mr 4,19
+	bl _ZN9GuiButton8SetImageEP8GuiImage
+	.loc 1 537 0
+	mr 3,31
+	mr 4,20
+	bl _ZN9GuiButton12SetImageOverEP8GuiImage
+	.loc 1 538 0
+	mr 3,31
+	mr 4,21
+	bl _ZN9GuiButton12SetSoundOverEP8GuiSound
+	.loc 1 539 0
+	mr 3,31
+	addi 4,1,1496
+	bl _ZN10GuiElement10SetTriggerEP10GuiTrigger
+	.loc 1 540 0
+	mr 3,31
+	bl _ZN10GuiElement13SetEffectGrowEv
+	.loc 1 542 0
+	addi 28,1,1852
+	addi 6,1,2240
+	mr 3,28
+	li 4,552
+	li 5,248
+	bl _ZN16GuiOptionBrowserC1EiiP11_optionlist
+.LEHE132:
+	.loc 1 543 0
+	mr 3,28
+	li 4,0
+	li 5,160
+.LEHB133:
+	bl _ZN10GuiElement11SetPositionEii
+	.loc 1 544 0
+	mr 3,28
+	li 4,2
+	li 5,3
+	bl _ZN10GuiElement12SetAlignmentEii
+	.loc 1 545 0
+	mr 3,28
+	li 4,185
+	bl _ZN16GuiOptionBrowser15SetCol2PositionEi
+	.loc 1 547 0
+	bl _Z7HaltGuiv
+	.loc 1 548 0
+	lis 5,screenwidth@ha
+	addi 27,1,56
+	lis 8,screenheight@ha
+	lwz 4,screenwidth@l(5)
+	mr 3,27
+	lwz 5,screenheight@l(8)
+	bl _ZN9GuiWindowC1Eii
+.LEHE133:
+	.loc 1 549 0
+	mr 3,27
+	mr 4,31
+.LEHB134:
+	bl _ZN9GuiWindow6AppendEP10GuiElement
+	.loc 1 550 0
+	lwz 3,4(14)
+	mr 4,28
+	bl _ZN9GuiWindow6AppendEP10GuiElement
+	.loc 1 551 0
+	lwz 3,4(14)
+	mr 4,27
+	bl _ZN9GuiWindow6AppendEP10GuiElement
+	.loc 1 552 0
+	lwz 3,4(14)
+	mr 4,16
+	bl _ZN9GuiWindow6AppendEP10GuiElement
+	.loc 1 553 0
+	lwz 3,4(14)
+	mr 4,17
+	bl _ZN9GuiWindow6AppendEP10GuiElement
+	.loc 1 554 0
+	bl _Z9ResumeGuiv
+.LVL35:
+.L365:
+	.loc 1 558 0
+	bl VIDEO_WaitVSync
+.LBE50:
+.LBE45:
+	.loc 1 561 0
+	mr 3,28
+	bl _ZN16GuiOptionBrowser16GetClickedOptionEv
+.LBB44:
+.LBB54:
+	.loc 1 563 0
+	cmplwi 7,3,9
+.LVL36:
+	ble- 7,.L392
+.L312:
+	li 29,0
+.L314:
+.LBE54:
+.LBE44:
+	.loc 1 610 0
+	mr 3,31
+.LVL37:
+	bl _ZN10GuiElement8GetStateEv
+.LBB43:
+.LBB49:
+	cmpwi 7,3,2
+	beq- 7,.L393
+	.loc 1 556 0
+	cmpwi 7,29,0
+	beq+ 7,.L365
+.L317:
+	.loc 1 615 0
+	bl _Z7HaltGuiv
+	.loc 1 616 0
+	lwz 3,4(14)
+	mr 4,28
+	bl _ZN9GuiWindow6RemoveEP10GuiElement
+	.loc 1 617 0
+	lwz 3,4(14)
+	mr 4,27
+	bl _ZN9GuiWindow6RemoveEP10GuiElement
+	.loc 1 618 0
+	lwz 3,4(14)
+	mr 4,16
+	bl _ZN9GuiWindow6RemoveEP10GuiElement
+.LEHE134:
+	.loc 1 619 0
+	mr 3,27
+.LEHB135:
+	bl _ZN9GuiWindowD1Ev
+.LEHE135:
+	mr 3,28
+.LEHB136:
+	bl _ZN16GuiOptionBrowserD1Ev
+.LEHE136:
+	mr 3,31
+.LEHB137:
+	bl _ZN9GuiButtonD1Ev
+.LEHE137:
+	mr 3,20
+.LEHB138:
 	bl _ZN8GuiImageD1Ev
-.L330:
+.LEHE138:
+	mr 3,19
+.LEHB139:
+	bl _ZN8GuiImageD1Ev
+.LEHE139:
+	mr 3,18
+.LEHB140:
+	bl _ZN7GuiTextD1Ev
+.LEHE140:
+	addi 3,1,1496
+.LEHB141:
+	bl _ZN10GuiTriggerD1Ev
+.LEHE141:
+	mr 3,25
+.LEHB142:
+	bl _ZN12GuiImageDataD1Ev
+.LEHE142:
+	mr 3,26
+.LEHB143:
+	bl _ZN12GuiImageDataD1Ev
+.LEHE143:
+	mr 3,21
+.LEHB144:
+	bl _ZN8GuiSoundD1Ev
+.LEHE144:
+	mr 3,17
+.LEHB145:
+	bl _ZN7GuiTextD1Ev
+.LEHE145:
+	mr 3,16
+.LEHB146:
+	bl _ZN7GuiTextD1Ev
+.LEHE146:
+	b .L310
+.LVL38:
+.L392:
+	.loc 1 563 0
+	li 0,1
+	li 29,1
+	slw 0,0,3
+	andi. 3,0,767
+.LVL39:
+	bne- 0,.L314
+	b .L312
+.L393:
+	.loc 1 610 0
+	li 29,-1
+	b .L317
+.L346:
+	mr 29,3
+.LVL40:
+.L320:
+	.loc 1 619 0
+	mr 3,28
+	bl _ZN16GuiOptionBrowserD1Ev
+.L322:
+	mr 3,31
+	bl _ZN9GuiButtonD1Ev
+.L324:
+	mr 3,20
+	bl _ZN8GuiImageD1Ev
+.L326:
 	mr 3,19
 	bl _ZN8GuiImageD1Ev
-.L332:
-	mr 3,20
+.L328:
+	mr 3,18
 	bl _ZN7GuiTextD1Ev
-.L334:
-	mr 3,24
+.L330:
+	addi 3,1,1496
 	bl _ZN10GuiTriggerD1Ev
-.L336:
+.L332:
 	mr 3,25
 	bl _ZN12GuiImageDataD1Ev
-.L338:
+.L334:
 	mr 3,26
 	bl _ZN12GuiImageDataD1Ev
-.L340:
-	mr 3,23
-	bl _ZN8GuiSoundD1Ev
-.L342:
+.L336:
 	mr 3,21
+	bl _ZN8GuiSoundD1Ev
+.L338:
+	mr 3,17
 	bl _ZN7GuiTextD1Ev
-.L344:
-	mr 3,22
+.L340:
+	mr 3,16
 	bl _ZN7GuiTextD1Ev
-.L347:
-.LBE53:
-.LBE54:
-.LBE55:
+.L343:
+.LBE49:
+.LBE43:
+.LBE57:
 	.loc 1 696 0
-	addi 3,1,1140
+	mr 3,15
 	bl _ZN10GuiTriggerD1Ev
 	mr 3,29
-.LEHB158:
+.LEHB147:
 	bl _Unwind_Resume
-.L350:
+.LEHE147:
+.LVL41:
+.L347:
 	mr 29,3
+.LVL42:
+	b .L322
+.LVL43:
+.L348:
+	mr 29,3
+.LVL44:
 	b .L324
-.L351:
+.LVL45:
+.L349:
 	mr 29,3
+.LVL46:
 	b .L326
-.L352:
+.LVL47:
+.L345:
+.L319:
 	mr 29,3
-	b .L328
-.L353:
+.LVL48:
+.LBB58:
+.LBB56:
+.LBB55:
+	.loc 1 619 0
+	mr 3,27
+	bl _ZN9GuiWindowD1Ev
+	b .L320
+.L364:
+.L389:
+.L294:
 	mr 29,3
-	b .L330
-.L354:
-	mr 29,3
-	b .L332
-.L355:
-	mr 29,3
-	b .L334
-.L356:
-	mr 29,3
-	b .L336
-.L357:
-	mr 29,3
-	b .L338
-.L358:
-	mr 29,3
-	b .L340
-.L359:
-	mr 29,3
-	b .L342
-.L360:
-	mr 29,3
-	b .L344
-.L361:
-.L318:
-	mr 29,3
-	.loc 1 647 0
-	mr 3,28
-	bl _ZdlPv
-	b .L347
-.L362:
-	mr 29,3
-	b .L347
-.L363:
-.L390:
-.L308:
-	mr 29,3
+.LBE55:
+.LBE56:
+.LBE58:
 	.loc 1 631 0
 	mr 3,28
 	bl _ZdlPv
 	mr 3,29
+.LEHB148:
 	bl _Unwind_Resume
-.LEHE158:
-.L364:
-	b .L390
-.L365:
-	b .L390
-.L366:
-	b .L390
-.L367:
-	b .L390
-.L368:
-	b .L390
-.LBE56:
+.LEHE148:
+.L362:
+	b .L389
+.L363:
+	b .L389
+.LVL49:
+.L358:
+	mr 29,3
+.LVL50:
+	b .L343
+.L359:
+	b .L389
+.L360:
+	b .L389
+.L361:
+	b .L389
+.LVL51:
+.L350:
+	mr 29,3
+.LVL52:
+	b .L328
+.LVL53:
+.L351:
+	mr 29,3
+.LVL54:
+	b .L330
+.LVL55:
+.L352:
+	mr 29,3
+.LVL56:
+	b .L332
+.LVL57:
+.L353:
+	mr 29,3
+.LVL58:
+	b .L334
+.LVL59:
+.L354:
+	mr 29,3
+.LVL60:
+	b .L336
+.LVL61:
+.L355:
+	mr 29,3
+.LVL62:
+	b .L338
+.LVL63:
+.L356:
+	mr 29,3
+.LVL64:
+	b .L340
+.L357:
+.L304:
+	mr 29,3
+	.loc 1 647 0
+	mr 3,28
+	bl _ZdlPv
+	b .L343
+.LBE59:
 .LFE799:
 	.size	_Z8MainMenui, .-_Z8MainMenui
 	.section	.gcc_except_table
@@ -3806,168 +3580,172 @@ _Z8MainMenui:
 	.byte	0x1
 	.uleb128 .LLSDACSE799-.LLSDACSB799
 .LLSDACSB799:
+	.uleb128 .LEHB107-.LFB799
+	.uleb128 .LEHE107-.LEHB107
+	.uleb128 0x0
+	.uleb128 0x0
+	.uleb128 .LEHB108-.LFB799
+	.uleb128 .LEHE108-.LEHB108
+	.uleb128 .L364-.LFB799
+	.uleb128 0x0
+	.uleb128 .LEHB109-.LFB799
+	.uleb128 .LEHE109-.LEHB109
+	.uleb128 0x0
+	.uleb128 0x0
+	.uleb128 .LEHB110-.LFB799
+	.uleb128 .LEHE110-.LEHB110
+	.uleb128 .L363-.LFB799
+	.uleb128 0x0
+	.uleb128 .LEHB111-.LFB799
+	.uleb128 .LEHE111-.LEHB111
+	.uleb128 0x0
+	.uleb128 0x0
+	.uleb128 .LEHB112-.LFB799
+	.uleb128 .LEHE112-.LEHB112
+	.uleb128 .L362-.LFB799
+	.uleb128 0x0
+	.uleb128 .LEHB113-.LFB799
+	.uleb128 .LEHE113-.LEHB113
+	.uleb128 0x0
+	.uleb128 0x0
+	.uleb128 .LEHB114-.LFB799
+	.uleb128 .LEHE114-.LEHB114
+	.uleb128 .L361-.LFB799
+	.uleb128 0x0
+	.uleb128 .LEHB115-.LFB799
+	.uleb128 .LEHE115-.LEHB115
+	.uleb128 0x0
+	.uleb128 0x0
+	.uleb128 .LEHB116-.LFB799
+	.uleb128 .LEHE116-.LEHB116
+	.uleb128 .L360-.LFB799
+	.uleb128 0x0
+	.uleb128 .LEHB117-.LFB799
+	.uleb128 .LEHE117-.LEHB117
+	.uleb128 0x0
+	.uleb128 0x0
 	.uleb128 .LEHB118-.LFB799
 	.uleb128 .LEHE118-.LEHB118
-	.uleb128 0x0
+	.uleb128 .L359-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB119-.LFB799
 	.uleb128 .LEHE119-.LEHB119
-	.uleb128 .L368-.LFB799
+	.uleb128 0x0
 	.uleb128 0x0
 	.uleb128 .LEHB120-.LFB799
 	.uleb128 .LEHE120-.LEHB120
-	.uleb128 0x0
+	.uleb128 .L358-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB121-.LFB799
 	.uleb128 .LEHE121-.LEHB121
-	.uleb128 .L367-.LFB799
+	.uleb128 .L357-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB122-.LFB799
 	.uleb128 .LEHE122-.LEHB122
-	.uleb128 0x0
+	.uleb128 .L358-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB123-.LFB799
 	.uleb128 .LEHE123-.LEHB123
-	.uleb128 .L366-.LFB799
+	.uleb128 .L356-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB124-.LFB799
 	.uleb128 .LEHE124-.LEHB124
-	.uleb128 0x0
+	.uleb128 .L355-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB125-.LFB799
 	.uleb128 .LEHE125-.LEHB125
-	.uleb128 .L365-.LFB799
+	.uleb128 .L354-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB126-.LFB799
 	.uleb128 .LEHE126-.LEHB126
-	.uleb128 0x0
+	.uleb128 .L353-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB127-.LFB799
 	.uleb128 .LEHE127-.LEHB127
-	.uleb128 .L364-.LFB799
+	.uleb128 .L352-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB128-.LFB799
 	.uleb128 .LEHE128-.LEHB128
-	.uleb128 0x0
+	.uleb128 .L351-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB129-.LFB799
 	.uleb128 .LEHE129-.LEHB129
-	.uleb128 .L363-.LFB799
+	.uleb128 .L350-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB130-.LFB799
 	.uleb128 .LEHE130-.LEHB130
-	.uleb128 0x0
+	.uleb128 .L349-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB131-.LFB799
 	.uleb128 .LEHE131-.LEHB131
-	.uleb128 .L362-.LFB799
+	.uleb128 .L348-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB132-.LFB799
 	.uleb128 .LEHE132-.LEHB132
-	.uleb128 .L361-.LFB799
+	.uleb128 .L347-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB133-.LFB799
 	.uleb128 .LEHE133-.LEHB133
-	.uleb128 .L362-.LFB799
+	.uleb128 .L346-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB134-.LFB799
 	.uleb128 .LEHE134-.LEHB134
-	.uleb128 .L360-.LFB799
+	.uleb128 .L345-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB135-.LFB799
 	.uleb128 .LEHE135-.LEHB135
-	.uleb128 .L359-.LFB799
+	.uleb128 .L346-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB136-.LFB799
 	.uleb128 .LEHE136-.LEHB136
-	.uleb128 .L358-.LFB799
+	.uleb128 .L347-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB137-.LFB799
 	.uleb128 .LEHE137-.LEHB137
-	.uleb128 .L357-.LFB799
+	.uleb128 .L348-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB138-.LFB799
 	.uleb128 .LEHE138-.LEHB138
-	.uleb128 .L356-.LFB799
+	.uleb128 .L349-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB139-.LFB799
 	.uleb128 .LEHE139-.LEHB139
-	.uleb128 .L355-.LFB799
+	.uleb128 .L350-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB140-.LFB799
 	.uleb128 .LEHE140-.LEHB140
-	.uleb128 .L354-.LFB799
+	.uleb128 .L351-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB141-.LFB799
 	.uleb128 .LEHE141-.LEHB141
-	.uleb128 .L353-.LFB799
+	.uleb128 .L352-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB142-.LFB799
 	.uleb128 .LEHE142-.LEHB142
-	.uleb128 .L352-.LFB799
+	.uleb128 .L353-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB143-.LFB799
 	.uleb128 .LEHE143-.LEHB143
-	.uleb128 .L351-.LFB799
+	.uleb128 .L354-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB144-.LFB799
 	.uleb128 .LEHE144-.LEHB144
-	.uleb128 .L350-.LFB799
+	.uleb128 .L355-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB145-.LFB799
 	.uleb128 .LEHE145-.LEHB145
-	.uleb128 .L349-.LFB799
+	.uleb128 .L356-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB146-.LFB799
 	.uleb128 .LEHE146-.LEHB146
-	.uleb128 .L350-.LFB799
+	.uleb128 .L358-.LFB799
 	.uleb128 0x0
 	.uleb128 .LEHB147-.LFB799
 	.uleb128 .LEHE147-.LEHB147
-	.uleb128 .L351-.LFB799
+	.uleb128 0x0
 	.uleb128 0x0
 	.uleb128 .LEHB148-.LFB799
 	.uleb128 .LEHE148-.LEHB148
-	.uleb128 .L352-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB149-.LFB799
-	.uleb128 .LEHE149-.LEHB149
-	.uleb128 .L353-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB150-.LFB799
-	.uleb128 .LEHE150-.LEHB150
-	.uleb128 .L354-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB151-.LFB799
-	.uleb128 .LEHE151-.LEHB151
-	.uleb128 .L355-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB152-.LFB799
-	.uleb128 .LEHE152-.LEHB152
-	.uleb128 .L356-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB153-.LFB799
-	.uleb128 .LEHE153-.LEHB153
-	.uleb128 .L357-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB154-.LFB799
-	.uleb128 .LEHE154-.LEHB154
-	.uleb128 .L358-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB155-.LFB799
-	.uleb128 .LEHE155-.LEHB155
-	.uleb128 .L359-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB156-.LFB799
-	.uleb128 .LEHE156-.LEHB156
-	.uleb128 .L360-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB157-.LFB799
-	.uleb128 .LEHE157-.LEHB157
-	.uleb128 .L362-.LFB799
-	.uleb128 0x0
-	.uleb128 .LEHB158-.LFB799
-	.uleb128 .LEHE158-.LEHB158
 	.uleb128 0x0
 	.uleb128 0x0
 .LLSDACSE799:
@@ -3991,8 +3769,14 @@ _Z8MainMenui:
 	.4byte	1501560836
 .LC11:
 	.4byte	0
-.LC25:
-	.4byte	.LC21
+.LC36:
+	.4byte	.LC34
+.LC37:
+	.4byte	.LC35
+.LC38:
+	.4byte	button_over_pcm
+.LC39:
+	.4byte	button_png
 	.section	".data"
 	.align 2
 	.set	.LANCHOR2,. + 0
@@ -4008,69 +3792,62 @@ guithread:
 	.section	.rodata.str1.4,"aMS",@progbits,1
 	.align 2
 .LC12:
-	.string	"Settings"
-	.zero	3
+	.string	"ShopMii"
 .LC13:
-	.string	"Button Mappings"
+	.string	"Show all (and sort)"
 .LC14:
-	.string	"Video"
-	.zero	2
+	.string	"Filter (search)"
 .LC15:
-	.string	"Saving"
-	.zero	1
+	.string	"Options"
 .LC16:
-	.string	"&"
-	.zero	2
+	.string	"Information"
 .LC17:
-	.string	"Loading"
-.LC18:
-	.string	"Menu"
-	.zero	3
-.LC19:
-	.string	"Network"
-.LC20:
 	.string	"Exit"
 	.zero	3
+.LC18:
+	.string	"Credits"
+.LC19:
+	.string	"Error"
+	.zero	2
+.LC20:
+	.string	"Feature not implemented"
 .LC21:
-	.string	"Reset Settings"
+	.string	"OK"
 	.zero	1
 .LC22:
-	.string	"Are you sure that you want to reset your settings?"
-	.zero	1
+	.string	"Database not up-to-date"
 .LC23:
-	.string	"Yes"
+	.string	"Your database is not up-to-date. Do you want me to attempt to download the latest one from my server?"
+	.zero	2
 .LC24:
+	.string	"Yes"
+.LC25:
 	.string	"No"
 	.zero	1
 .LC26:
-	.string	"Database not up-to-date"
-.LC27:
-	.string	"Your database is not up-to-date. Do you want me to attempt to download the latest one from my server?"
-	.zero	2
-.LC28:
 	.string	"UK"
 	.zero	1
-.LC29:
+.LC27:
 	.string	"Germany"
-.LC30:
+.LC28:
 	.string	"France"
 	.zero	1
-.LC31:
+.LC29:
 	.string	"Italy"
 	.zero	2
-.LC32:
+.LC30:
 	.string	"Australia"
 	.zero	2
-.LC33:
+.LC31:
 	.string	"Netherlands"
-.LC34:
+.LC32:
 	.string	"Another country"
-.LC35:
+.LC33:
 	.string	"Etc."
 	.zero	3
-.LC36:
+.LC34:
 	.string	"Choose Database"
-.LC37:
+.LC35:
 	.string	"Thank you for downloading ShopMii. To continue, please select your region"
 	.section	".bss"
 	.align 2
@@ -4343,11 +4120,11 @@ bgMusic:
 	.byte	0x4
 	.4byte	.LCFI55-.LFB797
 	.byte	0xe
-	.uleb128 0x1728
+	.uleb128 0x1378
 	.byte	0x4
 	.4byte	.LCFI56-.LCFI55
-	.byte	0x95
-	.uleb128 0xb
+	.byte	0x94
+	.uleb128 0xc
 	.byte	0x9
 	.uleb128 0x41
 	.uleb128 0x0
@@ -4362,48 +4139,44 @@ bgMusic:
 	.uleb128 0xe
 	.byte	0x4
 	.4byte	.LCFI60-.LCFI58
-	.byte	0x93
-	.uleb128 0xd
-	.byte	0x91
-	.uleb128 0xf
-	.byte	0x4
-	.4byte	.LCFI62-.LCFI60
-	.byte	0x98
-	.uleb128 0x8
-	.byte	0x96
-	.uleb128 0xa
-	.byte	0x4
-	.4byte	.LCFI64-.LCFI62
-	.byte	0x9b
-	.uleb128 0x5
 	.byte	0x9a
 	.uleb128 0x6
+	.byte	0x93
+	.uleb128 0xd
 	.byte	0x4
-	.4byte	.LCFI66-.LCFI64
-	.byte	0x9d
-	.uleb128 0x3
+	.4byte	.LCFI62-.LCFI60
 	.byte	0x9c
 	.uleb128 0x4
+	.byte	0x9b
+	.uleb128 0x5
 	.byte	0x4
-	.4byte	.LCFI68-.LCFI66
-	.byte	0x8e
-	.uleb128 0x12
+	.4byte	.LCFI64-.LCFI62
 	.byte	0x9f
 	.uleb128 0x1
+	.byte	0x9d
+	.uleb128 0x3
 	.byte	0x4
-	.4byte	.LCFI74-.LCFI68
+	.4byte	.LCFI74-.LCFI64
 	.byte	0x9e
 	.uleb128 0x2
 	.byte	0x99
 	.uleb128 0x7
+	.byte	0x98
+	.uleb128 0x8
 	.byte	0x97
 	.uleb128 0x9
-	.byte	0x94
-	.uleb128 0xc
+	.byte	0x96
+	.uleb128 0xa
+	.byte	0x95
+	.uleb128 0xb
+	.byte	0x91
+	.uleb128 0xf
 	.byte	0x90
 	.uleb128 0x10
 	.byte	0x8f
 	.uleb128 0x11
+	.byte	0x8e
+	.uleb128 0x12
 	.align 2
 .LEFDE14:
 .LSFDE16:
@@ -4418,19 +4191,19 @@ bgMusic:
 	.uleb128 0x2c48
 	.byte	0x4
 	.4byte	.LCFI77-.LCFI76
-	.byte	0x91
-	.uleb128 0xf
+	.byte	0x96
+	.uleb128 0xa
 	.byte	0x9
 	.uleb128 0x41
 	.uleb128 0x0
 	.byte	0x4
 	.4byte	.LCFI78-.LCFI77
-	.byte	0x92
-	.uleb128 0xe
+	.byte	0x97
+	.uleb128 0x9
 	.byte	0x4
 	.4byte	.LCFI79-.LCFI78
-	.byte	0x93
-	.uleb128 0xd
+	.byte	0x98
+	.uleb128 0x8
 	.byte	0x4
 	.4byte	.LCFI81-.LCFI79
 	.byte	0x9d
@@ -4452,16 +4225,16 @@ bgMusic:
 	.uleb128 0x6
 	.byte	0x99
 	.uleb128 0x7
-	.byte	0x98
-	.uleb128 0x8
-	.byte	0x97
-	.uleb128 0x9
-	.byte	0x96
-	.uleb128 0xa
 	.byte	0x95
 	.uleb128 0xb
 	.byte	0x94
 	.uleb128 0xc
+	.byte	0x93
+	.uleb128 0xd
+	.byte	0x92
+	.uleb128 0xe
+	.byte	0x91
+	.uleb128 0xf
 	.byte	0x90
 	.uleb128 0x10
 	.byte	0x8f
@@ -4718,11 +4491,11 @@ bgMusic:
 	.byte	0x4
 	.4byte	.LCFI55-.LFB797
 	.byte	0xe
-	.uleb128 0x1728
+	.uleb128 0x1378
 	.byte	0x4
 	.4byte	.LCFI56-.LCFI55
-	.byte	0x95
-	.uleb128 0xb
+	.byte	0x94
+	.uleb128 0xc
 	.byte	0x9
 	.uleb128 0x41
 	.uleb128 0x0
@@ -4737,48 +4510,44 @@ bgMusic:
 	.uleb128 0xe
 	.byte	0x4
 	.4byte	.LCFI60-.LCFI58
-	.byte	0x93
-	.uleb128 0xd
-	.byte	0x91
-	.uleb128 0xf
-	.byte	0x4
-	.4byte	.LCFI62-.LCFI60
-	.byte	0x98
-	.uleb128 0x8
-	.byte	0x96
-	.uleb128 0xa
-	.byte	0x4
-	.4byte	.LCFI64-.LCFI62
-	.byte	0x9b
-	.uleb128 0x5
 	.byte	0x9a
 	.uleb128 0x6
+	.byte	0x93
+	.uleb128 0xd
 	.byte	0x4
-	.4byte	.LCFI66-.LCFI64
-	.byte	0x9d
-	.uleb128 0x3
+	.4byte	.LCFI62-.LCFI60
 	.byte	0x9c
 	.uleb128 0x4
+	.byte	0x9b
+	.uleb128 0x5
 	.byte	0x4
-	.4byte	.LCFI68-.LCFI66
-	.byte	0x8e
-	.uleb128 0x12
+	.4byte	.LCFI64-.LCFI62
 	.byte	0x9f
 	.uleb128 0x1
+	.byte	0x9d
+	.uleb128 0x3
 	.byte	0x4
-	.4byte	.LCFI74-.LCFI68
+	.4byte	.LCFI74-.LCFI64
 	.byte	0x9e
 	.uleb128 0x2
 	.byte	0x99
 	.uleb128 0x7
+	.byte	0x98
+	.uleb128 0x8
 	.byte	0x97
 	.uleb128 0x9
-	.byte	0x94
-	.uleb128 0xc
+	.byte	0x96
+	.uleb128 0xa
+	.byte	0x95
+	.uleb128 0xb
+	.byte	0x91
+	.uleb128 0xf
 	.byte	0x90
 	.uleb128 0x10
 	.byte	0x8f
 	.uleb128 0x11
+	.byte	0x8e
+	.uleb128 0x12
 	.align 2
 .LEFDE15:
 .LSFDE17:
@@ -4795,19 +4564,19 @@ bgMusic:
 	.uleb128 0x2c48
 	.byte	0x4
 	.4byte	.LCFI77-.LCFI76
-	.byte	0x91
-	.uleb128 0xf
+	.byte	0x96
+	.uleb128 0xa
 	.byte	0x9
 	.uleb128 0x41
 	.uleb128 0x0
 	.byte	0x4
 	.4byte	.LCFI78-.LCFI77
-	.byte	0x92
-	.uleb128 0xe
+	.byte	0x97
+	.uleb128 0x9
 	.byte	0x4
 	.4byte	.LCFI79-.LCFI78
-	.byte	0x93
-	.uleb128 0xd
+	.byte	0x98
+	.uleb128 0x8
 	.byte	0x4
 	.4byte	.LCFI81-.LCFI79
 	.byte	0x9d
@@ -4829,16 +4598,16 @@ bgMusic:
 	.uleb128 0x6
 	.byte	0x99
 	.uleb128 0x7
-	.byte	0x98
-	.uleb128 0x8
-	.byte	0x97
-	.uleb128 0x9
-	.byte	0x96
-	.uleb128 0xa
 	.byte	0x95
 	.uleb128 0xb
 	.byte	0x94
 	.uleb128 0xc
+	.byte	0x93
+	.uleb128 0xd
+	.byte	0x92
+	.uleb128 0xe
+	.byte	0x91
+	.uleb128 0xf
 	.byte	0x90
 	.uleb128 0x10
 	.byte	0x8f
@@ -5051,173 +4820,10 @@ bgMusic:
 	.4byte	.LFE797-.Ltext0
 	.2byte	0x3
 	.byte	0x71
-	.sleb128 5928
+	.sleb128 4984
 	.4byte	0x0
 	.4byte	0x0
 .LLST17:
-	.4byte	.LVL31-.Ltext0
-	.4byte	.LVL32-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL33-.Ltext0
-	.4byte	.LVL34-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL35-.Ltext0
-	.4byte	.LVL36-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL37-.Ltext0
-	.4byte	.LVL38-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL39-.Ltext0
-	.4byte	.LVL40-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL41-.Ltext0
-	.4byte	.LVL42-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL43-.Ltext0
-	.4byte	.LVL44-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL45-.Ltext0
-	.4byte	.LVL46-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL47-.Ltext0
-	.4byte	.LVL48-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL49-.Ltext0
-	.4byte	.LVL50-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL51-.Ltext0
-	.4byte	.LVL52-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL53-.Ltext0
-	.4byte	.LVL54-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL55-.Ltext0
-	.4byte	.LVL56-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL57-.Ltext0
-	.4byte	.LVL58-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL59-.Ltext0
-	.4byte	.LVL60-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL61-.Ltext0
-	.4byte	.LVL62-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL63-.Ltext0
-	.4byte	.LVL64-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL65-.Ltext0
-	.4byte	.LVL66-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL67-.Ltext0
-	.4byte	.LVL68-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL69-.Ltext0
-	.4byte	.LVL70-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL71-.Ltext0
-	.4byte	.LVL72-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL73-.Ltext0
-	.4byte	.LVL74-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL75-.Ltext0
-	.4byte	.LVL76-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL77-.Ltext0
-	.4byte	.LVL78-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL79-.Ltext0
-	.4byte	.LVL80-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL81-.Ltext0
-	.4byte	.LVL82-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL83-.Ltext0
-	.4byte	.LVL84-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL85-.Ltext0
-	.4byte	.LVL86-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL87-.Ltext0
-	.4byte	.LVL88-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL89-.Ltext0
-	.4byte	.LVL90-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL91-.Ltext0
-	.4byte	.LVL92-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL93-.Ltext0
-	.4byte	.LVL94-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL95-.Ltext0
-	.4byte	.LVL96-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL97-.Ltext0
-	.4byte	.LVL98-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL99-.Ltext0
-	.4byte	.LVL100-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL101-.Ltext0
-	.4byte	.LVL102-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL103-.Ltext0
-	.4byte	.LVL104-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL105-.Ltext0
-	.4byte	.LVL106-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL107-.Ltext0
-	.4byte	.LVL108-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	.LVL109-.Ltext0
-	.4byte	.LVL110-.Ltext0
-	.2byte	0x1
-	.byte	0x68
-	.4byte	0x0
-	.4byte	0x0
-.LLST18:
 	.4byte	.LFB799-.Ltext0
 	.4byte	.LCFI76-.Ltext0
 	.2byte	0x1
@@ -5229,9 +4835,79 @@ bgMusic:
 	.sleb128 11336
 	.4byte	0x0
 	.4byte	0x0
+.LLST18:
+	.4byte	.LVL31-.Ltext0
+	.4byte	.LVL32-.Ltext0
+	.2byte	0x1
+	.byte	0x53
+	.4byte	0x0
+	.4byte	0x0
 .LLST19:
-	.4byte	.LVL111-.Ltext0
-	.4byte	.LVL112-.Ltext0
+	.4byte	.LVL33-.Ltext0
+	.4byte	.LVL34-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL35-.Ltext0
+	.4byte	.LVL40-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL41-.Ltext0
+	.4byte	.LVL42-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL43-.Ltext0
+	.4byte	.LVL44-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL45-.Ltext0
+	.4byte	.LVL46-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL47-.Ltext0
+	.4byte	.LVL48-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL49-.Ltext0
+	.4byte	.LVL50-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL51-.Ltext0
+	.4byte	.LVL52-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL53-.Ltext0
+	.4byte	.LVL54-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL55-.Ltext0
+	.4byte	.LVL56-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL57-.Ltext0
+	.4byte	.LVL58-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL59-.Ltext0
+	.4byte	.LVL60-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL61-.Ltext0
+	.4byte	.LVL62-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	.LVL63-.Ltext0
+	.4byte	.LVL64-.Ltext0
+	.2byte	0x1
+	.byte	0x6d
+	.4byte	0x0
+	.4byte	0x0
+.LLST20:
+	.4byte	.LVL36-.Ltext0
+	.4byte	.LVL37-.Ltext0
+	.2byte	0x1
+	.byte	0x53
+	.4byte	.LVL38-.Ltext0
+	.4byte	.LVL39-.Ltext0
 	.2byte	0x1
 	.byte	0x53
 	.4byte	0x0
@@ -5275,14 +4951,14 @@ bgMusic:
 	.file 39 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/filelist.h"
 	.file 40 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/demo.h"
 	.section	.debug_info
-	.4byte	0x2ba8
+	.4byte	0x2b3a
 	.2byte	0x2
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-	.4byte	.LASF490
+	.4byte	.LASF484
 	.byte	0x4
-	.4byte	.LASF491
+	.4byte	.LASF485
 	.4byte	.Ltext0
 	.4byte	.Letext0
 	.4byte	.Ldebug_line0
@@ -9488,7 +9164,7 @@ bgMusic:
 	.string	"Up"
 	.byte	0x23
 	.byte	0x32
-	.4byte	.LASF492
+	.4byte	.LASF486
 	.4byte	0xc4
 	.byte	0x1
 	.4byte	0x1fce
@@ -9762,7 +9438,7 @@ bgMusic:
 	.4byte	.LASF374
 	.byte	0x25
 	.byte	0x81
-	.4byte	.LASF493
+	.4byte	.LASF487
 	.byte	0x1
 	.uleb128 0x2f
 	.4byte	0x21e8
@@ -9870,7 +9546,7 @@ bgMusic:
 	.4byte	.LASF384
 	.byte	0x25
 	.2byte	0x1a8
-	.4byte	.LASF494
+	.4byte	.LASF488
 	.4byte	0x8b
 	.byte	0x1
 	.uleb128 0x2f
@@ -9928,7 +9604,7 @@ bgMusic:
 	.2byte	0x299
 	.4byte	0x22ba
 	.uleb128 0x3a
-	.4byte	.LASF455
+	.4byte	.LASF448
 	.byte	0x1
 	.4byte	.LFB803
 	.4byte	.LFE803
@@ -9974,10 +9650,10 @@ bgMusic:
 	.4byte	.LLST3
 	.uleb128 0x3e
 	.byte	0x1
-	.4byte	.LASF495
+	.4byte	.LASF489
 	.byte	0x1
 	.byte	0xdb
-	.4byte	.LASF496
+	.4byte	.LASF490
 	.4byte	.LFB795
 	.4byte	.LFE795
 	.4byte	.LLST4
@@ -10031,10 +9707,10 @@ bgMusic:
 	.byte	0x0
 	.uleb128 0x45
 	.byte	0x1
-	.4byte	.LASF497
+	.4byte	.LASF491
 	.byte	0x1
 	.byte	0x45
-	.4byte	.LASF498
+	.4byte	.LASF492
 	.4byte	0x8b
 	.4byte	.LFB793
 	.4byte	.LFE793
@@ -10227,13 +9903,12 @@ bgMusic:
 	.4byte	.LFB797
 	.4byte	.LFE797
 	.4byte	.LLST16
-	.4byte	0x283f
+	.4byte	0x27c9
 	.uleb128 0x4b
-	.4byte	.LASF421
+	.4byte	.LASF450
 	.byte	0x1
 	.2byte	0x131
 	.4byte	0x8b
-	.4byte	.LLST17
 	.uleb128 0x4c
 	.4byte	.LASF405
 	.byte	0x1
@@ -10241,7 +9916,7 @@ bgMusic:
 	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5704
+	.sleb128 -4760
 	.uleb128 0x4c
 	.4byte	.LASF399
 	.byte	0x1
@@ -10249,7 +9924,7 @@ bgMusic:
 	.4byte	0x2087
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5872
+	.sleb128 -4928
 	.uleb128 0x4c
 	.4byte	.LASF400
 	.byte	0x1
@@ -10257,7 +9932,7 @@ bgMusic:
 	.4byte	0x21ee
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5920
+	.sleb128 -4976
 	.uleb128 0x4c
 	.4byte	.LASF401
 	.byte	0x1
@@ -10265,23 +9940,23 @@ bgMusic:
 	.4byte	0x21ee
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5908
+	.sleb128 -4964
 	.uleb128 0x4c
-	.4byte	.LASF422
+	.4byte	.LASF421
 	.byte	0x1
 	.2byte	0x13a
 	.4byte	0x21ee
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5896
+	.sleb128 -4952
 	.uleb128 0x4c
-	.4byte	.LASF423
+	.4byte	.LASF422
 	.byte	0x1
 	.2byte	0x13b
 	.4byte	0x21ee
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5884
+	.sleb128 -4940
 	.uleb128 0x4c
 	.4byte	.LASF402
 	.byte	0x1
@@ -10289,384 +9964,329 @@ bgMusic:
 	.4byte	0x1e45
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -792
 	.uleb128 0x4c
-	.4byte	.LASF424
+	.4byte	.LASF423
 	.byte	0x1
 	.2byte	0x13f
 	.4byte	0x1e45
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -440
+	.sleb128 -436
 	.uleb128 0x4c
-	.4byte	.LASF425
+	.4byte	.LASF424
 	.byte	0x1
 	.2byte	0x142
 	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5552
+	.sleb128 -4608
 	.uleb128 0x4c
-	.4byte	.LASF426
+	.4byte	.LASF425
 	.byte	0x1
 	.2byte	0x144
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5400
+	.sleb128 -4456
 	.uleb128 0x4c
-	.4byte	.LASF427
+	.4byte	.LASF426
 	.byte	0x1
 	.2byte	0x145
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5248
+	.sleb128 -4304
 	.uleb128 0x4c
-	.4byte	.LASF428
+	.4byte	.LASF427
 	.byte	0x1
 	.2byte	0x146
 	.4byte	0x258c
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -2056
+	.sleb128 -1872
 	.uleb128 0x4c
-	.4byte	.LASF429
+	.4byte	.LASF428
 	.byte	0x1
 	.2byte	0x150
 	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5096
+	.sleb128 -4152
 	.uleb128 0x4c
-	.4byte	.LASF430
+	.4byte	.LASF429
 	.byte	0x1
 	.2byte	0x152
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4944
+	.sleb128 -4000
 	.uleb128 0x4c
-	.4byte	.LASF431
+	.4byte	.LASF430
 	.byte	0x1
 	.2byte	0x153
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4792
+	.sleb128 -3848
 	.uleb128 0x4c
-	.4byte	.LASF432
+	.4byte	.LASF431
 	.byte	0x1
 	.2byte	0x154
 	.4byte	0x258c
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -1876
+	.sleb128 -1692
 	.uleb128 0x4c
-	.4byte	.LASF433
+	.4byte	.LASF432
 	.byte	0x1
 	.2byte	0x15e
 	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4640
+	.sleb128 -3696
+	.uleb128 0x4c
+	.4byte	.LASF433
+	.byte	0x1
+	.2byte	0x15f
+	.4byte	0x2580
+	.byte	0x3
+	.byte	0x91
+	.sleb128 -3544
 	.uleb128 0x4c
 	.4byte	.LASF434
 	.byte	0x1
-	.2byte	0x15f
-	.4byte	0x2586
+	.2byte	0x160
+	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4488
+	.sleb128 -3392
 	.uleb128 0x4c
 	.4byte	.LASF435
 	.byte	0x1
-	.2byte	0x160
-	.4byte	0x2586
+	.2byte	0x161
+	.4byte	0x258c
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4336
+	.sleb128 -1512
 	.uleb128 0x4c
 	.4byte	.LASF436
 	.byte	0x1
-	.2byte	0x163
-	.4byte	0x2580
+	.2byte	0x16b
+	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4184
+	.sleb128 -3240
 	.uleb128 0x4c
 	.4byte	.LASF437
 	.byte	0x1
-	.2byte	0x164
+	.2byte	0x16d
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -4032
+	.sleb128 -3088
 	.uleb128 0x4c
 	.4byte	.LASF438
 	.byte	0x1
-	.2byte	0x165
-	.4byte	0x258c
+	.2byte	0x16e
+	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -1696
+	.sleb128 -2936
 	.uleb128 0x4c
 	.4byte	.LASF439
 	.byte	0x1
-	.2byte	0x171
-	.4byte	0x2586
+	.2byte	0x16f
+	.4byte	0x258c
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -3880
+	.sleb128 -1332
 	.uleb128 0x4c
 	.4byte	.LASF440
 	.byte	0x1
-	.2byte	0x173
-	.4byte	0x2580
+	.2byte	0x179
+	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -3728
+	.sleb128 -2784
 	.uleb128 0x4c
 	.4byte	.LASF441
 	.byte	0x1
-	.2byte	0x174
+	.2byte	0x17a
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -3576
+	.sleb128 -2632
 	.uleb128 0x4c
 	.4byte	.LASF442
 	.byte	0x1
-	.2byte	0x175
-	.4byte	0x258c
+	.2byte	0x17b
+	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -1516
+	.sleb128 -2480
 	.uleb128 0x4c
 	.4byte	.LASF443
 	.byte	0x1
-	.2byte	0x17f
-	.4byte	0x2586
+	.2byte	0x17c
+	.4byte	0x258c
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -3424
+	.sleb128 -1152
 	.uleb128 0x4c
 	.4byte	.LASF444
 	.byte	0x1
-	.2byte	0x181
-	.4byte	0x2580
+	.2byte	0x187
+	.4byte	0x2586
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -3272
+	.sleb128 -2328
 	.uleb128 0x4c
 	.4byte	.LASF445
 	.byte	0x1
-	.2byte	0x182
+	.2byte	0x188
 	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -3120
+	.sleb128 -2176
 	.uleb128 0x4c
 	.4byte	.LASF446
 	.byte	0x1
-	.2byte	0x183
-	.4byte	0x258c
+	.2byte	0x189
+	.4byte	0x2580
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -1336
+	.sleb128 -2024
 	.uleb128 0x4c
 	.4byte	.LASF447
 	.byte	0x1
-	.2byte	0x18d
-	.4byte	0x2586
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -2968
-	.uleb128 0x4c
-	.4byte	.LASF448
-	.byte	0x1
-	.2byte	0x18e
-	.4byte	0x2580
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -2816
-	.uleb128 0x4c
-	.4byte	.LASF449
-	.byte	0x1
-	.2byte	0x18f
-	.4byte	0x2580
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -2664
-	.uleb128 0x4c
-	.4byte	.LASF450
-	.byte	0x1
-	.2byte	0x190
+	.2byte	0x18a
 	.4byte	0x258c
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -1156
-	.uleb128 0x4c
-	.4byte	.LASF451
-	.byte	0x1
-	.2byte	0x19b
-	.4byte	0x2586
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -2512
-	.uleb128 0x4c
-	.4byte	.LASF452
-	.byte	0x1
-	.2byte	0x19c
-	.4byte	0x2580
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -2360
-	.uleb128 0x4c
-	.4byte	.LASF453
-	.byte	0x1
-	.2byte	0x19d
-	.4byte	0x2580
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -2208
-	.uleb128 0x4c
-	.4byte	.LASF454
-	.byte	0x1
-	.2byte	0x19e
-	.4byte	0x258c
-	.byte	0x3
-	.byte	0x91
-	.sleb128 -976
+	.sleb128 -972
 	.uleb128 0x4d
 	.string	"w"
 	.byte	0x1
-	.2byte	0x1a9
+	.2byte	0x195
 	.4byte	0x257a
 	.byte	0x3
 	.byte	0x91
-	.sleb128 -5848
+	.sleb128 -4904
+	.byte	0x0
 	.uleb128 0x4e
-	.4byte	.Ldebug_ranges0+0x98
+	.4byte	.LASF449
+	.byte	0x1
+	.2byte	0x1e7
+	.4byte	0x8b
+	.byte	0x1
+	.4byte	0x2897
+	.uleb128 0x4b
+	.4byte	.LASF450
+	.byte	0x1
+	.2byte	0x1e9
+	.4byte	0x8b
 	.uleb128 0x4f
-	.4byte	.LASF397
-	.byte	0x1
-	.2byte	0x1db
-	.4byte	0x8b
-	.byte	0x0
-	.byte	0x0
-	.uleb128 0x50
-	.4byte	.LASF456
-	.byte	0x1
-	.2byte	0x1f0
-	.4byte	0x8b
-	.byte	0x1
-	.4byte	0x290d
-	.uleb128 0x4f
-	.4byte	.LASF421
-	.byte	0x1
-	.2byte	0x1f2
-	.4byte	0x8b
-	.uleb128 0x51
 	.string	"ret"
 	.byte	0x1
-	.2byte	0x1f3
+	.2byte	0x1ea
 	.4byte	0x8b
-	.uleb128 0x51
+	.uleb128 0x4f
 	.string	"i"
 	.byte	0x1
-	.2byte	0x1f4
+	.2byte	0x1eb
 	.4byte	0x8b
-	.uleb128 0x4f
-	.4byte	.LASF457
+	.uleb128 0x4b
+	.4byte	.LASF451
 	.byte	0x1
-	.2byte	0x1f5
+	.2byte	0x1ec
 	.4byte	0x230d
-	.uleb128 0x4f
+	.uleb128 0x4b
 	.4byte	.LASF405
 	.byte	0x1
-	.2byte	0x20a
+	.2byte	0x201
 	.4byte	0x2586
-	.uleb128 0x4f
-	.4byte	.LASF458
+	.uleb128 0x4b
+	.4byte	.LASF452
 	.byte	0x1
-	.2byte	0x20e
+	.2byte	0x205
 	.4byte	0x2586
-	.uleb128 0x4f
+	.uleb128 0x4b
 	.4byte	.LASF399
 	.byte	0x1
-	.2byte	0x213
+	.2byte	0x20a
 	.4byte	0x2087
-	.uleb128 0x4f
+	.uleb128 0x4b
 	.4byte	.LASF400
 	.byte	0x1
-	.2byte	0x214
+	.2byte	0x20b
 	.4byte	0x21ee
-	.uleb128 0x4f
+	.uleb128 0x4b
 	.4byte	.LASF401
 	.byte	0x1
-	.2byte	0x215
+	.2byte	0x20c
 	.4byte	0x21ee
-	.uleb128 0x4f
+	.uleb128 0x4b
 	.4byte	.LASF402
 	.byte	0x1
-	.2byte	0x217
+	.2byte	0x20e
 	.4byte	0x1e45
-	.uleb128 0x4f
-	.4byte	.LASF459
+	.uleb128 0x4b
+	.4byte	.LASF453
 	.byte	0x1
-	.2byte	0x21a
+	.2byte	0x211
 	.4byte	0x2586
-	.uleb128 0x4f
-	.4byte	.LASF460
+	.uleb128 0x4b
+	.4byte	.LASF454
 	.byte	0x1
-	.2byte	0x21b
+	.2byte	0x212
 	.4byte	0x2580
-	.uleb128 0x4f
-	.4byte	.LASF461
+	.uleb128 0x4b
+	.4byte	.LASF455
 	.byte	0x1
-	.2byte	0x21c
+	.2byte	0x213
 	.4byte	0x2580
-	.uleb128 0x4f
-	.4byte	.LASF462
+	.uleb128 0x4b
+	.4byte	.LASF456
 	.byte	0x1
-	.2byte	0x21d
+	.2byte	0x214
 	.4byte	0x258c
-	.uleb128 0x4f
-	.4byte	.LASF463
+	.uleb128 0x4b
+	.4byte	.LASF457
 	.byte	0x1
-	.2byte	0x227
-	.4byte	0x290d
-	.uleb128 0x51
+	.2byte	0x21e
+	.4byte	0x2897
+	.uleb128 0x4f
 	.string	"w"
 	.byte	0x1
-	.2byte	0x22d
+	.2byte	0x224
 	.4byte	0x257a
 	.byte	0x0
 	.uleb128 0x49
-	.4byte	.LASF464
+	.4byte	.LASF458
 	.byte	0x1
-	.uleb128 0x52
+	.uleb128 0x50
 	.byte	0x1
-	.4byte	.LASF499
+	.4byte	.LASF493
 	.byte	0x1
 	.2byte	0x271
-	.4byte	.LASF500
+	.4byte	.LASF494
 	.4byte	.LFB799
 	.4byte	.LFE799
-	.4byte	.LLST18
-	.4byte	0x2a16
-	.uleb128 0x53
-	.4byte	.LASF421
+	.4byte	.LLST17
+	.4byte	0x29a8
+	.uleb128 0x51
+	.4byte	.LASF450
 	.byte	0x1
 	.2byte	0x271
 	.4byte	0x8b
-	.4byte	.LLST19
-	.uleb128 0x4f
-	.4byte	.LASF465
+	.4byte	.LLST18
+	.uleb128 0x52
+	.4byte	.LASF459
 	.byte	0x1
 	.2byte	0x273
 	.4byte	0x8b
+	.4byte	.LLST19
 	.uleb128 0x4c
 	.4byte	.LASF402
 	.byte	0x1
@@ -10675,113 +10295,114 @@ bgMusic:
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -10196
-	.uleb128 0x54
-	.4byte	.LBB43
-	.4byte	.LBE43
-	.4byte	0x2977
-	.uleb128 0x4f
+	.uleb128 0x53
+	.4byte	.LBB41
+	.4byte	.LBE41
+	.4byte	0x2905
+	.uleb128 0x4b
 	.4byte	.LASF397
 	.byte	0x1
 	.2byte	0x28c
 	.4byte	0x8b
 	.byte	0x0
-	.uleb128 0x55
-	.4byte	0x283f
-	.4byte	.Ldebug_ranges0+0xb0
+	.uleb128 0x54
+	.4byte	0x27c9
+	.4byte	.Ldebug_ranges0+0x98
 	.byte	0x1
 	.2byte	0x2a0
+	.uleb128 0x55
+	.4byte	0x27da
 	.uleb128 0x56
-	.4byte	0x2850
-	.uleb128 0x56
-	.4byte	0x285c
-	.uleb128 0x56
-	.4byte	0x2868
+	.4byte	0x27e6
+	.4byte	.LLST20
+	.uleb128 0x55
+	.4byte	0x27f2
 	.uleb128 0x57
-	.4byte	0x2872
+	.4byte	0x27fc
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -9096
 	.uleb128 0x57
-	.4byte	0x287e
+	.4byte	0x2808
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -11136
 	.uleb128 0x57
-	.4byte	0x288a
+	.4byte	0x2814
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -10984
 	.uleb128 0x57
-	.4byte	0x2896
+	.4byte	0x2820
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -11304
 	.uleb128 0x57
-	.4byte	0x28a2
+	.4byte	0x282c
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -11328
 	.uleb128 0x57
-	.4byte	0x28ae
+	.4byte	0x2838
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -11316
 	.uleb128 0x57
-	.4byte	0x28ba
+	.4byte	0x2844
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -9840
 	.uleb128 0x57
-	.4byte	0x28c6
+	.4byte	0x2850
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -10832
 	.uleb128 0x57
-	.4byte	0x28d2
+	.4byte	0x285c
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -10680
 	.uleb128 0x57
-	.4byte	0x28de
+	.4byte	0x2868
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -10528
 	.uleb128 0x57
-	.4byte	0x28ea
+	.4byte	0x2874
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -10376
 	.uleb128 0x57
-	.4byte	0x28f6
+	.4byte	0x2880
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -9484
 	.uleb128 0x57
-	.4byte	0x2902
+	.4byte	0x288c
 	.byte	0x4
 	.byte	0x91
 	.sleb128 -11280
 	.byte	0x0
 	.byte	0x0
 	.uleb128 0x48
-	.4byte	.LASF466
+	.4byte	.LASF460
 	.byte	0x2
 	.byte	0xdc
-	.4byte	0x2a27
+	.4byte	0x29b9
 	.byte	0x5
 	.byte	0x3
 	.4byte	ftgxWhite
 	.uleb128 0x1d
 	.4byte	0x11a
 	.uleb128 0x58
-	.4byte	.LASF467
+	.4byte	.LASF461
 	.byte	0x26
 	.byte	0x15
 	.4byte	0x8b
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
-	.4byte	.LASF468
+	.4byte	.LASF462
 	.byte	0x26
 	.byte	0x16
 	.4byte	0x8b
@@ -10789,118 +10410,118 @@ bgMusic:
 	.byte	0x1
 	.uleb128 0x11
 	.4byte	0x1e45
-	.4byte	0x2a56
+	.4byte	0x29e8
 	.uleb128 0x12
 	.4byte	0xc1
 	.byte	0x3
 	.byte	0x0
 	.uleb128 0x58
-	.4byte	.LASF469
+	.4byte	.LASF463
 	.byte	0x23
 	.byte	0x3b
-	.4byte	0x2a46
+	.4byte	0x29d8
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x11
 	.4byte	0x21
-	.4byte	0x2a6e
+	.4byte	0x2a00
 	.uleb128 0x59
 	.byte	0x0
 	.uleb128 0x58
-	.4byte	.LASF470
+	.4byte	.LASF464
 	.byte	0x27
 	.byte	0x11
-	.4byte	0x2a63
+	.4byte	0x29f5
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
-	.4byte	.LASF471
+	.4byte	.LASF465
 	.byte	0x27
 	.byte	0x12
-	.4byte	0x2a88
+	.4byte	0x2a1a
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x1d
 	.4byte	0x44
 	.uleb128 0x58
-	.4byte	.LASF472
+	.4byte	.LASF466
 	.byte	0x27
 	.byte	0x14
-	.4byte	0x2a63
+	.4byte	0x29f5
+	.byte	0x1
+	.byte	0x1
+	.uleb128 0x58
+	.4byte	.LASF467
+	.byte	0x27
+	.byte	0x15
+	.4byte	0x2a1a
+	.byte	0x1
+	.byte	0x1
+	.uleb128 0x58
+	.4byte	.LASF468
+	.byte	0x27
+	.byte	0x17
+	.4byte	0x29f5
+	.byte	0x1
+	.byte	0x1
+	.uleb128 0x58
+	.4byte	.LASF469
+	.byte	0x27
+	.byte	0x1a
+	.4byte	0x29f5
+	.byte	0x1
+	.byte	0x1
+	.uleb128 0x58
+	.4byte	.LASF470
+	.byte	0x27
+	.byte	0x1d
+	.4byte	0x29f5
+	.byte	0x1
+	.byte	0x1
+	.uleb128 0x58
+	.4byte	.LASF471
+	.byte	0x27
+	.byte	0x20
+	.4byte	0x29f5
+	.byte	0x1
+	.byte	0x1
+	.uleb128 0x58
+	.4byte	.LASF472
+	.byte	0x27
+	.byte	0x23
+	.4byte	0x29f5
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
 	.4byte	.LASF473
 	.byte	0x27
-	.byte	0x15
-	.4byte	0x2a88
+	.byte	0x56
+	.4byte	0x29f5
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
 	.4byte	.LASF474
 	.byte	0x27
-	.byte	0x17
-	.4byte	0x2a63
+	.byte	0x59
+	.4byte	0x29f5
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
 	.4byte	.LASF475
 	.byte	0x27
-	.byte	0x1a
-	.4byte	0x2a63
+	.byte	0x5c
+	.4byte	0x29f5
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
 	.4byte	.LASF476
 	.byte	0x27
-	.byte	0x1d
-	.4byte	0x2a63
+	.byte	0x5f
+	.4byte	0x29f5
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x58
 	.4byte	.LASF477
-	.byte	0x27
-	.byte	0x20
-	.4byte	0x2a63
-	.byte	0x1
-	.byte	0x1
-	.uleb128 0x58
-	.4byte	.LASF478
-	.byte	0x27
-	.byte	0x23
-	.4byte	0x2a63
-	.byte	0x1
-	.byte	0x1
-	.uleb128 0x58
-	.4byte	.LASF479
-	.byte	0x27
-	.byte	0x56
-	.4byte	0x2a63
-	.byte	0x1
-	.byte	0x1
-	.uleb128 0x58
-	.4byte	.LASF480
-	.byte	0x27
-	.byte	0x59
-	.4byte	0x2a63
-	.byte	0x1
-	.byte	0x1
-	.uleb128 0x58
-	.4byte	.LASF481
-	.byte	0x27
-	.byte	0x5c
-	.4byte	0x2a63
-	.byte	0x1
-	.byte	0x1
-	.uleb128 0x58
-	.4byte	.LASF482
-	.byte	0x27
-	.byte	0x5f
-	.4byte	0x2a63
-	.byte	0x1
-	.byte	0x1
-	.uleb128 0x58
-	.4byte	.LASF483
 	.byte	0x28
 	.byte	0xe
 	.4byte	0x8b
@@ -10908,24 +10529,24 @@ bgMusic:
 	.byte	0x1
 	.uleb128 0x11
 	.4byte	0x22b4
-	.4byte	0x2b39
+	.4byte	0x2acb
 	.uleb128 0x12
 	.4byte	0xc1
 	.byte	0x3
 	.byte	0x0
 	.uleb128 0x48
-	.4byte	.LASF484
+	.4byte	.LASF478
 	.byte	0x1
 	.byte	0x17
-	.4byte	0x2b29
+	.4byte	0x2abb
 	.byte	0x5
 	.byte	0x3
 	.4byte	pointer
 	.uleb128 0x48
-	.4byte	.LASF485
+	.4byte	.LASF479
 	.byte	0x1
 	.byte	0x18
-	.4byte	0x2b5b
+	.4byte	0x2aed
 	.byte	0x5
 	.byte	0x3
 	.4byte	bgImg
@@ -10933,7 +10554,7 @@ bgMusic:
 	.byte	0x4
 	.4byte	0x2580
 	.uleb128 0x48
-	.4byte	.LASF486
+	.4byte	.LASF480
 	.byte	0x1
 	.byte	0x19
 	.4byte	0x21e8
@@ -10941,10 +10562,10 @@ bgMusic:
 	.byte	0x3
 	.4byte	bgMusic
 	.uleb128 0x48
-	.4byte	.LASF487
+	.4byte	.LASF481
 	.byte	0x1
 	.byte	0x1a
-	.4byte	0x2b83
+	.4byte	0x2b15
 	.byte	0x5
 	.byte	0x3
 	.4byte	mainWindow
@@ -10952,7 +10573,7 @@ bgMusic:
 	.byte	0x4
 	.4byte	0x257a
 	.uleb128 0x48
-	.4byte	.LASF488
+	.4byte	.LASF482
 	.byte	0x1
 	.byte	0x1b
 	.4byte	0xcd
@@ -10960,7 +10581,7 @@ bgMusic:
 	.byte	0x3
 	.4byte	guithread
 	.uleb128 0x48
-	.4byte	.LASF489
+	.4byte	.LASF483
 	.byte	0x1
 	.byte	0x1c
 	.4byte	0xc4
@@ -12014,8 +11635,6 @@ bgMusic:
 	.uleb128 0x5
 	.uleb128 0x49
 	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x6
 	.byte	0x0
 	.byte	0x0
 	.uleb128 0x4c
@@ -12049,26 +11668,6 @@ bgMusic:
 	.byte	0x0
 	.byte	0x0
 	.uleb128 0x4e
-	.uleb128 0xb
-	.byte	0x1
-	.uleb128 0x55
-	.uleb128 0x6
-	.byte	0x0
-	.byte	0x0
-	.uleb128 0x4f
-	.uleb128 0x34
-	.byte	0x0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0x0
-	.byte	0x0
-	.uleb128 0x50
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -12085,7 +11684,7 @@ bgMusic:
 	.uleb128 0x13
 	.byte	0x0
 	.byte	0x0
-	.uleb128 0x51
+	.uleb128 0x4f
 	.uleb128 0x34
 	.byte	0x0
 	.uleb128 0x3
@@ -12098,7 +11697,7 @@ bgMusic:
 	.uleb128 0x13
 	.byte	0x0
 	.byte	0x0
-	.uleb128 0x52
+	.uleb128 0x50
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -12121,7 +11720,7 @@ bgMusic:
 	.uleb128 0x13
 	.byte	0x0
 	.byte	0x0
-	.uleb128 0x53
+	.uleb128 0x51
 	.uleb128 0x5
 	.byte	0x0
 	.uleb128 0x3
@@ -12136,7 +11735,22 @@ bgMusic:
 	.uleb128 0x6
 	.byte	0x0
 	.byte	0x0
-	.uleb128 0x54
+	.uleb128 0x52
+	.uleb128 0x34
+	.byte	0x0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x6
+	.byte	0x0
+	.byte	0x0
+	.uleb128 0x53
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x11
@@ -12147,7 +11761,7 @@ bgMusic:
 	.uleb128 0x13
 	.byte	0x0
 	.byte	0x0
-	.uleb128 0x55
+	.uleb128 0x54
 	.uleb128 0x1d
 	.byte	0x1
 	.uleb128 0x31
@@ -12160,11 +11774,20 @@ bgMusic:
 	.uleb128 0x5
 	.byte	0x0
 	.byte	0x0
+	.uleb128 0x55
+	.uleb128 0x34
+	.byte	0x0
+	.uleb128 0x31
+	.uleb128 0x13
+	.byte	0x0
+	.byte	0x0
 	.uleb128 0x56
 	.uleb128 0x34
 	.byte	0x0
 	.uleb128 0x31
 	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x6
 	.byte	0x0
 	.byte	0x0
 	.uleb128 0x57
@@ -12203,12 +11826,12 @@ bgMusic:
 	.4byte	0x3f
 	.2byte	0x2
 	.4byte	.Ldebug_info0
-	.4byte	0x2bac
+	.4byte	0x2b3e
 	.4byte	0x2382
 	.string	"InitGUIThreads"
 	.4byte	0x240f
 	.string	"WindowPrompt"
-	.4byte	0x2913
+	.4byte	0x289d
 	.string	"MainMenu"
 	.4byte	0x0
 	.section	.debug_aranges,"",@progbits
@@ -12263,19 +11886,17 @@ bgMusic:
 	.4byte	.LBE11-.Ltext0
 	.4byte	0x0
 	.4byte	0x0
-	.4byte	.LBB31-.Ltext0
-	.4byte	.LBE31-.Ltext0
-	.4byte	.LBB30-.Ltext0
-	.4byte	.LBE30-.Ltext0
-	.4byte	0x0
-	.4byte	0x0
-	.4byte	.LBB44-.Ltext0
-	.4byte	.LBE44-.Ltext0
-	.4byte	.LBB55-.Ltext0
-	.4byte	.LBE55-.Ltext0
+	.4byte	.LBB42-.Ltext0
+	.4byte	.LBE42-.Ltext0
+	.4byte	.LBB58-.Ltext0
+	.4byte	.LBE58-.Ltext0
+	.4byte	.LBB57-.Ltext0
+	.4byte	.LBE57-.Ltext0
 	.4byte	0x0
 	.4byte	0x0
 	.section	.debug_str,"MS",@progbits,1
+.LASF433:
+	.string	"optionsBtnImg"
 .LASF243:
 	.string	"lconv"
 .LASF132:
@@ -12290,7 +11911,7 @@ bgMusic:
 	.string	"error_cnt"
 .LASF374:
 	.string	"SetLoop"
-.LASF466:
+.LASF460:
 	.string	"ftgxWhite"
 .LASF136:
 	.string	"fpos_t"
@@ -12300,7 +11921,7 @@ bgMusic:
 	.string	"joystick_t"
 .LASF336:
 	.string	"MENU_NONE"
-.LASF469:
+.LASF463:
 	.string	"userInput"
 .LASF302:
 	.string	"__gnu_cxx"
@@ -12308,13 +11929,13 @@ bgMusic:
 	.string	"_fntypes"
 .LASF166:
 	.string	"angle"
-.LASF458:
+.LASF452:
 	.string	"infoTxt"
 .LASF92:
 	.string	"_inc"
 .LASF45:
 	.string	"_ind"
-.LASF422:
+.LASF421:
 	.string	"btnLargeOutline"
 .LASF381:
 	.string	"GetWidth"
@@ -12350,6 +11971,8 @@ bgMusic:
 	.string	"_lock"
 .LASF60:
 	.string	"_nbuf"
+.LASF430:
+	.string	"filterBtnImgOver"
 .LASF87:
 	.string	"_unused"
 .LASF237:
@@ -12364,9 +11987,9 @@ bgMusic:
 	.string	"atoi"
 .LASF227:
 	.string	"atol"
-.LASF498:
+.LASF492:
 	.string	"_Z12WindowPromptPKcS0_S0_S0_"
-.LASF485:
+.LASF479:
 	.string	"bgImg"
 .LASF219:
 	.string	"strcoll"
@@ -12376,28 +11999,32 @@ bgMusic:
 	.string	"_current_locale"
 .LASF325:
 	.string	"_ZN10GuiTrigger27SetButtonOnlyInFocusTriggerEijt"
+.LASF437:
+	.string	"infoBtnImg"
 .LASF303:
 	.string	"__debug"
 .LASF116:
 	.string	"_add"
+.LASF435:
+	.string	"optionsBtn"
 .LASF247:
 	.string	"int_curr_symbol"
 .LASF337:
 	.string	"MENU_MAIN"
 .LASF262:
 	.string	"setlocale"
-.LASF471:
+.LASF465:
 	.string	"bg_music_ogg_size"
 .LASF318:
 	.string	"SetSimpleTrigger"
 .LASF140:
 	.string	"WIIUSE_IR_ABOVE"
+.LASF427:
+	.string	"allBtn"
 .LASF193:
 	.string	"btns_held"
 .LASF172:
 	.string	"WIIUSE_ASPECT_16_9"
-.LASF431:
-	.string	"videoBtnImgOver"
 .LASF53:
 	.string	"_lbfsize"
 .LASF413:
@@ -12406,7 +12033,7 @@ bgMusic:
 	.string	"__va_list_tag"
 .LASF163:
 	.string	"dots"
-.LASF459:
+.LASF453:
 	.string	"backBtnTxt"
 .LASF63:
 	.string	"_data"
@@ -12428,7 +12055,7 @@ bgMusic:
 	.string	"__sf"
 .LASF48:
 	.string	"_base"
-.LASF423:
+.LASF422:
 	.string	"btnLargeOutlineOver"
 .LASF389:
 	.string	"__initialize_p"
@@ -12458,11 +12085,9 @@ bgMusic:
 	.string	"freopen"
 .LASF29:
 	.string	"__tm"
-.LASF454:
-	.string	"resetBtn"
 .LASF158:
 	.string	"ir_dot_t"
-.LASF462:
+.LASF456:
 	.string	"backBtn"
 .LASF37:
 	.string	"__tm_yday"
@@ -12478,6 +12103,8 @@ bgMusic:
 	.string	"_unused_rand"
 .LASF373:
 	.string	"_ZN8GuiSound9SetVolumeEi"
+.LASF447:
+	.string	"creditsBtn"
 .LASF341:
 	.string	"ALIGN_RIGHT"
 .LASF162:
@@ -12486,7 +12113,7 @@ bgMusic:
 	.string	"accel_t"
 .LASF248:
 	.string	"currency_symbol"
-.LASF450:
+.LASF443:
 	.string	"exitBtn"
 .LASF99:
 	.string	"_result_k"
@@ -12506,13 +12133,15 @@ bgMusic:
 	.string	"valid"
 .LASF36:
 	.string	"__tm_wday"
+.LASF429:
+	.string	"filterBtnImg"
 .LASF38:
 	.string	"__tm_isdst"
-.LASF479:
+.LASF473:
 	.string	"player1_point_png"
 .LASF201:
 	.string	"r_shoulder"
-.LASF447:
+.LASF440:
 	.string	"exitBtnTxt"
 .LASF0:
 	.string	"unsigned char"
@@ -12520,11 +12149,13 @@ bgMusic:
 	.string	"_stdout"
 .LASF195:
 	.string	"accel"
+.LASF432:
+	.string	"optionsBtnTxt"
 .LASF81:
 	.string	"_mbsrtowcs_state"
 .LASF28:
 	.string	"_wds"
-.LASF491:
+.LASF485:
 	.string	"/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/menu.cpp"
 .LASF7:
 	.string	"float"
@@ -12540,8 +12171,6 @@ bgMusic:
 	.string	"dialogBoxImg"
 .LASF351:
 	.string	"STATE_DISABLED"
-.LASF453:
-	.string	"resetBtnImgOver"
 .LASF49:
 	.string	"_size"
 .LASF407:
@@ -12560,10 +12189,6 @@ bgMusic:
 	.string	"__priority"
 .LASF405:
 	.string	"titleTxt"
-.LASF445:
-	.string	"networkBtnImgOver"
-.LASF426:
-	.string	"mappingBtnImg"
 .LASF394:
 	.string	"title"
 .LASF35:
@@ -12574,10 +12199,10 @@ bgMusic:
 	.string	"msgTxt"
 .LASF150:
 	.string	"a_pitch"
-.LASF441:
-	.string	"menuBtnImgOver"
 .LASF115:
 	.string	"_mult"
+.LASF425:
+	.string	"allBtnImg"
 .LASF350:
 	.string	"STATE_HELD"
 .LASF224:
@@ -12596,7 +12221,7 @@ bgMusic:
 	.string	"va_list"
 .LASF89:
 	.string	"_stdin"
-.LASF461:
+.LASF455:
 	.string	"backBtnImgOver"
 .LASF383:
 	.string	"_ZN12GuiImageData8GetWidthEv"
@@ -12604,8 +12229,6 @@ bgMusic:
 	.string	"_nmalloc"
 .LASF409:
 	.string	"btn1ImgOver"
-.LASF452:
-	.string	"resetBtnImg"
 .LASF189:
 	.string	"accel_calib"
 .LASF160:
@@ -12614,10 +12237,8 @@ bgMusic:
 	.string	"sensorbar"
 .LASF135:
 	.string	"FILE"
-.LASF495:
+.LASF489:
 	.string	"InitGUIThreads"
-.LASF451:
-	.string	"resetBtnTxt"
 .LASF292:
 	.string	"clock"
 .LASF296:
@@ -12640,7 +12261,7 @@ bgMusic:
 	.string	"GuiImage"
 .LASF138:
 	.string	"quot"
-.LASF465:
+.LASF459:
 	.string	"currentMenu"
 .LASF365:
 	.string	"_ZN8GuiSound4StopEv"
@@ -12648,6 +12269,8 @@ bgMusic:
 	.string	"aspect"
 .LASF323:
 	.string	"_ZN10GuiTrigger20SetButtonOnlyTriggerEijt"
+.LASF436:
+	.string	"infoBtnTxt"
 .LASF282:
 	.string	"perror"
 .LASF103:
@@ -12658,8 +12281,6 @@ bgMusic:
 	.string	"_wpad_data"
 .LASF327:
 	.string	"Left"
-.LASF438:
-	.string	"savingBtn"
 .LASF250:
 	.string	"mon_thousands_sep"
 .LASF18:
@@ -12680,7 +12301,7 @@ bgMusic:
 	.string	"_errno"
 .LASF33:
 	.string	"__tm_mday"
-.LASF492:
+.LASF486:
 	.string	"_ZN10GuiTrigger2UpEv"
 .LASF40:
 	.string	"_fnargs"
@@ -12692,11 +12313,11 @@ bgMusic:
 	.string	"btns_l"
 .LASF217:
 	.string	"btns_u"
-.LASF421:
+.LASF450:
 	.string	"menu"
 .LASF387:
 	.string	"value"
-.LASF490:
+.LASF484:
 	.string	"GNU C++ 4.2.4 (devkitPPC release 15)"
 .LASF25:
 	.string	"_next"
@@ -12708,6 +12329,8 @@ bgMusic:
 	.string	"_cookie"
 .LASF84:
 	.string	"._10"
+.LASF446:
+	.string	"creditsBtnImgOver"
 .LASF266:
 	.string	"fclose"
 .LASF148:
@@ -12732,20 +12355,24 @@ bgMusic:
 	.string	"__tm_sec"
 .LASF39:
 	.string	"_on_exit_args"
-.LASF424:
+.LASF431:
+	.string	"filterBtn"
+.LASF423:
 	.string	"trigHome"
-.LASF494:
+.LASF488:
 	.string	"_ZN12GuiImageData9GetHeightEv"
 .LASF415:
 	.string	"GuiWindow"
 .LASF402:
 	.string	"trigA"
-.LASF486:
+.LASF480:
 	.string	"bgMusic"
-.LASF470:
+.LASF464:
 	.string	"bg_music_ogg"
 .LASF82:
 	.string	"_wcrtomb_state"
+.LASF428:
+	.string	"filterBtnTxt"
 .LASF34:
 	.string	"__tm_mon"
 .LASF145:
@@ -12754,6 +12381,8 @@ bgMusic:
 	.string	"WIIUSE_IR_BELOW"
 .LASF335:
 	.string	"MENU_EXIT"
+.LASF438:
+	.string	"infoBtnImgOver"
 .LASF309:
 	.string	"substickX"
 .LASF310:
@@ -12786,21 +12415,21 @@ bgMusic:
 	.string	"~GuiTrigger"
 .LASF198:
 	.string	"classic_ctrl_t"
-.LASF493:
+.LASF487:
 	.string	"_ZN8GuiSound7SetLoopEb"
 .LASF251:
 	.string	"mon_grouping"
-.LASF468:
+.LASF462:
 	.string	"screenwidth"
 .LASF270:
 	.string	"fgetc"
 .LASF67:
 	.string	"_strtok_last"
-.LASF484:
+.LASF478:
 	.string	"pointer"
 .LASF119:
 	.string	"clock_t"
-.LASF477:
+.LASF471:
 	.string	"button_large_over_png"
 .LASF114:
 	.string	"_seed"
@@ -12810,8 +12439,6 @@ bgMusic:
 	.string	"wpad"
 .LASF353:
 	.string	"SOUND_PCM"
-.LASF425:
-	.string	"mappingBtnTxt"
 .LASF242:
 	.string	"system"
 .LASF361:
@@ -12826,8 +12453,6 @@ bgMusic:
 	.string	"signed char"
 .LASF334:
 	.string	"._70"
-.LASF428:
-	.string	"mappingBtn"
 .LASF339:
 	.string	"._75"
 .LASF346:
@@ -12842,14 +12467,16 @@ bgMusic:
 	.string	"SetHeldTrigger"
 .LASF16:
 	.string	"_gx_color"
-.LASF488:
+.LASF482:
 	.string	"guithread"
 .LASF410:
 	.string	"btn1"
 .LASF414:
 	.string	"btn2"
-.LASF481:
+.LASF475:
 	.string	"player3_point_png"
+.LASF439:
+	.string	"infoBtn"
 .LASF101:
 	.string	"_freelist"
 .LASF384:
@@ -12860,16 +12487,16 @@ bgMusic:
 	.string	"smooth_valid"
 .LASF233:
 	.string	"wchar_t"
+.LASF434:
+	.string	"optionsBtnImgOver"
 .LASF62:
 	.string	"_offset"
 .LASF191:
 	.string	"btns"
 .LASF175:
 	.string	"state"
-.LASF472:
+.LASF466:
 	.string	"button_over_pcm"
-.LASF427:
-	.string	"mappingBtnImgOver"
 .LASF47:
 	.string	"__sbuf"
 .LASF232:
@@ -12924,21 +12551,19 @@ bgMusic:
 	.string	"_wctomb_state"
 .LASF388:
 	.string	"OptionList"
-.LASF487:
+.LASF481:
 	.string	"mainWindow"
 .LASF126:
 	.string	"tm_year"
 .LASF279:
 	.string	"getc"
-.LASF442:
-	.string	"menuBtn"
 .LASF112:
 	.string	"_iobs"
 .LASF93:
 	.string	"_emergency"
 .LASF225:
 	.string	"atof"
-.LASF467:
+.LASF461:
 	.string	"screenheight"
 .LASF85:
 	.string	"_nextf"
@@ -12970,11 +12595,9 @@ bgMusic:
 	.string	"p_sep_by_space"
 .LASF23:
 	.string	"long unsigned int"
-.LASF444:
-	.string	"networkBtnImg"
 .LASF206:
 	.string	"wii_board_t"
-.LASF476:
+.LASF470:
 	.string	"button_large_png"
 .LASF289:
 	.string	"tmpnam"
@@ -12982,11 +12605,9 @@ bgMusic:
 	.string	"ferror"
 .LASF403:
 	.string	"dialogBox"
-.LASF437:
-	.string	"savingBtnImgOver"
 .LASF367:
 	.string	"_ZN8GuiSound5PauseEv"
-.LASF480:
+.LASF474:
 	.string	"player2_point_png"
 .LASF58:
 	.string	"_close"
@@ -13000,7 +12621,7 @@ bgMusic:
 	.string	"_glue"
 .LASF259:
 	.string	"n_sep_by_space"
-.LASF455:
+.LASF448:
 	.string	"__static_initialization_and_destruction_0"
 .LASF349:
 	.string	"STATE_CLICKED"
@@ -13014,14 +12635,10 @@ bgMusic:
 	.string	"difftime"
 .LASF401:
 	.string	"btnOutlineOver"
-.LASF440:
-	.string	"menuBtnImg"
 .LASF105:
 	.string	"_atexit0"
-.LASF474:
+.LASF468:
 	.string	"button_png"
-.LASF430:
-	.string	"videoBtnImg"
 .LASF12:
 	.string	"GXColor"
 .LASF123:
@@ -13030,13 +12647,11 @@ bgMusic:
 	.string	"_getdate_err"
 .LASF153:
 	.string	"cal_zero"
-.LASF446:
-	.string	"networkBtn"
 .LASF276:
 	.string	"fseek"
 .LASF228:
 	.string	"bsearch"
-.LASF464:
+.LASF458:
 	.string	"GuiOptionBrowser"
 .LASF124:
 	.string	"tm_mday"
@@ -13052,16 +12667,14 @@ bgMusic:
 	.string	"__sglue"
 .LASF277:
 	.string	"fsetpos"
+.LASF445:
+	.string	"creditsBtnImg"
 .LASF97:
 	.string	"__cleanup"
-.LASF433:
-	.string	"savingBtnTxt1"
-.LASF434:
-	.string	"savingBtnTxt2"
-.LASF435:
-	.string	"savingBtnTxt3"
 .LASF181:
 	.string	"glitch_cnt"
+.LASF426:
+	.string	"allBtnImgOver"
 .LASF13:
 	.string	"_fpos_t"
 .LASF52:
@@ -13082,11 +12695,9 @@ bgMusic:
 	.string	"__FILE"
 .LASF313:
 	.string	"PADData"
-.LASF436:
-	.string	"savingBtnImg"
 .LASF297:
 	.string	"ctime"
-.LASF475:
+.LASF469:
 	.string	"button_over_png"
 .LASF236:
 	.string	"qsort"
@@ -13094,7 +12705,7 @@ bgMusic:
 	.string	"classic"
 .LASF20:
 	.string	"__value"
-.LASF478:
+.LASF472:
 	.string	"dialogue_box_png"
 .LASF192:
 	.string	"btns_last"
@@ -13102,6 +12713,8 @@ bgMusic:
 	.string	"_is_cxa"
 .LASF178:
 	.string	"distance"
+.LASF424:
+	.string	"allBtnTxt"
 .LASF100:
 	.string	"_p5s"
 .LASF171:
@@ -13116,7 +12729,7 @@ bgMusic:
 	.string	"setvbuf"
 .LASF331:
 	.string	"_ZN10GuiTrigger5RightEv"
-.LASF463:
+.LASF457:
 	.string	"optionBrowser"
 .LASF300:
 	.string	"strftime"
@@ -13130,8 +12743,6 @@ bgMusic:
 	.string	"ubyte"
 .LASF185:
 	.string	"offset"
-.LASF443:
-	.string	"networkBtnTxt"
 .LASF70:
 	.string	"_gamma_signgam"
 .LASF197:
@@ -13162,15 +12773,13 @@ bgMusic:
 	.string	"_ZN10GuiTrigger16SetSimpleTriggerEijt"
 .LASF21:
 	.string	"_flock_t"
-.LASF432:
-	.string	"videoBtn"
-.LASF473:
+.LASF467:
 	.string	"button_over_pcm_size"
-.LASF499:
+.LASF493:
 	.string	"MainMenu"
 .LASF281:
 	.string	"gets"
-.LASF483:
+.LASF477:
 	.string	"ExitRequested"
 .LASF329:
 	.string	"_ZN10GuiTrigger4LeftEv"
@@ -13178,17 +12787,17 @@ bgMusic:
 	.string	"ALIGN_BOTTOM"
 .LASF260:
 	.string	"p_sign_posn"
-.LASF449:
+.LASF442:
 	.string	"exitBtnImgOver"
 .LASF371:
 	.string	"_ZN8GuiSound9IsPlayingEv"
-.LASF460:
+.LASF454:
 	.string	"backBtnImg"
-.LASF496:
+.LASF490:
 	.string	"_Z14InitGUIThreadsv"
 .LASF6:
 	.string	"long long int"
-.LASF489:
+.LASF483:
 	.string	"guiHalt"
 .LASF362:
 	.string	"Play"
@@ -13196,7 +12805,7 @@ bgMusic:
 	.string	"ALIGN_CENTRE"
 .LASF187:
 	.string	"center"
-.LASF497:
+.LASF491:
 	.string	"WindowPrompt"
 .LASF340:
 	.string	"ALIGN_LEFT"
@@ -13206,7 +12815,7 @@ bgMusic:
 	.string	"Down"
 .LASF280:
 	.string	"getchar"
-.LASF500:
+.LASF494:
 	.string	"_Z8MainMenui"
 .LASF176:
 	.string	"raw_valid"
@@ -13232,10 +12841,6 @@ bgMusic:
 	.string	"_sign"
 .LASF31:
 	.string	"__tm_min"
-.LASF439:
-	.string	"menuBtnTxt"
-.LASF429:
-	.string	"videoBtnTxt"
 .LASF2:
 	.string	"unsigned int"
 .LASF72:
@@ -13262,11 +12867,11 @@ bgMusic:
 	.string	"_read"
 .LASF113:
 	.string	"_rand48"
-.LASF456:
+.LASF449:
 	.string	"RegionSelect"
-.LASF457:
+.LASF451:
 	.string	"options"
-.LASF448:
+.LASF441:
 	.string	"exitBtnImg"
 .LASF203:
 	.string	"guitar_hero_3_t"
@@ -13276,6 +12881,8 @@ bgMusic:
 	.string	"flags"
 .LASF356:
 	.string	"sound"
-.LASF482:
+.LASF476:
 	.string	"player4_point_png"
+.LASF444:
+	.string	"creditsBtnTxt"
 	.ident	"GCC: (GNU) 4.2.4 (devkitPPC release 15)"
