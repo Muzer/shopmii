@@ -16751,7 +16751,7 @@ static int MenuMain()
 {
  int menu = MENU_NONE;
 
- GuiText titleTxt("Settings", 28, (GXColor){255, 255, 255, 255});
+ GuiText titleTxt("ShopMii", 28, (GXColor){255, 255, 255, 255});
  titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
  titleTxt.SetPosition(50,50);
 
@@ -16766,80 +16766,60 @@ static int MenuMain()
  GuiTrigger trigHome;
  trigHome.SetButtonOnlyTrigger(-1, 0x0080 | (0x0800<<16), 0);
 
- GuiText mappingBtnTxt("Button Mappings", 22, (GXColor){0, 0, 0, 255});
- mappingBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
- GuiImage mappingBtnImg(&btnLargeOutline);
- GuiImage mappingBtnImgOver(&btnLargeOutlineOver);
- GuiButton mappingBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
- mappingBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
- mappingBtn.SetPosition(50, 120);
- mappingBtn.SetLabel(&mappingBtnTxt);
- mappingBtn.SetImage(&mappingBtnImg);
- mappingBtn.SetImageOver(&mappingBtnImgOver);
- mappingBtn.SetSoundOver(&btnSoundOver);
- mappingBtn.SetTrigger(&trigA);
- mappingBtn.SetEffectGrow();
+ GuiText allBtnTxt("Show all (and sort)", 22, (GXColor){0, 0, 0, 255});
+ allBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
+ GuiImage allBtnImg(&btnLargeOutline);
+ GuiImage allBtnImgOver(&btnLargeOutlineOver);
+ GuiButton allBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
+ allBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+ allBtn.SetPosition(-125, 120);
+ allBtn.SetLabel(&allBtnTxt);
+ allBtn.SetImage(&allBtnImg);
+ allBtn.SetImageOver(&allBtnImgOver);
+ allBtn.SetSoundOver(&btnSoundOver);
+ allBtn.SetTrigger(&trigA);
+ allBtn.SetEffectGrow();
 
- GuiText videoBtnTxt("Video", 22, (GXColor){0, 0, 0, 255});
- videoBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
- GuiImage videoBtnImg(&btnLargeOutline);
- GuiImage videoBtnImgOver(&btnLargeOutlineOver);
- GuiButton videoBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
- videoBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
- videoBtn.SetPosition(0, 120);
- videoBtn.SetLabel(&videoBtnTxt);
- videoBtn.SetImage(&videoBtnImg);
- videoBtn.SetImageOver(&videoBtnImgOver);
- videoBtn.SetSoundOver(&btnSoundOver);
- videoBtn.SetTrigger(&trigA);
- videoBtn.SetEffectGrow();
+ GuiText filterBtnTxt("Filter (search)", 22, (GXColor){0, 0, 0, 255});
+ filterBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
+ GuiImage filterBtnImg(&btnLargeOutline);
+ GuiImage filterBtnImgOver(&btnLargeOutlineOver);
+ GuiButton filterBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
+ filterBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+ filterBtn.SetPosition(125, 120);
+ filterBtn.SetLabel(&filterBtnTxt);
+ filterBtn.SetImage(&filterBtnImg);
+ filterBtn.SetImageOver(&filterBtnImgOver);
+ filterBtn.SetSoundOver(&btnSoundOver);
+ filterBtn.SetTrigger(&trigA);
+ filterBtn.SetEffectGrow();
 
- GuiText savingBtnTxt1("Saving", 22, (GXColor){0, 0, 0, 255});
- GuiText savingBtnTxt2("&", 18, (GXColor){0, 0, 0, 255});
- GuiText savingBtnTxt3("Loading", 22, (GXColor){0, 0, 0, 255});
- savingBtnTxt1.SetPosition(0, -20);
- savingBtnTxt3.SetPosition(0, +20);
- GuiImage savingBtnImg(&btnLargeOutline);
- GuiImage savingBtnImgOver(&btnLargeOutlineOver);
- GuiButton savingBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
- savingBtn.SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
- savingBtn.SetPosition(-50, 120);
- savingBtn.SetLabel(&savingBtnTxt1, 0);
- savingBtn.SetLabel(&savingBtnTxt2, 1);
- savingBtn.SetLabel(&savingBtnTxt3, 2);
- savingBtn.SetImage(&savingBtnImg);
- savingBtn.SetImageOver(&savingBtnImgOver);
- savingBtn.SetSoundOver(&btnSoundOver);
- savingBtn.SetTrigger(&trigA);
- savingBtn.SetEffectGrow();
+ GuiText optionsBtnTxt("Options", 18, (GXColor){0, 0, 0, 255});
+ GuiImage optionsBtnImg(&btnLargeOutline);
+ GuiImage optionsBtnImgOver(&btnLargeOutlineOver);
+ GuiButton optionsBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
+ optionsBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+ optionsBtn.SetPosition(125, 250);
+ optionsBtn.SetLabel(&optionsBtnTxt);
+ optionsBtn.SetImage(&optionsBtnImg);
+ optionsBtn.SetImageOver(&optionsBtnImgOver);
+ optionsBtn.SetSoundOver(&btnSoundOver);
+ optionsBtn.SetTrigger(&trigA);
+ optionsBtn.SetEffectGrow();
 
- GuiText menuBtnTxt("Menu", 22, (GXColor){0, 0, 0, 255});
- menuBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
- GuiImage menuBtnImg(&btnLargeOutline);
- GuiImage menuBtnImgOver(&btnLargeOutlineOver);
- GuiButton menuBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
- menuBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
- menuBtn.SetPosition(-125, 250);
- menuBtn.SetLabel(&menuBtnTxt);
- menuBtn.SetImage(&menuBtnImg);
- menuBtn.SetImageOver(&menuBtnImgOver);
- menuBtn.SetSoundOver(&btnSoundOver);
- menuBtn.SetTrigger(&trigA);
- menuBtn.SetEffectGrow();
-
- GuiText networkBtnTxt("Network", 22, (GXColor){0, 0, 0, 255});
- networkBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
- GuiImage networkBtnImg(&btnLargeOutline);
- GuiImage networkBtnImgOver(&btnLargeOutlineOver);
- GuiButton networkBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
- networkBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
- networkBtn.SetPosition(125, 250);
- networkBtn.SetLabel(&networkBtnTxt);
- networkBtn.SetImage(&networkBtnImg);
- networkBtn.SetImageOver(&networkBtnImgOver);
- networkBtn.SetSoundOver(&btnSoundOver);
- networkBtn.SetTrigger(&trigA);
- networkBtn.SetEffectGrow();
+ GuiText infoBtnTxt("Information", 22, (GXColor){0, 0, 0, 255});
+ infoBtnTxt.SetMaxWidth(btnLargeOutline.GetWidth()-30);
+ GuiImage infoBtnImg(&btnLargeOutline);
+ GuiImage infoBtnImgOver(&btnLargeOutlineOver);
+ GuiButton infoBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
+ infoBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+ infoBtn.SetPosition(-125, 250);
+ infoBtn.SetLabel(&infoBtnTxt);
+ infoBtn.SetImage(&infoBtnImg);
+ infoBtn.SetImageOver(&infoBtnImgOver);
+ infoBtn.SetSoundOver(&btnSoundOver);
+ infoBtn.SetTrigger(&trigA);
+ infoBtn.SetEffectGrow();
 
  GuiText exitBtnTxt("Exit", 22, (GXColor){0, 0, 0, 255});
  GuiImage exitBtnImg(&btnOutline);
@@ -16855,33 +16835,28 @@ static int MenuMain()
  exitBtn.SetTrigger(&trigHome);
  exitBtn.SetEffectGrow();
 
- GuiText resetBtnTxt("Reset Settings", 22, (GXColor){0, 0, 0, 255});
- GuiImage resetBtnImg(&btnOutline);
- GuiImage resetBtnImgOver(&btnOutlineOver);
- GuiButton resetBtn(btnOutline.GetWidth(), btnOutline.GetHeight());
- resetBtn.SetAlignment(ALIGN_RIGHT, ALIGN_BOTTOM);
- resetBtn.SetPosition(-100, -35);
- resetBtn.SetLabel(&resetBtnTxt);
- resetBtn.SetImage(&resetBtnImg);
- resetBtn.SetImageOver(&resetBtnImgOver);
- resetBtn.SetSoundOver(&btnSoundOver);
- resetBtn.SetTrigger(&trigA);
- resetBtn.SetEffectGrow();
+ GuiText creditsBtnTxt("Credits", 22, (GXColor){0, 0, 0, 255});
+ GuiImage creditsBtnImg(&btnOutline);
+ GuiImage creditsBtnImgOver(&btnOutlineOver);
+ GuiButton creditsBtn(btnOutline.GetWidth(), btnOutline.GetHeight());
+ creditsBtn.SetAlignment(ALIGN_RIGHT, ALIGN_BOTTOM);
+ creditsBtn.SetPosition(-100, -35);
+ creditsBtn.SetLabel(&creditsBtnTxt);
+ creditsBtn.SetImage(&creditsBtnImg);
+ creditsBtn.SetImageOver(&creditsBtnImgOver);
+ creditsBtn.SetSoundOver(&btnSoundOver);
+ creditsBtn.SetTrigger(&trigA);
+ creditsBtn.SetEffectGrow();
 
  HaltGui();
  GuiWindow w(screenwidth, screenheight);
  w.Append(&titleTxt);
- w.Append(&mappingBtn);
- w.Append(&videoBtn);
- w.Append(&savingBtn);
- w.Append(&menuBtn);
-
-
- w.Append(&networkBtn);
-
-
+ w.Append(&allBtn);
+ w.Append(&filterBtn);
+ w.Append(&optionsBtn);
+ w.Append(&infoBtn);
  w.Append(&exitBtn);
- w.Append(&resetBtn);
+ w.Append(&creditsBtn);
 
  mainWindow->Append(&w);
 
@@ -16891,43 +16866,59 @@ static int MenuMain()
  {
   VIDEO_WaitVSync ();
 
-  if(mappingBtn.GetState() == STATE_CLICKED)
+  if(allBtn.GetState() == STATE_CLICKED)
   {
-   menu = MENU_REGION;
+   allBtn.ResetState();
+
+   WindowPrompt(
+    "Error",
+    "Feature not implemented",
+    "OK",
+    __null);
   }
-  else if(videoBtn.GetState() == STATE_CLICKED)
+  else if(filterBtn.GetState() == STATE_CLICKED)
   {
-   menu = MENU_REGION;
+   filterBtn.ResetState();
+
+   WindowPrompt(
+    "Error",
+    "Feature not implemented",
+    "OK",
+    __null);
   }
-  else if(savingBtn.GetState() == STATE_CLICKED)
+  else if(optionsBtn.GetState() == STATE_CLICKED)
   {
-   menu = MENU_REGION;
+   optionsBtn.ResetState();
+
+   WindowPrompt(
+    "Error",
+    "Feature not implemented",
+    "OK",
+    __null);
   }
-  else if(menuBtn.GetState() == STATE_CLICKED)
+  else if(infoBtn.GetState() == STATE_CLICKED)
   {
-   menu = MENU_REGION;
-  }
-  else if(networkBtn.GetState() == STATE_CLICKED)
-  {
-   menu = MENU_REGION;
+   infoBtn.ResetState();
+
+   WindowPrompt(
+    "Error",
+    "Feature not implemented",
+    "OK",
+    __null);
   }
   else if(exitBtn.GetState() == STATE_CLICKED)
   {
    menu = MENU_EXIT;
   }
-  else if(resetBtn.GetState() == STATE_CLICKED)
+  else if(creditsBtn.GetState() == STATE_CLICKED)
   {
-   resetBtn.ResetState();
+   creditsBtn.ResetState();
 
-   int choice = WindowPrompt(
-    "Reset Settings",
-    "Are you sure that you want to reset your settings?",
-    "Yes",
-    "No");
-   if(choice == 1)
-   {
-
-   }
+   WindowPrompt(
+    "Error",
+    "Feature not implemented",
+    "OK",
+    __null);
   }
  }
 
@@ -17020,36 +17011,45 @@ static int RegionSelect()
   {
    case 0:
 
+    menu = MENU_MAIN;
     break;
 
    case 1:
 
+    menu = MENU_MAIN;
     break;
 
    case 2:
 
+    menu = MENU_MAIN;
     break;
 
    case 3:
 
+    menu = MENU_MAIN;
     break;
 
    case 4:
 
+    menu = MENU_MAIN;
     break;
 
    case 5:
 
+    menu = MENU_MAIN;
     break;
 
    case 6:
 
+    menu = MENU_MAIN;
     break;
    case 7:
 
+    menu = MENU_MAIN;
     break;
    case 9:
 
+    menu = MENU_MAIN;
     break;
 
   }
