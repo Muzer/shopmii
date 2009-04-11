@@ -1,0 +1,5294 @@
+# 1 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp"
+# 1 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/build//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp"
+# 9 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp"
+# 1 "/opt/devkitpro/libogc/include/gccore.h" 1
+# 39 "/opt/devkitpro/libogc/include/gccore.h"
+# 1 "/opt/devkitpro/libogc/include/ogc/dsp.h" 1
+# 39 "/opt/devkitpro/libogc/include/ogc/dsp.h"
+# 1 "/opt/devkitpro/libogc/include/gctypes.h" 1
+# 11 "/opt/devkitpro/libogc/include/gctypes.h"
+   extern "C" {
+
+
+
+typedef unsigned char u8;
+typedef unsigned short u16;
+typedef unsigned int u32;
+typedef unsigned long long u64;
+
+typedef signed char s8;
+typedef signed short s16;
+typedef signed int s32;
+typedef signed long long s64;
+
+typedef volatile unsigned char vu8;
+typedef volatile unsigned short vu16;
+typedef volatile unsigned int vu32;
+typedef volatile unsigned long long vu64;
+
+typedef volatile signed char vs8;
+typedef volatile signed short vs16;
+typedef volatile signed int vs32;
+typedef volatile signed long long vs64;
+
+
+typedef s16 sfp16;
+typedef s32 sfp32;
+typedef u16 ufp16;
+typedef u32 ufp32;
+
+typedef float f32;
+typedef double f64;
+
+typedef volatile float vf32;
+typedef volatile double vf64;
+# 57 "/opt/devkitpro/libogc/include/gctypes.h"
+typedef unsigned int BOOL;
+# 99 "/opt/devkitpro/libogc/include/gctypes.h"
+struct __argv {
+ int argvMagic;
+ char *commandLine;
+ int length;
+ int argc;
+ char **argv;
+ char **endARGV;
+};
+
+
+extern struct __argv *__system_argv;
+
+
+
+
+
+   }
+# 40 "/opt/devkitpro/libogc/include/ogc/dsp.h" 2
+# 72 "/opt/devkitpro/libogc/include/ogc/dsp.h"
+   extern "C" {
+
+
+
+
+
+
+
+typedef struct _dsp_task dsptask_t;
+
+
+
+
+
+
+typedef void (*DSPTaskCallback)(dsptask_t *task);
+
+
+
+
+
+typedef void (*DSPCallback)(void);
+# 115 "/opt/devkitpro/libogc/include/ogc/dsp.h"
+struct _dsp_task {
+ vu32 state;
+ vu32 prio;
+ vu32 flags;
+
+ u16 init_vec;
+ u16 resume_vec;
+
+ u16 *iram_maddr;
+ u32 iram_len;
+ u16 iram_addr;
+
+ u16 *dram_maddr;
+ u32 dram_len;
+ u16 dram_addr;
+
+ DSPTaskCallback init_cb;
+ DSPTaskCallback res_cb;
+ DSPTaskCallback done_cb;
+ DSPTaskCallback req_cb;
+
+ struct _dsp_task *next;
+ struct _dsp_task *prev;
+};
+
+
+
+
+
+
+
+void DSP_Init();
+
+
+
+
+
+
+
+u32 DSP_CheckMailTo();
+
+
+
+
+
+
+
+u32 DSP_CheckMailFrom();
+
+
+
+
+
+
+
+u32 DSP_ReadMailFrom();
+
+
+
+
+
+
+
+void DSP_AssertInt();
+# 187 "/opt/devkitpro/libogc/include/ogc/dsp.h"
+void DSP_SendMailTo(u32 mail);
+
+
+
+
+
+
+
+u32 DSP_ReadCPUtoDSP();
+# 204 "/opt/devkitpro/libogc/include/ogc/dsp.h"
+dsptask_t* DSP_AddTask(dsptask_t *task);
+
+dsptask_t* DSP_AssertTask(dsptask_t *task);
+
+void DSP_CancelTask(dsptask_t *task);
+
+void DSP_Reset();
+
+void DSP_Halt();
+
+void DSP_Unhalt();
+
+
+
+
+
+
+
+DSPCallback DSP_RegisterCallback(DSPCallback usr_cb);
+
+
+   }
+# 40 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/aram.h" 1
+# 71 "/opt/devkitpro/libogc/include/ogc/aram.h"
+   extern "C" {
+# 81 "/opt/devkitpro/libogc/include/ogc/aram.h"
+typedef void (*ARCallback)(void);
+# 94 "/opt/devkitpro/libogc/include/ogc/aram.h"
+ARCallback AR_RegisterCallback(ARCallback callback);
+# 103 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_GetDMAStatus();
+# 147 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_Init(u32 *stack_idx_array,u32 num_entries);
+# 167 "/opt/devkitpro/libogc/include/ogc/aram.h"
+void AR_StartDMA(u32 dir,u32 memaddr,u32 aramaddr,u32 len);
+# 180 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_Alloc(u32 len);
+# 191 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_Free(u32 *len);
+# 202 "/opt/devkitpro/libogc/include/ogc/aram.h"
+void AR_Clear(u32 flag);
+# 212 "/opt/devkitpro/libogc/include/ogc/aram.h"
+BOOL AR_CheckInit();
+# 223 "/opt/devkitpro/libogc/include/ogc/aram.h"
+void AR_Reset();
+# 232 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_GetSize();
+# 241 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_GetBaseAddress();
+# 250 "/opt/devkitpro/libogc/include/ogc/aram.h"
+u32 AR_GetInternalSize();
+# 269 "/opt/devkitpro/libogc/include/ogc/aram.h"
+   }
+# 41 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/arqueue.h" 1
+# 36 "/opt/devkitpro/libogc/include/ogc/arqueue.h"
+# 1 "/opt/devkitpro/libogc/include/ogc/lwp_queue.h" 1
+# 13 "/opt/devkitpro/libogc/include/ogc/lwp_queue.h"
+extern "C" {
+
+
+typedef struct _lwpnode {
+ struct _lwpnode *next;
+ struct _lwpnode *prev;
+} lwp_node;
+
+typedef struct _lwpqueue {
+ lwp_node *first;
+ lwp_node *perm_null;
+ lwp_node *last;
+} lwp_queue;
+
+void __lwp_queue_initialize(lwp_queue *,void *,u32,u32);
+lwp_node* __lwp_queue_get(lwp_queue *);
+void __lwp_queue_append(lwp_queue *,lwp_node *);
+void __lwp_queue_extract(lwp_node *);
+void __lwp_queue_insert(lwp_node *,lwp_node *);
+
+
+
+
+
+
+ }
+# 37 "/opt/devkitpro/libogc/include/ogc/arqueue.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/aram.h" 1
+# 38 "/opt/devkitpro/libogc/include/ogc/arqueue.h" 2
+# 48 "/opt/devkitpro/libogc/include/ogc/arqueue.h"
+   extern "C" {
+
+
+enum {
+ ARQ_TASK_READY = 0,
+ ARQ_TASK_RUNNING,
+ ARQ_TASK_FINISHED
+};
+
+typedef struct _arq_request ARQRequest;
+typedef void (*ARQCallback)(ARQRequest *);
+
+struct _arq_request {
+ lwp_node node;
+ u32 owner,dir,prio,state;
+ u32 aram_addr,mram_addr,len;
+ ARQCallback callback;
+};
+
+void ARQ_Init();
+void ARQ_Reset();
+# 86 "/opt/devkitpro/libogc/include/ogc/arqueue.h"
+void ARQ_PostRequest(ARQRequest *req,u32 owner,u32 dir,u32 prio,u32 aram_addr,u32 mram_addr,u32 len);
+# 104 "/opt/devkitpro/libogc/include/ogc/arqueue.h"
+void ARQ_PostRequestAsync(ARQRequest *req,u32 owner,u32 dir,u32 prio,u32 aram_addr,u32 mram_addr,u32 len,ARQCallback cb);
+void ARQ_RemoveRequest(ARQRequest *req);
+void ARQ_SetChunkSize(u32 size);
+u32 ARQ_GetChunkSize();
+void ARQ_FlushQueue();
+u32 ARQ_RemoveOwnerRequest(u32 owner);
+
+
+   }
+# 42 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/arqmgr.h" 1
+# 47 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+   extern "C" {
+# 56 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+typedef void (*ARQMCallback)(s32 result);
+# 68 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+void ARQM_Init(u32 arambase,s32 len);
+# 80 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+u32 ARQM_PushData(void *buffer,s32 len);
+# 89 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+u32 ARQM_GetZeroBuffer();
+# 98 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+u32 ARQM_GetStackPointer();
+# 107 "/opt/devkitpro/libogc/include/ogc/arqmgr.h"
+u32 ARQM_GetFreeSize();
+
+
+   }
+# 43 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/audio.h" 1
+# 70 "/opt/devkitpro/libogc/include/ogc/audio.h"
+   extern "C" {
+# 79 "/opt/devkitpro/libogc/include/ogc/audio.h"
+typedef void (*AIDCallback)(void);
+# 88 "/opt/devkitpro/libogc/include/ogc/audio.h"
+typedef void (*AISCallback)(u32 smp_cnt);
+# 99 "/opt/devkitpro/libogc/include/ogc/audio.h"
+AISCallback AUDIO_RegisterStreamCallback(AISCallback callback);
+# 110 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_Init(u8 *stack);
+# 121 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_SetStreamVolLeft(u8 vol);
+# 130 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u8 AUDIO_GetStreamVolLeft();
+# 141 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_SetStreamVolRight(u8 vol);
+# 150 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u8 AUDIO_GetStreamVolRight();
+# 161 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_SetStreamSampleRate(u32 rate);
+# 170 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u32 AUDIO_GetStreamSampleRate();
+# 184 "/opt/devkitpro/libogc/include/ogc/audio.h"
+AIDCallback AUDIO_RegisterDMACallback(AIDCallback callback);
+# 196 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_InitDMA(u32 startaddr,u32 len);
+# 205 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u16 AUDIO_GetDMAEnableFlag();
+# 217 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_StartDMA();
+# 226 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_StopDMA();
+# 235 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u32 AUDIO_GetDMABytesLeft();
+# 244 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u32 AUDIO_GetDMALength();
+# 253 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u32 AUDIO_GetDMAStartAddr();
+# 264 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_SetStreamTrigger(u32 cnt);
+# 273 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_ResetStreamSampleCnt();
+# 284 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_SetDSPSampleRate(u8 rate);
+# 293 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u32 AUDIO_GetDSPSampleRate();
+# 304 "/opt/devkitpro/libogc/include/ogc/audio.h"
+void AUDIO_SetStreamPlayState(u32 state);
+# 313 "/opt/devkitpro/libogc/include/ogc/audio.h"
+u32 AUDIO_GetStreamPlayState();
+
+
+   }
+# 44 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/cache.h" 1
+# 47 "/opt/devkitpro/libogc/include/ogc/cache.h"
+   extern "C" {
+# 57 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCEnable();
+# 66 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCDisable();
+# 78 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCFreeze();
+# 90 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCUnfreeze();
+# 102 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCFlashInvalidate();
+# 116 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCInvalidateRange(void *startaddress,u32 len);
+# 131 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCFlushRange(void *startaddress,u32 len);
+# 144 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCStoreRange(void *startaddress,u32 len);
+# 159 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCFlushRangeNoSync(void *startaddress,u32 len);
+# 173 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCStoreRangeNoSync(void *startaddress,u32 len);
+# 185 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCZeroRange(void *startaddress,u32 len);
+# 197 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void DCTouchRange(void *startaddress,u32 len);
+# 208 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICSync();
+# 220 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICFlashInvalidate();
+# 229 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICEnable();
+# 238 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICDisable();
+# 250 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICFreeze();
+# 262 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICUnfreeze();
+# 275 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICBlockInvalidate(void *startaddress);
+# 289 "/opt/devkitpro/libogc/include/ogc/cache.h"
+void ICInvalidateRange(void *startaddress,u32 len);
+
+void LCEnable();
+void LCDisable();
+void LCLoadBlocks(void *,void *,u32);
+void LCStoreBlocks(void *,void *,u32);
+u32 LCLoadData(void *,void *,u32);
+u32 LCStoreData(void *,void *,u32);
+u32 LCQueueLength();
+u32 LCQueueWait(u32);
+void LCFlushQueue();
+void LCAlloc(void *,u32);
+void LCAllocNoInvalidate(void *,u32);
+void LCAllocOneTag(BOOL,void *);
+void LCAllocTags(BOOL,void *,u32);
+
+
+
+   }
+# 45 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/card.h" 1
+# 117 "/opt/devkitpro/libogc/include/ogc/card.h"
+   extern "C" {
+# 129 "/opt/devkitpro/libogc/include/ogc/card.h"
+typedef struct _card_file {
+ s32 chn;
+ s32 filenum;
+ s32 offset;
+ s32 len;
+ u16 iblock;
+} card_file;
+# 148 "/opt/devkitpro/libogc/include/ogc/card.h"
+typedef struct _card_dir {
+      s32 chn;
+      u32 fileno;
+   u32 filelen;
+   u8 permissions;
+      u8 filename[32];
+      u8 gamecode[4];
+      u8 company[2];
+      bool showall;
+} card_dir;
+# 176 "/opt/devkitpro/libogc/include/ogc/card.h"
+typedef struct _card_stat {
+ u8 filename[32];
+ u32 len;
+ u32 time;
+ u8 gamecode[4];
+ u8 company[2];
+ u8 banner_fmt;
+ u32 icon_addr;
+ u16 icon_fmt;
+ u16 iconfmt[8];
+ u16 icon_speed;
+ u16 iconspeed[8];
+ u32 comment_addr;
+ u32 offset_banner;
+ u32 offset_banner_tlut;
+ u32 offset_icon[8];
+ u32 offset_icon_tlut[8];
+ u32 offset_data;
+} card_stat;
+# 210 "/opt/devkitpro/libogc/include/ogc/card.h"
+typedef void (*cardcallback)(s32 chan,s32 result);
+# 220 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Init(const char *gamecode,const char *company);
+# 229 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Probe(s32 chn);
+# 240 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_ProbeEx(s32 chn,s32 *mem_size,s32 *sect_size);
+# 251 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Mount(s32 chn,void *workarea,cardcallback detach_cb);
+# 263 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_MountAsync(s32 chn,void *workarea,cardcallback detach_cb,cardcallback attach_cb);
+# 272 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Unmount(s32 chn);
+# 284 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Read(card_file *file,void *buffer,u32 len,u32 offset);
+# 297 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_ReadAsync(card_file *file,void *buffer,u32 len,u32 offset,cardcallback callback);
+# 308 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Open(s32 chn,const char *filename,card_file *file);
+# 319 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_OpenEntry(s32 chn,card_dir *entry,card_file *file);
+# 328 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Close(card_file *file);
+# 340 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Create(s32 chn,const char *filename,u32 size,card_file *file);
+# 353 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_CreateAsync(s32 chn,const char *filename,u32 size,card_file *file,cardcallback callback);
+# 364 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_CreateEntry(s32 chn,card_dir *direntry,card_file *file);
+# 376 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_CreateEntryAsync(s32 chn,card_dir *direntry,card_file *file,cardcallback callback);
+# 386 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Delete(s32 chn,const char *filename);
+# 397 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_DeleteAsync(s32 chn,const char *filename,cardcallback callback);
+# 407 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_DeleteEntry(s32 chn,card_dir *dir_entry);
+# 418 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_DeleteEntryAsync(s32 chn,card_dir *dir_entry,cardcallback callback);
+# 430 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_Write(card_file *file,void *buffer,u32 len,u32 offset);
+# 443 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_WriteAsync(card_file *file,void *buffer,u32 len,u32 offset,cardcallback callback);
+# 452 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_GetErrorCode(s32 chn);
+# 463 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_FindFirst(s32 chn, card_dir *dir, bool showall);
+# 472 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_FindNext(card_dir *dir);
+# 484 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_GetDirectory(s32 chn, card_dir *dir_entries, s32 *count, bool showall);
+# 494 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_GetSectorSize(s32 chn,u32 *sector_size);
+# 504 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_GetBlockCount(s32 chn,u32 *block_count);
+# 515 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_GetStatus(s32 chn,s32 fileno,card_stat *stats);
+# 526 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_SetStatus(s32 chn,s32 fileno,card_stat *stats);
+# 538 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_SetStatusAsync(s32 chn,s32 fileno,card_stat *stats,cardcallback callback);
+# 549 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_GetAttributes(s32 chn,s32 fileno,u8 *attr);
+# 560 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_SetAttributes(s32 chn,s32 fileno,u8 attr);
+# 572 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_SetAttributesAsync(s32 chn,s32 fileno,u8 attr,cardcallback callback);
+
+
+
+
+s32 CARD_Format(s32 chn);
+
+
+
+s32 CARD_FormatAsync(s32 chn,cardcallback callback);
+# 590 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_SetCompany(const char *company);
+# 599 "/opt/devkitpro/libogc/include/ogc/card.h"
+s32 CARD_SetGamecode(const char *gamecode);
+
+
+   }
+# 46 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/cast.h" 1
+# 25 "/opt/devkitpro/libogc/include/ogc/cast.h"
+extern "C" {
+
+
+
+
+
+
+
+static inline void CAST_Init()
+{
+ __asm__ __volatile__ (
+  "li		3,0x0004\n		 oris	3,3,0x0004\n		 mtspr	914,3\n		 li		3,0x0005\n		 oris	3,3,0x0005\n		 mtspr	915,3\n		 li		3,0x0006\n		 oris	3,3,0x0006\n		 mtspr	916,3\n		 li		3,0x0007\n		 oris	3,3,0x0007\n		 mtspr	917,3\n"
+# 48 "/opt/devkitpro/libogc/include/ogc/cast.h"
+   : : : "r3"
+ );
+}
+
+static inline void CAST_SetGQR2(u32 type,u32 scale)
+{
+ register u32 val = (((((scale)<<8)|(type))<<16)|(((scale)<<8)|(type)));
+ asm volatile("mtspr %0,%1" : : "i"(914), "b"(val));
+}
+
+static inline void CAST_SetGQR3(u32 type,u32 scale)
+{
+ register u32 val = (((((scale)<<8)|(type))<<16)|(((scale)<<8)|(type)));
+ asm volatile("mtspr %0,%1" : : "i"(915), "b"(val));
+}
+
+static inline void CAST_SetGQR4(u32 type,u32 scale)
+{
+ register u32 val = (((((scale)<<8)|(type))<<16)|(((scale)<<8)|(type)));
+ asm volatile("mtspr %0,%1" : : "i"(916), "b"(val));
+}
+
+static inline void CAST_SetGQR5(u32 type,u32 scale)
+{
+ register u32 val = (((((scale)<<8)|(type))<<16)|(((scale)<<8)|(type)));
+ asm volatile("mtspr %0,%1" : : "i"(917), "b"(val));
+}
+
+static inline void CAST_SetGQR6(u32 type,u32 scale)
+{
+ register u32 val = (((((scale)<<8)|(type))<<16)|(((scale)<<8)|(type)));
+ asm volatile("mtspr %0,%1" : : "i"(918), "b"(val));
+}
+
+static inline void CAST_SetGQR7(u32 type,u32 scale)
+{
+ register u32 val = (((((scale)<<8)|(type))<<16)|(((scale)<<8)|(type)));
+ asm volatile("mtspr %0,%1" : : "i"(919), "b"(val));
+}
+# 95 "/opt/devkitpro/libogc/include/ogc/cast.h"
+static inline f32 __castu8f32(register u8 *in)
+{
+ register f32 rval;
+ __asm__ __volatile__ (
+  "psq_l	%[rval],0(%[in]),1,2" : [rval]"=f"(rval) : [in]"r"(in)
+ );
+ return rval;
+}
+
+static inline f32 __castu16f32(register u16 *in)
+{
+ register f32 rval;
+ __asm__ __volatile__ (
+  "psq_l	%[rval],0(%[in]),1,3" : [rval]"=f"(rval) : [in]"r"(in)
+ );
+ return rval;
+}
+
+static inline f32 __casts8f32(register s8 *in)
+{
+ register f32 rval;
+ __asm__ __volatile__ (
+  "psq_l	%[rval],0(%[in]),1,4" : [rval]"=f"(rval) : [in]"r"(in)
+ );
+ return rval;
+}
+
+static inline f32 __casts16f32(register s16 *in)
+{
+ register f32 rval;
+ __asm__ __volatile__ (
+  "psq_l	%[rval],0(%[in]),1,5" : [rval]"=f"(rval) : [in]"r"(in)
+ );
+ return rval;
+}
+
+static inline void castu8f32(register u8 *in,volatile register f32 *out)
+{
+ *out = __castu8f32(in);
+}
+
+static inline void castu16f32(register u16 *in,volatile register f32 *out)
+{
+ *out = __castu16f32(in);
+}
+
+static inline void casts8f32(register s8 *in,volatile register f32 *out)
+{
+ *out = __casts8f32(in);
+}
+
+static inline void casts16f32(register s16 *in,volatile register f32 *out)
+{
+ *out = __casts16f32(in);
+}
+
+
+
+
+
+
+
+static inline u8 __castf32u8(register f32 in)
+{
+ f32 a;
+ register u8 rval;
+ register f32 *ptr = &a;
+
+ __asm__ __volatile__ (
+  "psq_st	%[in],0(%[ptr]),1,2\n"
+  "lbz	%[out],0(%[ptr])\n"
+  : [out]"=r"(rval), [ptr]"+r"(ptr) : [in]"f"(in)
+ );
+ return rval;
+}
+
+static inline u16 __castf32u16(register f32 in)
+{
+ f32 a;
+ register u16 rval;
+ register f32 *ptr = &a;
+
+ __asm__ __volatile__ (
+  "psq_st	%[in],0(%[ptr]),1,3\n"
+  "lhz	%[out],0(%[ptr])\n"
+  : [out]"=r"(rval), [ptr]"+r"(ptr) : [in]"f"(in)
+ );
+ return rval;
+}
+
+static inline s8 __castf32s8(register f32 in)
+{
+ f32 a;
+ register s8 rval;
+ register f32 *ptr = &a;
+
+ __asm__ __volatile__ (
+  "psq_st	%[in],0(%[ptr]),1,4\n"
+  "lbz	%[out],0(%[ptr])\n"
+  : [out]"=r"(rval), [ptr]"+r"(ptr) : [in]"f"(in)
+ );
+ return rval;
+}
+
+static inline s16 __castf32s16(register f32 in)
+{
+ f32 a;
+ register s16 rval;
+ register f32 *ptr = &a;
+
+ __asm__ __volatile__ (
+  "psq_st	%[in],0(%[ptr]),1,5\n"
+  "lha	%[out],0(%[ptr])\n"
+  : [out]"=r"(rval), [ptr]"+r"(ptr) : [in]"f"(in)
+ );
+ return rval;
+}
+
+static inline void castf32u8(register f32 *in,volatile register u8 *out)
+{
+ *out = __castf32u8(*in);
+}
+
+static inline void castf32u16(register f32 *in,volatile register u16 *out)
+{
+ *out = __castf32u16(*in);
+}
+
+static inline void castf32s8(register f32 *in,volatile register s8 *out)
+{
+ *out = __castf32s8(*in);
+}
+
+static inline void castf32s16(register f32 *in,volatile register s16 *out)
+{
+ *out = __castf32s16(*in);
+}
+
+
+
+
+}
+# 47 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/color.h" 1
+# 48 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/consol.h" 1
+# 10 "/opt/devkitpro/libogc/include/ogc/consol.h"
+# 1 "/opt/devkitpro/libogc/include/ogc/gx_struct.h" 1
+# 42 "/opt/devkitpro/libogc/include/ogc/gx_struct.h"
+   extern "C" {
+# 58 "/opt/devkitpro/libogc/include/ogc/gx_struct.h"
+typedef struct _gx_rmodeobj {
+ u32 viTVMode;
+ u16 fbWidth;
+ u16 efbHeight;
+ u16 xfbHeight;
+ u16 viXOrigin;
+ u16 viYOrigin;
+ u16 viWidth;
+ u16 viHeight;
+ u32 xfbMode;
+ u8 field_rendering;
+ u8 aa;
+ u8 sample_pattern[12][2];
+ u8 vfilter[7];
+} GXRModeObj;
+
+
+   }
+# 11 "/opt/devkitpro/libogc/include/ogc/consol.h" 2
+
+
+
+
+
+
+ extern "C" {
+# 31 "/opt/devkitpro/libogc/include/ogc/consol.h"
+void CON_Init(void *framebuffer,int xstart,int ystart,int xres,int yres,int stride);
+# 44 "/opt/devkitpro/libogc/include/ogc/consol.h"
+s32 CON_InitEx(GXRModeObj *rmode, s32 conXOrigin,s32 conYOrigin,s32 conWidth,s32 conHeight);
+# 54 "/opt/devkitpro/libogc/include/ogc/consol.h"
+void CON_GetMetrics(int *cols, int *rows);
+# 64 "/opt/devkitpro/libogc/include/ogc/consol.h"
+void CON_GetPosition(int *cols, int *rows);
+# 75 "/opt/devkitpro/libogc/include/ogc/consol.h"
+void CON_EnableGecko(int channel,int safe);
+
+
+ }
+# 49 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/dvd.h" 1
+# 102 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+   extern "C" {
+
+
+
+
+
+
+
+typedef struct _dvddiskid dvddiskid;
+# 127 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+struct _dvddiskid {
+ s8 gamename[4];
+ s8 company[2];
+ u8 disknum;
+ u8 gamever;
+ u8 streaming;
+ u8 streambufsize;
+ u8 pad[22];
+};
+
+
+
+
+
+typedef struct _dvdcmdblk dvdcmdblk;
+
+
+
+
+
+
+typedef void (*dvdcbcallback)(s32 result,dvdcmdblk *block);
+
+
+
+
+
+
+
+struct _dvdcmdblk {
+ lwp_node node;
+ u32 cmd;
+ s32 state;
+ s64 offset;
+ u32 len;
+ void *buf;
+ u32 currtxsize;
+ u32 txdsize;
+ dvddiskid *id;
+ dvdcbcallback cb;
+ void *usrdata;
+};
+
+
+
+
+
+
+typedef struct _dvddrvinfo dvddrvinfo;
+# 189 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+struct _dvddrvinfo {
+ u16 rev_level;
+ u16 dev_code;
+ u32 rel_date;
+ u8 pad[24];
+};
+
+
+
+
+
+
+typedef struct _dvdfileinfo dvdfileinfo;
+# 211 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+typedef void (*dvdcallback)(s32 result,dvdfileinfo *info);
+
+
+
+
+
+
+
+struct _dvdfileinfo {
+ dvdcmdblk block;
+ u32 addr;
+ u32 len;
+ dvdcallback cb;
+};
+# 235 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+void DVD_Init();
+void DVD_Pause();
+# 247 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+void DVD_Reset(u32 reset_mode);
+# 258 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+s32 DVD_Mount();
+s32 DVD_GetDriveStatus();
+# 282 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+s32 DVD_MountAsync(dvdcmdblk *block,dvdcbcallback cb);
+# 296 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+s32 DVD_ControlDrive(dvdcmdblk *block,u32 cmd);
+# 309 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+s32 DVD_ControlDriveAsync(dvdcmdblk *block,u32 cmd,dvdcbcallback cb);
+# 323 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+s32 DVD_SetGCMOffset(dvdcmdblk *block,s64 offset);
+# 338 "/opt/devkitpro/libogc/include/ogc/dvd.h"
+s32 DVD_SetGCMOffsetAsync(dvdcmdblk *block,s64 offset,dvdcbcallback cb);
+
+s32 DVD_GetCmdBlockStatus(dvdcmdblk *block);
+s32 DVD_SpinUpDrive(dvdcmdblk *block);
+s32 DVD_SpinUpDriveAsync(dvdcmdblk *block,dvdcbcallback cb);
+s32 DVD_Inquiry(dvdcmdblk *block,dvddrvinfo *info);
+s32 DVD_InquiryAsync(dvdcmdblk *block,dvddrvinfo *info,dvdcbcallback cb);
+s32 DVD_ReadPrio(dvdcmdblk *block,void *buf,u32 len,s64 offset,s32 prio);
+s32 DVD_ReadAbsAsyncPrio(dvdcmdblk *block,void *buf,u32 len,s64 offset,dvdcbcallback cb,s32 prio);
+s32 DVD_ReadAbsAsyncForBS(dvdcmdblk *block,void *buf,u32 len,s64 offset,dvdcbcallback cb);
+s32 DVD_SeekPrio(dvdcmdblk *block,s64 offset,s32 prio);
+s32 DVD_SeekAbsAsyncPrio(dvdcmdblk *block,s64 offset,dvdcbcallback cb,s32 prio);
+s32 DVD_CancelAllAsync(dvdcbcallback cb);
+s32 DVD_StopStreamAtEndAsync(dvdcmdblk *block,dvdcbcallback cb);
+s32 DVD_StopStreamAtEnd(dvdcmdblk *block);
+s32 DVD_ReadDiskID(dvdcmdblk *block,dvddiskid *id,dvdcbcallback cb);
+u32 DVD_SetAutoInvalidation(u32 auto_inv);
+dvddiskid* DVD_GetCurrentDiskID();
+dvddrvinfo* DVD_GetDriveInfo();
+
+
+
+
+
+   }
+# 50 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/exi.h" 1
+# 138 "/opt/devkitpro/libogc/include/ogc/exi.h"
+   extern "C" {
+
+
+
+
+
+
+
+typedef s32 (*EXICallback)(s32 chn,s32 dev);
+# 155 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_ProbeEx(s32 nChn);
+# 164 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Probe(s32 nChn);
+# 175 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Lock(s32 nChn,s32 nDev,EXICallback unlockCB);
+# 184 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Unlock(s32 nChn);
+# 195 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Select(s32 nChn,s32 nDev,s32 nFrq);
+# 206 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_SelectSD(s32 nChn,s32 nDev,s32 nFrq);
+# 215 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Deselect(s32 nChn);
+# 224 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Sync(s32 nChn);
+# 237 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Imm(s32 nChn,void *pData,u32 nLen,u32 nMode,EXICallback tc_cb);
+# 249 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_ImmEx(s32 nChn,void *pData,u32 nLen,u32 nMode);
+# 262 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Dma(s32 nChn,void *pData,u32 nLen,u32 nMode,EXICallback tc_cb);
+# 271 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_GetState(s32 nChn);
+# 282 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_GetID(s32 nChn,s32 nDev,u32 *nId);
+# 292 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Attach(s32 nChn,EXICallback ext_cb);
+# 301 "/opt/devkitpro/libogc/include/ogc/exi.h"
+s32 EXI_Detach(s32 nChn);
+
+
+
+
+
+
+
+void EXI_ProbeReset();
+# 319 "/opt/devkitpro/libogc/include/ogc/exi.h"
+EXICallback EXI_RegisterEXICallback(s32 nChn,EXICallback exi_cb);
+
+
+   }
+# 51 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/gu.h" 1
+# 36 "/opt/devkitpro/libogc/include/ogc/gu.h"
+   extern "C" {
+
+
+typedef struct _vecf {
+ f32 x,y,z;
+} Vector;
+
+typedef struct _qrtn {
+ f32 x,y,z,w;
+} Quaternion;
+
+typedef f32 Mtx[3][4];
+typedef f32 (*MtxP)[4];
+typedef f32 ROMtx[4][3];
+typedef f32 (*ROMtxP)[3];
+typedef f32 Mtx33[3][3];
+typedef f32 (*Mtx33P)[3];
+typedef f32 Mtx44[4][4];
+typedef f32 (*Mtx44P)[4];
+
+void guFrustum(Mtx44 mt,f32 t,f32 b,f32 l,f32 r,f32 n,f32 f);
+void guPerspective(Mtx44 mt,f32 fovy,f32 aspect,f32 n,f32 f);
+void guOrtho(Mtx44 mt,f32 t,f32 b,f32 l,f32 r,f32 n,f32 f);
+
+void guLightPerspective(Mtx mt,f32 fovY,f32 aspect,f32 scaleS,f32 scaleT,f32 transS,f32 transT);
+void guLightOrtho(Mtx mt,f32 t,f32 b,f32 l,f32 r,f32 scaleS,f32 scaleT,f32 transS,f32 transT);
+void guLightFrustum(Mtx mt,f32 t,f32 b,f32 l,f32 r,f32 n,f32 scaleS,f32 scaleT,f32 transS,f32 transT);
+
+void guLookAt(Mtx mt,Vector *camPos,Vector *camUp,Vector *target);
+
+void guVecHalfAngle(Vector *a,Vector *b,Vector *half);
+
+void c_guVecAdd(Vector *a,Vector *b,Vector *ab);
+void c_guVecSub(Vector *a,Vector *b,Vector *ab);
+void c_guVecScale(Vector *src,Vector *dst,f32 scale);
+void c_guVecNormalize(Vector *v);
+void c_guVecMultiply(Mtx mt,Vector *src,Vector *dst);
+void c_guVecCross(Vector *a,Vector *b,Vector *axb);
+void c_guVecMultiplySR(Mtx mt,Vector *src,Vector *dst);
+f32 c_guVecDotProduct(Vector *a,Vector *b);
+
+
+void ps_guVecAdd(register Vector *a,register Vector *b,register Vector *ab);
+void ps_guVecSub(register Vector *a,register Vector *b,register Vector *ab);
+void ps_guVecScale(register Vector *src,register Vector *dst,f32 scale);
+void ps_guVecNormalize(register Vector *v);
+void ps_guVecCross(register Vector *a,register Vector *b,register Vector *axb);
+void ps_guVecMultiply(register Mtx mt,register Vector *src,register Vector *dst);
+void ps_guVecMultiplySR(register Mtx mt,register Vector *src,register Vector *dst);
+f32 ps_guVecDotProduct(register Vector *a,register Vector *b);
+
+
+void c_guQuatAdd(Quaternion *a,Quaternion *b,Quaternion *ab);
+void c_guQuatSub(Quaternion *a,Quaternion *b,Quaternion *ab);
+void c_guQuatMultiply(Quaternion *a,Quaternion *b,Quaternion *ab);
+
+
+void ps_guQuatAdd(register Quaternion *a,register Quaternion *b,register Quaternion *ab);
+void ps_guQuatSub(register Quaternion *a,register Quaternion *b,register Quaternion *ab);
+void ps_guQuatMultiply(Quaternion *a,Quaternion *b,Quaternion *ab);
+void ps_guQuatScale(Quaternion *q,Quaternion *r,register f32 scale);
+void ps_guQuatNormalize(Quaternion *src,Quaternion *r,register Quaternion *unit);
+f32 ps_guQuatDotProduct(Quaternion *p,Quaternion *q);
+
+
+void c_guMtxIdentity(Mtx mt);
+void c_guMtxCopy(Mtx src,Mtx dst);
+void c_guMtxConcat(Mtx a,Mtx b,Mtx ab);
+void c_guMtxScale(Mtx mt,f32 xS,f32 yS,f32 zS);
+void c_guMtxScaleApply(Mtx src,Mtx dst,f32 xS,f32 yS,f32 zS);
+void c_guMtxApplyScale(Mtx src,Mtx dst,f32 xS,f32 yS,f32 zS);
+void c_guMtxTrans(Mtx mt,f32 xT,f32 yT,f32 zT);
+void c_guMtxTransApply(Mtx src,Mtx dst,f32 xT,f32 yT,f32 zT);
+void c_guMtxApplyTrans(Mtx src,Mtx dst,f32 xT,f32 yT,f32 zT);
+u32 c_guMtxInverse(Mtx src,Mtx inv);
+void c_guMtxTranspose(Mtx src,Mtx xPose);
+void c_guMtxRotRad(Mtx mt,const char axis,f32 rad);
+void c_guMtxRotTrig(Mtx mt,const char axis,f32 sinA,f32 cosA);
+void c_guMtxRotAxisRad(Mtx mt,Vector *axis,f32 rad);
+void c_guMtxReflect(Mtx m,Vector *p,Vector *n);
+
+
+void ps_guMtxIdentity(register Mtx mt);
+void ps_guMtxCopy(register Mtx src,register Mtx dst);
+void ps_guMtxConcat(register Mtx a,register Mtx b,register Mtx ab);
+void ps_guMtxTranspose(register Mtx src,register Mtx xPose);
+u32 ps_guMtxInverse(register Mtx src,register Mtx inv);
+u32 ps_guMtxInvXpos(register Mtx src,register Mtx invx);
+void ps_guMtxScale(register Mtx mt,register f32 xS,register f32 yS,register f32 zS);
+void ps_guMtxScaleApply(register Mtx src,register Mtx dst,register f32 xS,register f32 yS,register f32 zS);
+void ps_guMtxApplyScale(register Mtx src,register Mtx dst,register f32 xS,register f32 yS,register f32 zS);
+void ps_guMtxTrans(register Mtx mt,register f32 xT,register f32 yT,register f32 zT);
+void ps_guMtxTransApply(register Mtx src,register Mtx dst,register f32 xT,register f32 yT,register f32 zT);
+void ps_guMtxApplyTrans(register Mtx src,register Mtx dst,register f32 xT,register f32 yT,register f32 zT);
+void ps_guMtxRotRad(register Mtx mt,const register char axis,register f32 rad);
+void ps_guMtxRotTrig(register Mtx mt,const register char axis,register f32 sinA,register f32 cosA);
+void ps_guMtxRotAxisRad(register Mtx mt,register Vector *axis,register f32 tmp0);
+void ps_guMtxReflect(register Mtx m,register Vector *p,register Vector *n);
+# 203 "/opt/devkitpro/libogc/include/ogc/gu.h"
+   }
+# 52 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/gx.h" 1
+# 11 "/opt/devkitpro/libogc/include/ogc/gx.h"
+# 1 "/opt/devkitpro/libogc/include/ogc/lwp.h" 1
+# 55 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+extern "C" {
+
+
+
+
+
+
+typedef u32 lwp_t;
+
+
+
+
+
+typedef u32 lwpq_t;
+# 81 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+s32 LWP_CreateThread(lwp_t *thethread,void* (*entry)(void *),void *arg,void *stackbase,u32 stack_size,u8 prio);
+# 90 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+s32 LWP_SuspendThread(lwp_t thethread);
+# 99 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+s32 LWP_ResumeThread(lwp_t thethread);
+# 108 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+BOOL LWP_ThreadIsSuspended(lwp_t thethread);
+
+
+
+
+
+
+
+lwp_t LWP_GetSelf();
+# 126 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+void LWP_SetThreadPriority(lwp_t thethread,u32 prio);
+
+
+
+
+
+
+
+void LWP_YieldThread();
+# 143 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+void LWP_Reschedule(u32 prio);
+# 153 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+s32 LWP_JoinThread(lwp_t thethread,void **value_ptr);
+# 162 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+s32 LWP_InitQueue(lwpq_t *thequeue);
+# 171 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+void LWP_CloseQueue(lwpq_t thequeue);
+# 180 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+s32 LWP_ThreadSleep(lwpq_t thequeue);
+# 189 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+void LWP_ThreadSignal(lwpq_t thequeue);
+# 198 "/opt/devkitpro/libogc/include/ogc/lwp.h"
+void LWP_ThreadBroadcast(lwpq_t thequeue);
+
+
+ }
+# 12 "/opt/devkitpro/libogc/include/ogc/gx.h" 2
+
+# 1 "/opt/devkitpro/libogc/include/ogc/gu.h" 1
+# 14 "/opt/devkitpro/libogc/include/ogc/gx.h" 2
+# 949 "/opt/devkitpro/libogc/include/ogc/gx.h"
+   extern "C" {
+
+
+typedef struct _gx_color {
+  u8 r;
+  u8 g;
+  u8 b;
+ u8 a;
+} GXColor;
+
+typedef struct _gx_colors10 {
+  s16 r;
+  s16 g;
+  s16 b;
+ s16 a;
+} GXColorS10;
+
+typedef struct _gx_texobj {
+ u32 val[8];
+} GXTexObj;
+
+typedef struct _gx_tlutobj {
+ u32 val[3];
+} GXTlutObj;
+
+typedef struct _gx_texreg {
+ u32 val[4];
+} GXTexRegion;
+
+typedef struct _gx_tlutreg {
+ u32 val[4];
+} GXTlutRegion;
+
+typedef struct _gx_litobj {
+ u32 val[16];
+} GXLightObj;
+
+typedef struct _vtx {
+ f32 x,y,z;
+ u16 s,t;
+ u32 rgba;
+} Vtx;
+
+typedef struct {
+ u8 attr;
+ u8 type;
+} GXVtxDesc;
+
+typedef struct {
+ u32 vtxattr;
+ u32 comptype;
+ u32 compsize;
+ u32 frac;
+} GXVtxAttrFmt;
+
+typedef struct {
+ u8 pad[128];
+} GXFifoObj;
+
+typedef struct {
+ u8 dummy[4];
+} GXTexReg;
+
+typedef struct {
+ u16 r[10];
+} GXFogAdjTbl;
+
+typedef void (*GXBreakPtCallback)(void);
+typedef void (*GXDrawDoneCallback)(void);
+
+
+
+
+
+typedef void (*GXDrawSyncCallback)(u16 token);
+
+
+
+
+
+typedef GXTexRegion* (*GXTexRegionCallback)(GXTexObj *obj,u8 mapid);
+
+
+
+
+
+typedef GXTlutRegion* (*GXTlutRegionCallback)(u32 tlut_name);
+# 1046 "/opt/devkitpro/libogc/include/ogc/gx.h"
+GXFifoObj* GX_Init(void *base,u32 size);
+
+void GX_InitFifoBase(GXFifoObj *fifo,void *base,u32 size);
+void GX_InitFifoLimits(GXFifoObj *fifo,u32 hiwatermark,u32 lowatermark);
+void GX_InitFifoPtrs(GXFifoObj *fifo,void *rd_ptr,void *wt_ptr);
+void GX_SetCPUFifo(GXFifoObj *fifo);
+void GX_SetGPFifo(GXFifoObj *fifo);
+void GX_GetCPUFifo(GXFifoObj *fifo);
+void GX_GetGPFifo(GXFifoObj *fifo);
+GXDrawDoneCallback GX_SetDrawDoneCallback(GXDrawDoneCallback cb);
+GXBreakPtCallback GX_SetBreakPtCallback(GXBreakPtCallback cb);
+
+void GX_AbortFrame();
+void GX_Flush();
+void GX_SetMisc(u32 token,u32 value);
+void GX_SetDrawDone();
+void GX_WaitDrawDone();
+
+
+
+
+
+
+
+u16 GX_GetDrawSync();
+# 1083 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetDrawSync(u16 token);
+# 1095 "/opt/devkitpro/libogc/include/ogc/gx.h"
+GXDrawSyncCallback GX_SetDrawSyncCallback(GXDrawSyncCallback cb);
+
+void GX_DisableBreakPt();
+void GX_EnableBreakPt(void *break_pt);
+void GX_DrawDone();
+void GX_TexModeSync();
+void GX_InvVtxCache();
+void GX_ClearVtxDesc();
+void GX_LoadProjectionMtx(Mtx44 mt,u8 type);
+void GX_SetViewport(f32 xOrig,f32 yOrig,f32 wd,f32 ht,f32 nearZ,f32 farZ);
+void GX_SetViewportJitter(f32 xOrig,f32 yOrig,f32 wd,f32 ht,f32 nearZ,f32 farZ,u32 field);
+void GX_SetChanCtrl(s32 channel,u8 enable,u8 ambsrc,u8 matsrc,u8 litmask,u8 diff_fn,u8 attn_fn);
+void GX_SetChanAmbColor(s32 channel,GXColor color);
+void GX_SetChanMatColor(s32 channel,GXColor color);
+void GX_SetArray(u32 attr,void *ptr,u8 stride);
+# 1125 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetVtxAttrFmt(u8 vtxfmt,u32 vtxattr,u32 comptype,u32 compsize,u32 frac);
+void GX_SetVtxAttrFmtv(u8 vtxfmt,GXVtxAttrFmt *attr_list);
+void GX_SetVtxDesc(u8 attr,u8 type);
+void GX_SetVtxDescv(GXVtxDesc *attr_list);
+
+u32 GX_EndDispList();
+void GX_Begin(u8 primitve,u8 vtxfmt,u16 vtxcnt);
+void GX_BeginDispList(void *list,u32 size);
+void GX_CallDispList(void *list,u32 nbytes);
+
+static inline void GX_End()
+{
+}
+
+static inline void GX_Position3f32(f32 x,f32 y,f32 z)
+{
+ *(vf32*)(0xCC008000) = (f32)(x);
+ *(vf32*)(0xCC008000) = (f32)(y);
+ *(vf32*)(0xCC008000) = (f32)(z);
+}
+
+static inline void GX_Position3u16(u16 x,u16 y,u16 z)
+{
+ *(vu16*)(0xCC008000) = (u16)(x);
+ *(vu16*)(0xCC008000) = (u16)(y);
+ *(vu16*)(0xCC008000) = (u16)(z);
+}
+
+static inline void GX_Position3s16(s16 x,s16 y,s16 z)
+{
+ *(vs16*)(0xCC008000) = (s16)(x);
+ *(vs16*)(0xCC008000) = (s16)(y);
+ *(vs16*)(0xCC008000) = (s16)(z);
+}
+
+static inline void GX_Position3u8(u8 x,u8 y,u8 z)
+{
+ *(vu8*)(0xCC008000) = (u8)(x);
+ *(vu8*)(0xCC008000) = (u8)(y);
+ *(vu8*)(0xCC008000) = (u8)(z);
+}
+
+static inline void GX_Position3s8(s8 x,s8 y,s8 z)
+{
+ *(vs8*)(0xCC008000) = (s8)(x);
+ *(vs8*)(0xCC008000) = (s8)(y);
+ *(vs8*)(0xCC008000) = (s8)(z);
+}
+
+static inline void GX_Position2f32(f32 x,f32 y)
+{
+ *(vf32*)(0xCC008000) = (f32)(x);
+ *(vf32*)(0xCC008000) = (f32)(y);
+}
+
+static inline void GX_Position2u16(u16 x,u16 y)
+{
+ *(vu16*)(0xCC008000) = (u16)(x);
+ *(vu16*)(0xCC008000) = (u16)(y);
+}
+
+static inline void GX_Position2s16(s16 x,s16 y)
+{
+ *(vs16*)(0xCC008000) = (s16)(x);
+ *(vs16*)(0xCC008000) = (s16)(y);
+}
+
+static inline void GX_Position2u8(u8 x,u8 y)
+{
+ *(vu8*)(0xCC008000) = (u8)(x);
+ *(vu8*)(0xCC008000) = (u8)(y);
+}
+
+static inline void GX_Position2s8(s8 x,s8 y)
+{
+ *(vs8*)(0xCC008000) = (s8)(x);
+ *(vs8*)(0xCC008000) = (s8)(y);
+}
+
+static inline void GX_Position1x8(u8 index)
+{
+ *(vu8*)(0xCC008000) = (u8)(index);
+}
+
+static inline void GX_Position1x16(u16 index)
+{
+ *(vu16*)(0xCC008000) = (u16)(index);
+}
+
+static inline void GX_Normal3f32(f32 nx,f32 ny,f32 nz)
+{
+ *(vf32*)(0xCC008000) = (f32)(nx);
+ *(vf32*)(0xCC008000) = (f32)(ny);
+ *(vf32*)(0xCC008000) = (f32)(nz);
+}
+
+static inline void GX_Normal3s16(s16 nx,s16 ny,s16 nz)
+{
+ *(vs16*)(0xCC008000) = (s16)(nx);
+ *(vs16*)(0xCC008000) = (s16)(ny);
+ *(vs16*)(0xCC008000) = (s16)(nz);
+}
+
+static inline void GX_Normal3s8(s8 nx,s8 ny,s8 nz)
+{
+ *(vs8*)(0xCC008000) = (s8)(nx);
+ *(vs8*)(0xCC008000) = (s8)(ny);
+ *(vs8*)(0xCC008000) = (s8)(nz);
+}
+
+static inline void GX_Normal1x8(u8 index)
+{
+ *(vu8*)(0xCC008000) = (u8)(index);
+}
+
+static inline void GX_Normal1x16(u16 index)
+{
+ *(vu16*)(0xCC008000) = (u16)(index);
+}
+
+static inline void GX_Color4u8(u8 r,u8 g,u8 b,u8 a)
+{
+ *(vu8*)(0xCC008000) = (u8)(r);
+ *(vu8*)(0xCC008000) = (u8)(g);
+ *(vu8*)(0xCC008000) = (u8)(b);
+ *(vu8*)(0xCC008000) = (u8)(a);
+}
+
+static inline void GX_Color3u8(u8 r,u8 g,u8 b)
+{
+ *(vu8*)(0xCC008000) = (u8)(r);
+ *(vu8*)(0xCC008000) = (u8)(g);
+ *(vu8*)(0xCC008000) = (u8)(b);
+}
+
+static inline void GX_Color3f32(f32 r, f32 g, f32 b)
+{
+
+ *(vu8*)(0xCC008000) = (u8)((u8)(r * 255.0));
+ *(vu8*)(0xCC008000) = (u8)((u8)(g * 255.0));
+ *(vu8*)(0xCC008000) = (u8)((u8)(b * 255.0));
+
+}
+
+
+static inline void GX_Color1u32(u32 clr)
+{
+ *(vu32*)(0xCC008000) = (u32)(clr);
+}
+
+static inline void GX_Color1u16(u16 clr)
+{
+ *(vu16*)(0xCC008000) = (u16)(clr);
+}
+
+static inline void GX_Color1x8(u8 index)
+{
+ *(vu8*)(0xCC008000) = (u8)(index);
+}
+
+static inline void GX_Color1x16(u16 index)
+{
+ *(vu16*)(0xCC008000) = (u16)(index);
+}
+
+static inline void GX_TexCoord2f32(f32 s,f32 t)
+{
+ *(vf32*)(0xCC008000) = (f32)(s);
+ *(vf32*)(0xCC008000) = (f32)(t);
+}
+
+static inline void GX_TexCoord2u16(u16 s,u16 t)
+{
+ *(vu16*)(0xCC008000) = (u16)(s);
+ *(vu16*)(0xCC008000) = (u16)(t);
+}
+
+static inline void GX_TexCoord2s16(s16 s,s16 t)
+{
+ *(vs16*)(0xCC008000) = (s16)(s);
+ *(vs16*)(0xCC008000) = (s16)(t);
+}
+
+static inline void GX_TexCoord2u8(u8 s,u8 t)
+{
+ *(vu8*)(0xCC008000) = (u8)(s);
+ *(vu8*)(0xCC008000) = (u8)(t);
+}
+
+static inline void GX_TexCoord2s8(s8 s,s8 t)
+{
+ *(vs8*)(0xCC008000) = (s8)(s);
+ *(vs8*)(0xCC008000) = (s8)(t);
+}
+
+static inline void GX_TexCoord1f32(f32 s)
+{
+ *(vf32*)(0xCC008000) = (f32)(s);
+}
+
+static inline void GX_TexCoord1u16(u16 s)
+{
+ *(vu16*)(0xCC008000) = (u16)(s);
+}
+
+static inline void GX_TexCoord1s16(s16 s)
+{
+ *(vs16*)(0xCC008000) = (s16)(s);
+}
+
+static inline void GX_TexCoord1u8(u8 s)
+{
+ *(vu8*)(0xCC008000) = (u8)(s);
+}
+
+static inline void GX_TexCoord1s8(s8 s)
+{
+ *(vs8*)(0xCC008000) = (s8)(s);
+}
+
+static inline void GX_TexCoord1x8(u8 index)
+{
+ *(vu8*)(0xCC008000) = (u8)(index);
+}
+
+static inline void GX_TexCoord1x16(u16 index)
+{
+ *(vu16*)(0xCC008000) = (u16)(index);
+}
+
+static inline void GX_MatrixIndex1x8(u8 index)
+{
+ *(vu8*)(0xCC008000) = (u8)(index);
+}
+
+
+void GX_AdjustForOverscan(GXRModeObj *rmin,GXRModeObj *rmout,u16 hor,u16 ver);
+void GX_LoadPosMtxImm(Mtx mt,u32 pnidx);
+void GX_LoadPosMtxIdx(u16 mtxidx,u32 pnidx);
+void GX_LoadNrmMtxImm(Mtx mt,u32 pnidx);
+void GX_LoadNrmMtxIdx3x3(u16 mtxidx,u32 pnidx);
+void GX_LoadTexMtxImm(Mtx mt,u32 texidx,u8 type);
+void GX_LoadTexMtxIdx(u16 mtxidx,u32 texidx,u8 type);
+void GX_SetCurrentMtx(u32 mtx);
+# 1380 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevOp(u8 tevstage,u8 mode);
+# 1391 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevColor(u8 tev_regid,GXColor color);
+# 1402 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevColorS10(u8 tev_regid,GXColorS10 color);
+# 1419 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevColorIn(u8 tevstage,u8 a,u8 b,u8 c,u8 d);
+# 1435 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevAlphaIn(u8 tevstage,u8 a,u8 b,u8 c,u8 d);
+# 1454 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevColorOp(u8 tevstage,u8 tevop,u8 tevbias,u8 tevscale,u8 clamp,u8 tevregid);
+# 1474 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevAlphaOp(u8 tevstage,u8 tevop,u8 tevbias,u8 tevscale,u8 clamp,u8 tevregid);
+void GX_SetNumTexGens(u32 nr);
+void GX_SetTexCoordGen(u16 texcoord,u32 tgen_typ,u32 tgen_src,u32 mtxsrc);
+void GX_SetTexCoordGen2(u16 texcoord,u32 tgen_typ,u32 tgen_src,u32 mtxsrc,u32 normalize,u32 postmtx);
+# 1489 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetZTexture(u8 op,u8 fmt,u32 bias);
+void GX_SetZMode(u8 enable,u8 func,u8 update_enable);
+void GX_SetZCompLoc(u8 before_tex);
+void GX_SetLineWidth(u8 width,u8 fmt);
+void GX_SetPointSize(u8 width,u8 fmt);
+
+void GX_SetBlendMode(u8 type,u8 src_fact,u8 dst_fact,u8 op);
+void GX_SetCullMode(u8 mode);
+void GX_SetCoPlanar(u8 enable);
+void GX_EnableTexOffsets(u8 coord,u8 line_enable,u8 point_enable);
+void GX_SetClipMode(u8 mode);
+void GX_SetScissor(u32 xOrigin,u32 yOrigin,u32 wd,u32 ht);
+void GX_SetScissorBoxOffset(s32 xoffset,s32 yoffset);
+void GX_SetNumChans(u8 num);
+
+void GX_SetTevOrder(u8 tevstage,u8 texcoord,u32 texmap,u8 color);
+void GX_SetNumTevStages(u8 num);
+
+void GX_SetAlphaCompare(u8 comp0,u8 ref0,u8 aop,u8 comp1,u8 ref1);
+void GX_SetTevKColor(u8 sel, GXColor col);
+void GX_SetTevKColorSel(u8 tevstage,u8 sel);
+void GX_SetTevKAlphaSel(u8 tevstage,u8 sel);
+void GX_SetTevKColorS10(u8 sel, GXColorS10 col);
+# 1526 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevSwapMode(u8 tevstage,u8 ras_sel,u8 tex_sel);
+# 1541 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTevSwapModeTable(u8 swapid,u8 r,u8 g,u8 b,u8 a);
+void GX_SetTevIndirect(u8 tevstage,u8 indtexid,u8 format,u8 bias,u8 mtxid,u8 wrap_s,u8 wrap_t,u8 addprev,u8 utclod,u8 a);
+void GX_SetTevDirect(u8 tevstage);
+void GX_SetNumIndStages(u8 nstages);
+void GX_SetIndTexOrder(u8 indtexstage,u8 texcoord,u8 texmap);
+void GX_SetIndTexCoordScale(u8 indtexid,u8 scale_s,u8 scale_t);
+void GX_SetFog(u8 type,f32 startz,f32 endz,f32 nearz,f32 farz,GXColor col);
+void GX_SetFogRangeAdj(u8 enable,u16 center,GXFogAdjTbl *table);
+void GX_SetIndTexMatrix(u8 indtexmtx,f32 offset_mtx[2][3],s8 scale_exp);
+void GX_SetTevIndBumpST(u8 tevstage,u8 indstage,u8 mtx_sel);
+void GX_SetTevIndBumpXYZ(u8 tevstage,u8 indstage,u8 mtx_sel);
+void GX_SetTevIndTile(u8 tevstage,u8 indtexid,u16 tilesize_x,u16 tilesize_y,u16 tilespacing_x,u16 tilespacing_y,u8 indtexfmt,u8 indtexmtx,u8 bias_sel,u8 alpha_sel);
+
+void GX_SetColorUpdate(u8 enable);
+void GX_SetAlphaUpdate(u8 enable);
+void GX_SetPixelFmt(u8 pix_fmt,u8 z_fmt);
+void GX_SetDither(u8 dither);
+void GX_SetDstAlpha(u8 enable,u8 a);
+void GX_SetFieldMask(u8 even_mask,u8 odd_mask);
+void GX_SetFieldMode(u8 field_mode,u8 half_aspect_ratio);
+# 1572 "/opt/devkitpro/libogc/include/ogc/gx.h"
+f32 GX_GetYScaleFactor(u16 efbHeight,u16 xfbHeight);
+# 1584 "/opt/devkitpro/libogc/include/ogc/gx.h"
+u32 GX_SetDispCopyYScale(f32 yscale);
+# 1597 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetDispCopySrc(u16 left,u16 top,u16 wd,u16 ht);
+# 1610 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetDispCopyDst(u16 wd,u16 ht);
+# 1620 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetCopyClamp(u8 clamp);
+# 1630 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetDispCopyGamma(u8 gamma);
+
+void GX_SetCopyFilter(u8 aa,u8 sample_pattern[12][2],u8 vf,u8 vfilter[7]);
+void GX_SetDispCopyFrame2Field(u8 mode);
+# 1644 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetCopyClear(GXColor color,u32 zvalue);
+# 1661 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_CopyDisp(void *dest,u8 clear);
+
+void GX_SetTexCopySrc(u16 left,u16 top,u16 wd,u16 ht);
+# 1679 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_SetTexCopyDst(u16 wd,u16 ht,u32 fmt,u8 mipmap);
+# 1693 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_CopyTex(void *dest,u8 clear);
+# 1703 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_PixModeSync();
+# 1712 "/opt/devkitpro/libogc/include/ogc/gx.h"
+void GX_ClearBoundingBox();
+void GX_PokeAlphaMode(u8 func,u8 threshold);
+void GX_PokeAlphaUpdate(u8 update_enable);
+void GX_PokeColorUpdate(u8 update_enable);
+void GX_PokeDither(u8 dither);
+void GX_PokeBlendMode(u8 type,u8 src_fact,u8 dst_fact,u8 op);
+void GX_PokeAlphaRead(u8 mode);
+void GX_PokeDstAlpha(u8 enable,u8 a);
+void GX_PokeARGB(u16 x,u16 y,GXColor color);
+void GX_PokeZ(u16 x,u16 y,u32 z);
+void GX_PokeZMode(u8 comp_enable,u8 func,u8 update_enable);
+
+u32 GX_GetTexObjFmt(GXTexObj *obj);
+u32 GX_GetTexObjMipMap(GXTexObj *obj);
+
+u8 GX_GetTexFmt(GXTexObj *obj);
+u32 GX_GetTexBufferSize(u16 wd,u16 ht,u32 fmt,u8 mipmap,u8 maxlod);
+void GX_InvalidateTexAll();
+void GX_InvalidateTexRegion(GXTexRegion *region);
+void GX_InitTexCacheRegion(GXTexRegion *region,u8 is32bmipmap,u32 tmem_even,u8 size_even,u32 tmem_odd,u8 size_odd);
+void GX_InitTexPreloadRegion(GXTexRegion *region,u32 tmem_even,u32 size_even,u32 tmem_odd,u32 size_odd);
+void GX_InitTexObj(GXTexObj *obj,void *img_ptr,u16 wd,u16 ht,u8 fmt,u8 wrap_s,u8 wrap_t,u8 mipmap);
+void GX_InitTexObjCI(GXTexObj *obj,void *img_ptr,u16 wd,u16 ht,u8 fmt,u8 wrap_s,u8 wrap_t,u8 mipmap,u32 tlut_name);
+void GX_InitTexObjTlut(GXTexObj *obj,u32 tlut_name);
+void GX_LoadTexObj(GXTexObj *obj,u8 mapid);
+void GX_LoadTlut(GXTlutObj *obj,u32 tlut_name);
+void GX_LoadTexObjPreloaded(GXTexObj *obj,GXTexRegion *region,u8 mapid);
+void GX_PreloadEntireTex(GXTexObj *obj,GXTexRegion *region);
+void GX_InitTlutObj(GXTlutObj *obj,void *lut,u8 fmt,u16 entries);
+void GX_InitTlutRegion(GXTlutRegion *region,u32 tmem_addr,u8 tlut_sz);
+void GX_InitTexObjLOD(GXTexObj *obj,u8 minfilt,u8 magfilt,f32 minlod,f32 maxlod,f32 lodbias,u8 biasclamp,u8 edgelod,u8 maxaniso);
+void GX_SetTexCoorScaleManually(u8 texcoord,u8 enable,u16 ss,u16 ts);
+void GX_SetTexCoordBias(u8 texcoord,u8 s_enable,u8 t_enable);
+GXTexRegionCallback GX_SetTexRegionCallback(GXTexRegionCallback cb);
+GXTlutRegionCallback GX_SetTlutRegionCallback(GXTlutRegionCallback cb);
+
+void GX_InitLightPos(GXLightObj *lit_obj,f32 x,f32 y,f32 z);
+void GX_InitLightColor(GXLightObj *lit_obj,GXColor col);
+void GX_InitLightDir(GXLightObj *lit_obj,f32 nx,f32 ny,f32 nz);
+void GX_LoadLightObj(GXLightObj *lit_obj,u8 lit_id);
+void GX_LoadLightObjIdx(u32 litobjidx,u8 litid);
+void GX_InitLightDistAttn(GXLightObj *lit_obj,f32 ref_dist,f32 ref_brite,u8 dist_fn);
+void GX_InitLightAttn(GXLightObj *lit_obj,f32 a0,f32 a1,f32 a2,f32 k0,f32 k1,f32 k2);
+void GX_InitLightAttnA(GXLightObj *lit_obj,f32 a0,f32 a1,f32 a2);
+void GX_InitLightAttnK(GXLightObj *lit_obj,f32 k0,f32 k1,f32 k2);
+void GX_InitSpecularDirHA(GXLightObj *lit_obj,f32 nx,f32 ny,f32 nz,f32 hx,f32 hy,f32 hz);
+void GX_InitSpecularDir(GXLightObj *lit_obj,f32 nx,f32 ny,f32 nz);
+void GX_InitLightSpot(GXLightObj *lit_obj,f32 cut_off,u8 spotfn);
+
+u32 GX_ReadClksPerVtx();
+u32 GX_GetOverflowCount();
+u32 GX_ResetOverflowCount();
+lwp_t GX_GetCurrentGXThread();
+lwp_t GX_SetCurrentGXThread();
+void GX_RestoreWriteGatherPipe();
+void GX_SetGPMetric(u32 perf0,u32 perf1);
+void GX_ClearGPMetric();
+void GX_InitXfRasMetric();
+void GX_ReadXfRasMetric(u32 *xfwaitin,u32 *xfwaitout,u32 *rasbusy,u32 *clks);
+void GX_ClearVCacheMetric();
+void GX_ReadVCacheMetric(u32 *check,u32 *miss,u32 *stall);
+void GX_SetVCacheMetric(u32 attr);
+void GX_GetGPStatus(u8 *overhi,u8 *underlow,u8 *readIdle,u8 *cmdIdle,u8 *brkpt);
+void GX_ReadGPMetric(u32 *cnt0,u32 *cnt1);
+void GX_GetFifoPtrs(GXFifoObj *fifo,void **rd_ptr,void **wt_ptr);
+volatile void* GX_RedirectWriteGatherPipe(void *ptr);
+# 1799 "/opt/devkitpro/libogc/include/ogc/gx.h"
+   }
+# 53 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/si.h" 1
+# 66 "/opt/devkitpro/libogc/include/ogc/si.h"
+   extern "C" {
+
+
+typedef void (*SICallback)(s32,u32);
+typedef void (*RDSTHandler)(u32,void*);
+
+u32 SI_Sync();
+u32 SI_Busy();
+u32 SI_IsChanBusy(s32 chan);
+void SI_EnablePolling(u32 poll);
+void SI_DisablePolling(u32 poll);
+void SI_SetCommand(s32 chan,u32 cmd);
+u32 SI_GetStatus(s32 chan);
+u32 SI_GetResponse(s32 chan,void *buf);
+u32 SI_GetResponseRaw(s32 chan);
+void SI_RefreshSamplingRate();
+u32 SI_Transfer(s32 chan,void *out,u32 out_len,void *in,u32 in_len,SICallback cb,u32 us_delay);
+u32 SI_GetTypeAsync(s32 chan,SICallback cb);
+u32 SI_GetType(s32 chan);
+u32 SI_GetCommand(s32 chan);
+void SI_TransferCommands();
+u32 SI_RegisterPollingHandler(RDSTHandler handler);
+u32 SI_UnregisterPollingHandler(RDSTHandler handler);
+u32 SI_EnablePollingInterrupt(s32 enable);
+
+
+   }
+# 54 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/gx_struct.h" 1
+# 55 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/irq.h" 1
+# 41 "/opt/devkitpro/libogc/include/ogc/irq.h"
+# 1 "/opt/devkitpro/libogc/include/ogc/context.h" 1
+# 27 "/opt/devkitpro/libogc/include/ogc/context.h"
+   extern "C" {
+
+
+typedef struct _excption_frame {
+ u32 EXCPT_Number;
+ u32 SRR0,SRR1;
+ u32 GPR[32];
+ u32 GQR[8];
+ u32 CR, LR, CTR, XER, MSR, DAR;
+
+ u16 state;
+ u16 mode;
+
+ f64 FPR[32];
+ u32 FPSCR_PAD;
+ u32 FPSCR;
+ f64 PSFPR[32];
+} frame_context;
+
+
+   }
+# 42 "/opt/devkitpro/libogc/include/ogc/irq.h" 2
+# 125 "/opt/devkitpro/libogc/include/ogc/irq.h"
+   extern "C" {
+# 134 "/opt/devkitpro/libogc/include/ogc/irq.h"
+typedef void (*raw_irq_handler_t)(u32 irq,void *ctx);
+# 145 "/opt/devkitpro/libogc/include/ogc/irq.h"
+raw_irq_handler_t IRQ_Request(u32 nIrq,raw_irq_handler_t pHndl,void *pCtx);
+# 154 "/opt/devkitpro/libogc/include/ogc/irq.h"
+raw_irq_handler_t IRQ_Free(u32 nIrq);
+# 163 "/opt/devkitpro/libogc/include/ogc/irq.h"
+raw_irq_handler_t IRQ_GetHandler(u32 nIrq);
+
+
+
+
+
+
+
+u32 IRQ_Disable();
+# 180 "/opt/devkitpro/libogc/include/ogc/irq.h"
+void IRQ_Restore(u32 level);
+
+
+   }
+# 56 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/lwp.h" 1
+# 57 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/mutex.h" 1
+# 44 "/opt/devkitpro/libogc/include/ogc/mutex.h"
+ extern "C" {
+
+
+
+
+
+
+typedef u32 mutex_t;
+# 61 "/opt/devkitpro/libogc/include/ogc/mutex.h"
+s32 LWP_MutexInit(mutex_t *mutex,u8 use_recursive);
+# 70 "/opt/devkitpro/libogc/include/ogc/mutex.h"
+s32 LWP_MutexDestroy(mutex_t mutex);
+# 79 "/opt/devkitpro/libogc/include/ogc/mutex.h"
+s32 LWP_MutexLock(mutex_t mutex);
+# 88 "/opt/devkitpro/libogc/include/ogc/mutex.h"
+s32 LWP_MutexTryLock(mutex_t mutex);
+# 97 "/opt/devkitpro/libogc/include/ogc/mutex.h"
+s32 LWP_MutexUnlock(mutex_t mutex);
+
+
+ }
+# 58 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/message.h" 1
+# 51 "/opt/devkitpro/libogc/include/ogc/message.h"
+extern "C" {
+
+
+
+
+
+
+typedef u32 mqbox_t;
+
+
+
+
+
+typedef void* mqmsg_t;
+# 75 "/opt/devkitpro/libogc/include/ogc/message.h"
+s32 MQ_Init(mqbox_t *mqbox,u32 count);
+# 84 "/opt/devkitpro/libogc/include/ogc/message.h"
+void MQ_Close(mqbox_t mqbox);
+# 95 "/opt/devkitpro/libogc/include/ogc/message.h"
+BOOL MQ_Send(mqbox_t mqbox,mqmsg_t msg,u32 flags);
+# 106 "/opt/devkitpro/libogc/include/ogc/message.h"
+BOOL MQ_Jam(mqbox_t mqbox,mqmsg_t msg,u32 flags);
+# 117 "/opt/devkitpro/libogc/include/ogc/message.h"
+BOOL MQ_Receive(mqbox_t mqbox,mqmsg_t *msg,u32 flags);
+
+
+ }
+# 59 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/semaphore.h" 1
+# 45 "/opt/devkitpro/libogc/include/ogc/semaphore.h"
+extern "C" {
+
+
+
+
+
+
+typedef u32 sem_t;
+# 63 "/opt/devkitpro/libogc/include/ogc/semaphore.h"
+s32 LWP_SemInit(sem_t *sem,u32 start,u32 max);
+# 72 "/opt/devkitpro/libogc/include/ogc/semaphore.h"
+s32 LWP_SemDestroy(sem_t sem);
+# 81 "/opt/devkitpro/libogc/include/ogc/semaphore.h"
+s32 LWP_SemWait(sem_t sem);
+# 90 "/opt/devkitpro/libogc/include/ogc/semaphore.h"
+s32 LWP_SemPost(sem_t sem);
+
+
+ }
+# 60 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/pad.h" 1
+# 43 "/opt/devkitpro/libogc/include/ogc/pad.h"
+   extern "C" {
+
+
+typedef struct _padstatus {
+ u16 button;
+ s8 stickX;
+ s8 stickY;
+ s8 substickX;
+ s8 substickY;
+ u8 triggerL;
+ u8 triggerR;
+ u8 analogA;
+ u8 analogB;
+ s8 err;
+} PADStatus;
+
+typedef void (*sampling_callback)(void);
+
+
+
+
+u32 PAD_Init();
+u32 PAD_Sync();
+u32 PAD_Read(PADStatus *status);
+u32 PAD_Reset(u32 mask);
+u32 PAD_Recalibrate(u32 mask);
+void PAD_Clamp(PADStatus *status);
+void PAD_ControlMotor(s32 chan,u32 cmd);
+void PAD_SetSpec(u32 spec);
+
+u32 PAD_ScanPads();
+
+u16 PAD_ButtonsUp(int pad);
+u16 PAD_ButtonsDown(int pad);
+u16 PAD_ButtonsHeld(int pad);
+
+s8 PAD_SubStickX(int pad);
+s8 PAD_SubStickY(int pad);
+
+s8 PAD_StickX(int pad);
+s8 PAD_StickY(int pad);
+
+u8 PAD_TriggerL(int pad);
+u8 PAD_TriggerR(int pad);
+
+
+sampling_callback PAD_SetSamplingCallback(sampling_callback cb);
+
+
+
+
+   }
+# 61 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/tpl.h" 1
+
+
+
+# 1 "/opt/devkitpro/libogc/include/ogc/gx.h" 1
+# 5 "/opt/devkitpro/libogc/include/ogc/tpl.h" 2
+
+
+   extern "C" {
+
+
+typedef void* FHANDLE;
+
+
+typedef struct _tplfile {
+ int type;
+ int ntextures;
+ void *texdesc;
+ FHANDLE tpl_file;
+} TPLFile;
+
+s32 TPL_OpenTPLFromFile(TPLFile* tdf, const char* file_name);
+s32 TPL_OpenTPLFromMemory(TPLFile* tdf, const void *memory,u32 len);
+s32 TPL_GetTexture(TPLFile *tdf,s32 id,GXTexObj *texObj);
+s32 TPL_GetTextureCI(TPLFile *tdf,s32 id,GXTexObj *texObj,GXTlutObj *tlutObj,u8 tluts);
+void TPL_CloseTPLFile(TPLFile *tdf);
+
+
+   }
+# 62 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/system.h" 1
+# 42 "/opt/devkitpro/libogc/include/ogc/system.h"
+# 1 "/opt/devkitpro/libogc/include/gcutil.h" 1
+# 43 "/opt/devkitpro/libogc/include/ogc/system.h" 2
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 1 3
+# 10 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/_ansi.h" 1 3
+# 15 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/_ansi.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/newlib.h" 1 3
+# 16 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/_ansi.h" 2 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/config.h" 1 3
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/ieeefp.h" 1 3
+# 5 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/config.h" 2 3
+# 17 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/_ansi.h" 2 3
+# 11 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 2 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 1 3
+# 9 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+extern "C" {
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/_ansi.h" 1 3
+# 14 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 2 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 1 3
+# 12 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_types.h" 1 3
+
+
+
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 1 3
+# 9 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+extern "C" {
+# 22 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/limits.h" 1 3 4
+# 23 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 2 3
+
+
+
+typedef signed char __int8_t ;
+typedef unsigned char __uint8_t ;
+# 36 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+typedef signed short __int16_t;
+typedef unsigned short __uint16_t;
+# 46 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+# 58 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+# 76 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+# 99 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+typedef signed long long __int64_t;
+typedef unsigned long long __uint64_t;
+# 118 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_default_types.h" 3
+}
+# 8 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/_types.h" 2 3
+
+
+typedef long long _fpos_t;
+
+
+typedef long long _off_t;
+# 13 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 2 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/lock.h" 1 3
+
+
+
+
+
+typedef int _LOCK_T;
+typedef int _LOCK_RECURSIVE_T;
+# 47 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/lock.h" 3
+extern int __libc_lock_init(int*,int);
+extern int __libc_lock_close(int*);
+extern int __libc_lock_acquire(int*);
+extern int __libc_lock_try_acquire(int*);
+extern int __libc_lock_release(int*);
+# 14 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 2 3
+# 24 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 3
+typedef short __dev_t;
+
+
+
+
+typedef unsigned short __uid_t;
+
+
+typedef unsigned short __gid_t;
+
+
+
+__extension__ typedef long long _off64_t;
+# 56 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 3
+typedef int _ssize_t;
+
+
+
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 355 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 3 4
+typedef unsigned int wint_t;
+# 64 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/_types.h" 2 3
+
+
+
+typedef struct
+{
+  int __count;
+  union
+  {
+    wint_t __wch;
+    unsigned char __wchb[4];
+  } __value;
+} _mbstate_t;
+
+
+
+typedef _LOCK_RECURSIVE_T _flock_t;
+
+
+
+
+typedef void *_iconv_t;
+# 15 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 2 3
+
+
+
+
+
+
+typedef unsigned long __ULong;
+# 37 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+struct _reent;
+
+
+
+
+
+
+struct _Bigint
+{
+  struct _Bigint *_next;
+  int _k, _maxwds, _sign, _wds;
+  __ULong _x[1];
+};
+
+
+struct __tm
+{
+  int __tm_sec;
+  int __tm_min;
+  int __tm_hour;
+  int __tm_mday;
+  int __tm_mon;
+  int __tm_year;
+  int __tm_wday;
+  int __tm_yday;
+  int __tm_isdst;
+};
+
+
+
+
+
+
+
+struct _on_exit_args {
+ void * _fnargs[32];
+ void * _dso_handle[32];
+
+ __ULong _fntypes;
+
+
+ __ULong _is_cxa;
+};
+# 89 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+struct _atexit {
+ struct _atexit *_next;
+ int _ind;
+
+ void (*_fns[32])(void);
+        struct _on_exit_args _on_exit_args;
+};
+# 105 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+struct __sbuf {
+ unsigned char *_base;
+ int _size;
+};
+# 158 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+struct __sFILE {
+  unsigned char *_p;
+  int _r;
+  int _w;
+  short _flags;
+  short _file;
+  struct __sbuf _bf;
+  int _lbfsize;
+
+
+
+
+
+
+  void * _cookie;
+
+  int (*_read) (struct _reent *, void *, char *, int);
+
+  int (*_write) (struct _reent *, void *, const char *, int);
+
+  _fpos_t (*_seek) (struct _reent *, void *, _fpos_t, int);
+  int (*_close) (struct _reent *, void *);
+
+
+  struct __sbuf _ub;
+  unsigned char *_up;
+  int _ur;
+
+
+  unsigned char _ubuf[3];
+  unsigned char _nbuf[1];
+
+
+  struct __sbuf _lb;
+
+
+  int _blksize;
+  int _offset;
+
+
+  struct _reent *_data;
+
+
+
+  _flock_t _lock;
+
+};
+# 259 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+typedef struct __sFILE __FILE;
+
+
+
+struct _glue
+{
+  struct _glue *_next;
+  int _niobs;
+  __FILE *_iobs;
+};
+# 291 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+struct _rand48 {
+  unsigned short _seed[3];
+  unsigned short _mult[3];
+  unsigned short _add;
+
+
+
+
+};
+# 564 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+struct _reent
+{
+  int _errno;
+
+
+
+
+  __FILE *_stdin, *_stdout, *_stderr;
+
+  int _inc;
+  char _emergency[25];
+
+  int _current_category;
+  const char *_current_locale;
+
+  int __sdidinit;
+
+  void (*__cleanup) (struct _reent *);
+
+
+  struct _Bigint *_result;
+  int _result_k;
+  struct _Bigint *_p5s;
+  struct _Bigint **_freelist;
+
+
+  int _cvtlen;
+  char *_cvtbuf;
+
+  union
+    {
+      struct
+        {
+          unsigned int _unused_rand;
+          char * _strtok_last;
+          char _asctime_buf[26];
+          struct __tm _localtime_buf;
+          int _gamma_signgam;
+          __extension__ unsigned long long _rand_next;
+          struct _rand48 _r48;
+          _mbstate_t _mblen_state;
+          _mbstate_t _mbtowc_state;
+          _mbstate_t _wctomb_state;
+          char _l64a_buf[8];
+          char _signal_buf[24];
+          int _getdate_err;
+          _mbstate_t _mbrlen_state;
+          _mbstate_t _mbrtowc_state;
+          _mbstate_t _mbsrtowcs_state;
+          _mbstate_t _wcrtomb_state;
+          _mbstate_t _wcsrtombs_state;
+        } _reent;
+
+
+
+      struct
+        {
+
+          unsigned char * _nextf[30];
+          unsigned int _nmalloc[30];
+        } _unused;
+    } _new;
+
+
+  struct _atexit *_atexit;
+  struct _atexit _atexit0;
+
+
+  void (**(_sig_func))(int);
+
+
+
+
+  struct _glue __sglue;
+  __FILE __sf[3];
+};
+# 796 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+extern struct _reent *_impure_ptr __attribute__((__section__(".sdata")));
+extern struct _reent *const _global_impure_ptr __attribute__((__section__(".sdata")));
+
+void _reclaim_reent (struct _reent *);
+# 819 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/reent.h" 3
+}
+# 12 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 2 3
+
+
+
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/time.h" 1 3
+# 19 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 2 3
+# 27 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 214 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 3 4
+typedef unsigned int size_t;
+# 28 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 2 3
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 1 3
+# 69 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 152 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 70 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 2 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/types.h" 1 3
+# 19 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/types.h" 3
+typedef long int __off_t;
+typedef int __pid_t;
+
+__extension__ typedef long long int __loff_t;
+# 71 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 2 3
+# 92 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 3
+typedef unsigned char u_char;
+typedef unsigned short u_short;
+typedef unsigned int u_int;
+typedef unsigned long u_long;
+
+
+
+typedef unsigned short ushort;
+typedef unsigned int uint;
+
+
+
+typedef unsigned long clock_t;
+
+
+
+
+typedef long time_t;
+
+
+
+
+struct timespec {
+  time_t tv_sec;
+  long tv_nsec;
+};
+
+struct itimerspec {
+  struct timespec it_interval;
+  struct timespec it_value;
+};
+
+
+typedef long daddr_t;
+typedef char * caddr_t;
+
+
+
+
+
+
+typedef unsigned int ino_t;
+# 162 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 3
+typedef _off_t off_t;
+typedef __dev_t dev_t;
+typedef __uid_t uid_t;
+typedef __gid_t gid_t;
+
+
+typedef int pid_t;
+
+typedef long key_t;
+
+typedef _ssize_t ssize_t;
+# 186 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 3
+typedef unsigned int mode_t __attribute__ ((__mode__ (__SI__)));
+
+
+
+
+typedef unsigned short nlink_t;
+# 213 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 3
+typedef long fd_mask;
+
+
+
+
+
+
+
+typedef struct _types_fd_set {
+ fd_mask fds_bits[(((64)+(((sizeof (fd_mask) * 8))-1))/((sizeof (fd_mask) * 8)))];
+} _types_fd_set;
+# 244 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 3
+typedef unsigned long clockid_t;
+
+
+
+
+typedef unsigned long timer_t;
+
+
+
+typedef unsigned long useconds_t;
+typedef long suseconds_t;
+
+typedef __uint32_t fsblkcnt_t;
+typedef __uint32_t fsfilcnt_t;
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/features.h" 1 3
+# 25 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/features.h" 3
+extern "C" {
+# 178 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/features.h" 3
+}
+# 260 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/types.h" 2 3
+# 30 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 2 3
+
+extern "C" {
+
+struct tm
+{
+  int tm_sec;
+  int tm_min;
+  int tm_hour;
+  int tm_mday;
+  int tm_mon;
+  int tm_year;
+  int tm_wday;
+  int tm_yday;
+  int tm_isdst;
+};
+
+clock_t clock (void);
+double difftime (time_t _time2, time_t _time1);
+time_t mktime (struct tm *_timeptr);
+time_t time (time_t *_timer);
+
+char *asctime (const struct tm *_tblock);
+char *ctime (const time_t *_time);
+struct tm *gmtime (const time_t *_timer);
+struct tm *localtime (const time_t *_timer);
+
+size_t strftime (char *_s, size_t _maxsize, const char *_fmt, const struct tm *_t);
+
+char *asctime_r (const struct tm *, char *);
+char *ctime_r (const time_t *, char *);
+struct tm *gmtime_r (const time_t *, struct tm *);
+struct tm *localtime_r (const time_t *, struct tm *);
+
+}
+
+
+extern "C" {
+
+
+
+char *strptime (const char *, const char *, struct tm *);
+void tzset (void);
+void _tzset_r (struct _reent *);
+
+typedef struct __tzrule_struct
+{
+  char ch;
+  int m;
+  int n;
+  int d;
+  int s;
+  time_t change;
+  long offset;
+} __tzrule_type;
+
+typedef struct __tzinfo_struct
+{
+  int __tznorth;
+  int __tzyear;
+  __tzrule_type __tzrule[2];
+} __tzinfo_type;
+
+__tzinfo_type *__gettzinfo (void);
+# 118 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 3
+extern long _timezone;
+extern int _daylight;
+extern char *_tzname[2];
+# 129 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 3
+}
+# 179 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 3
+extern "C" {
+# 247 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/time.h" 3
+}
+# 44 "/opt/devkitpro/libogc/include/ogc/system.h" 2
+# 126 "/opt/devkitpro/libogc/include/ogc/system.h"
+   extern "C" {
+
+
+
+
+
+
+
+typedef u32 syswd_t;
+# 150 "/opt/devkitpro/libogc/include/ogc/system.h"
+typedef struct _syssram syssram;
+
+struct _syssram {
+ u16 checksum;
+ u16 checksum_inv;
+ u32 ead0;
+ u32 ead1;
+ u32 counter_bias;
+ s8 display_offsetH;
+ u8 ntd;
+ u8 lang;
+ u8 flags;
+} __attribute__((packed));
+# 176 "/opt/devkitpro/libogc/include/ogc/system.h"
+typedef struct _syssramex syssramex;
+
+struct _syssramex {
+ u8 flash_id[2][12];
+ u32 wirelessKbd_id;
+ u16 wirelessPad_id[4];
+ u8 dvderr_code;
+ u8 __padding0;
+ u16 flashID_chksum[2];
+ u8 __padding1[4];
+} __attribute__((packed));
+
+typedef void (*alarmcallback)(syswd_t alarm);
+
+typedef struct _sys_fontheader sys_fontheader;
+
+struct _sys_fontheader {
+ u16 font_type;
+ u16 first_char;
+ u16 last_char;
+ u16 inval_char;
+ u16 asc;
+ u16 desc;
+ u16 width;
+ u16 leading;
+    u16 cell_width;
+    u16 cell_height;
+    u32 sheet_size;
+    u16 sheet_format;
+    u16 sheet_column;
+    u16 sheet_row;
+    u16 sheet_width;
+    u16 sheet_height;
+    u16 width_table;
+    u32 sheet_image;
+    u32 sheet_fullsize;
+    u8 c0;
+    u8 c1;
+    u8 c2;
+    u8 c3;
+} __attribute__((packed));
+
+typedef void (*resetcallback)(void);
+typedef void (*powercallback)(void);
+typedef s32 (*resetfunction)(s32 final);
+typedef struct _sys_resetinfo sys_resetinfo;
+
+struct _sys_resetinfo {
+ lwp_node node;
+ resetfunction func;
+ u32 prio;
+};
+
+
+
+
+
+
+void SYS_Init();
+# 244 "/opt/devkitpro/libogc/include/ogc/system.h"
+void* SYS_AllocateFramebuffer(GXRModeObj *rmode);
+
+
+void SYS_ProtectRange(u32 chan,void *addr,u32 bytes,u32 cntrl);
+void SYS_StartPMC(u32 mcr0val,u32 mcr1val);
+void SYS_DumpPMC();
+void SYS_StopPMC();
+# 259 "/opt/devkitpro/libogc/include/ogc/system.h"
+s32 SYS_CreateAlarm(syswd_t *thealarm);
+# 270 "/opt/devkitpro/libogc/include/ogc/system.h"
+s32 SYS_SetAlarm(syswd_t thealarm,const struct timespec *tp,alarmcallback cb);
+# 282 "/opt/devkitpro/libogc/include/ogc/system.h"
+s32 SYS_SetPeriodicAlarm(syswd_t thealarm,const struct timespec *tp_start,const struct timespec *tp_period,alarmcallback cb);
+# 291 "/opt/devkitpro/libogc/include/ogc/system.h"
+s32 SYS_RemoveAlarm(syswd_t thealarm);
+# 300 "/opt/devkitpro/libogc/include/ogc/system.h"
+s32 SYS_CancelAlarm(syswd_t thealarm);
+
+
+void SYS_SetWirelessID(u32 chan,u32 id);
+u32 SYS_GetWirelessID(u32 chan);
+u32 SYS_GetFontEncoding();
+u32 SYS_InitFont(sys_fontheader **font_header);
+void SYS_GetFontTexture(s32 c,void **image,s32 *xpos,s32 *ypos,s32 *width);
+void SYS_GetFontTexel(s32 c,void *image,s32 pos,s32 stride,s32 *width);
+void SYS_ResetSystem(s32 reset,u32 reset_code,s32 force_menu);
+void SYS_RegisterResetFunc(sys_resetinfo *info);
+u32 SYS_GetArena1Size();
+void SYS_SwitchFiber(u32 arg0,u32 arg1,u32 arg2,u32 arg3,u32 pc,u32 newsp);
+
+void* SYS_GetArena1Lo();
+void SYS_SetArena1Lo(void *newLo);
+void* SYS_GetArena1Hi();
+void SYS_SetArena1Hi(void *newHi);
+u32 SYS_GetArena1Size();
+
+resetcallback SYS_SetResetCallback(resetcallback cb);
+
+u32 SYS_ResetButtonDown();
+
+
+u32 SYS_GetHollywoodRevision();
+void* SYS_GetArena2Lo();
+void SYS_SetArena2Lo(void *newLo);
+void* SYS_GetArena2Hi();
+void SYS_SetArena2Hi(void *newHi);
+u32 SYS_GetArena2Size();
+powercallback SYS_SetPowerCallback(powercallback cb);
+
+
+void kprintf(const char *str, ...);
+
+
+   }
+# 63 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/video.h" 1
+# 42 "/opt/devkitpro/libogc/include/ogc/video.h"
+# 1 "/opt/devkitpro/libogc/include/ogc/video_types.h" 1
+# 152 "/opt/devkitpro/libogc/include/ogc/video_types.h"
+extern GXRModeObj TVNtsc240Ds;
+extern GXRModeObj TVNtsc240DsAa;
+extern GXRModeObj TVNtsc240Int;
+extern GXRModeObj TVNtsc240IntAa;
+extern GXRModeObj TVNtsc480IntDf;
+extern GXRModeObj TVNtsc480IntAa;
+extern GXRModeObj TVNtsc480Prog;
+extern GXRModeObj TVMpal480IntDf;
+extern GXRModeObj TVPal264Ds;
+extern GXRModeObj TVPal264DsAa;
+extern GXRModeObj TVPal264Int;
+extern GXRModeObj TVPal264IntAa;
+extern GXRModeObj TVPal524IntAa;
+extern GXRModeObj TVPal528Int;
+extern GXRModeObj TVPal528IntDf;
+extern GXRModeObj TVPal574IntDfScale;
+extern GXRModeObj TVEurgb60Hz240Ds;
+extern GXRModeObj TVEurgb60Hz240DsAa;
+extern GXRModeObj TVEurgb60Hz240Int;
+extern GXRModeObj TVEurgb60Hz240IntAa;
+extern GXRModeObj TVEurgb60Hz480Int;
+extern GXRModeObj TVEurgb60Hz480IntDf;
+extern GXRModeObj TVEurgb60Hz480IntAa;
+extern GXRModeObj TVEurgb60Hz480Prog;
+extern GXRModeObj TVEurgb60Hz480ProgSoft;
+extern GXRModeObj TVEurgb60Hz480ProgAa;
+# 43 "/opt/devkitpro/libogc/include/ogc/video.h" 2
+
+
+   extern "C" {
+# 54 "/opt/devkitpro/libogc/include/ogc/video.h"
+typedef void (*VIRetraceCallback)(u32 retraceCnt);
+
+typedef void (*VIPositionCallback)(u32 posX,u32 posY);
+
+void* VIDEO_GetNextFramebuffer();
+void* VIDEO_GetCurrentFramebuffer();
+# 68 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_Init();
+# 77 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_Flush();
+# 88 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_SetBlack(u8 black);
+# 97 "/opt/devkitpro/libogc/include/ogc/video.h"
+u32 VIDEO_GetNextField();
+# 106 "/opt/devkitpro/libogc/include/ogc/video.h"
+u32 VIDEO_GetCurrentLine();
+# 115 "/opt/devkitpro/libogc/include/ogc/video.h"
+u32 VIDEO_GetCurrentTvMode();
+# 126 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_Configure(GXRModeObj *rmode);
+# 139 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_ClearFrameBuffer(GXRModeObj *rmode,void *fb,u32 color);
+# 148 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_WaitVSync(void);
+# 157 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_SetNextFramebuffer(void *fb);
+# 166 "/opt/devkitpro/libogc/include/ogc/video.h"
+void VIDEO_SetNextRightFramebuffer(void *fb);
+# 177 "/opt/devkitpro/libogc/include/ogc/video.h"
+VIRetraceCallback VIDEO_SetPreRetraceCallback(VIRetraceCallback callback);
+# 188 "/opt/devkitpro/libogc/include/ogc/video.h"
+VIRetraceCallback VIDEO_SetPostRetraceCallback(VIRetraceCallback callback);
+# 197 "/opt/devkitpro/libogc/include/ogc/video.h"
+u32 VIDEO_HaveComponentCable(void);
+
+GXRModeObj * VIDEO_GetPreferredMode(GXRModeObj *mode);
+
+
+   }
+# 64 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/usbgecko.h" 1
+
+
+
+
+
+
+   extern "C" {
+
+
+void usb_flush(s32 chn);
+int usb_isgeckoalive(s32 chn);
+int usb_recvbuffer(s32 chn,void *buffer,int size);
+int usb_sendbuffer(s32 chn,const void *buffer,int size);
+int usb_recvbuffer_safe(s32 chn,void *buffer,int size);
+int usb_sendbuffer_safe(s32 chn,const void *buffer,int size);
+
+
+   }
+# 65 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/video_types.h" 1
+# 66 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/texconv.h" 1
+# 42 "/opt/devkitpro/libogc/include/ogc/texconv.h"
+   extern "C" {
+
+
+void MakeTexture565(const void *src,void *dst,s32 width,s32 height);
+
+
+   }
+# 67 "/opt/devkitpro/libogc/include/gccore.h" 2
+
+
+# 1 "/opt/devkitpro/libogc/include/ogc/ipc.h" 1
+# 53 "/opt/devkitpro/libogc/include/ogc/ipc.h"
+   extern "C" {
+
+
+typedef struct _ioctlv
+{
+ void *data;
+ u32 len;
+} ioctlv;
+
+
+typedef s32 (*ipccallback)(s32 result,void *usrdata);
+
+s32 iosCreateHeap(s32 size);
+s32 iosDestroyHeap(s32 hid);
+void* iosAlloc(s32 hid,s32 size);
+void iosFree(s32 hid,void *ptr);
+
+void* IPC_GetBufferLo();
+void* IPC_GetBufferHi();
+void IPC_SetBufferLo(void *bufferlo);
+void IPC_SetBufferHi(void *bufferhi);
+
+s32 IOS_Open(const char *filepath,u32 mode);
+s32 IOS_OpenAsync(const char *filepath,u32 mode,ipccallback ipc_cb,void *usrdata);
+
+s32 IOS_Close(s32 fd);
+s32 IOS_CloseAsync(s32 fd,ipccallback ipc_cb,void *usrdata);
+
+s32 IOS_Seek(s32 fd,s32 where,s32 whence);
+s32 IOS_SeekAsync(s32 fd,s32 where,s32 whence,ipccallback ipc_cb,void *usrdata);
+s32 IOS_Read(s32 fd,void *buf,s32 len);
+s32 IOS_ReadAsync(s32 fd,void *buf,s32 len,ipccallback ipc_cb,void *usrdata);
+s32 IOS_Write(s32 fd,const void *buf,s32 len);
+s32 IOS_WriteAsync(s32 fd,const void *buf,s32 len,ipccallback ipc_cb,void *usrdata);
+
+s32 IOS_Ioctl(s32 fd,s32 ioctl,void *buffer_in,s32 len_in,void *buffer_io,s32 len_io);
+s32 IOS_IoctlAsync(s32 fd,s32 ioctl,void *buffer_in,s32 len_in,void *buffer_io,s32 len_io,ipccallback ipc_cb,void *usrdata);
+s32 IOS_Ioctlv(s32 fd,s32 ioctl,s32 cnt_in,s32 cnt_io,ioctlv *argv);
+s32 IOS_IoctlvAsync(s32 fd,s32 ioctl,s32 cnt_in,s32 cnt_io,ioctlv *argv,ipccallback ipc_cb,void *usrdata);
+
+s32 IOS_IoctlvFormat(s32 hId,s32 fd,s32 ioctl,const char *format,...);
+s32 IOS_IoctlvFormatAsync(s32 hId,s32 fd,s32 ioctl,ipccallback usr_cb,void *usr_data,const char *format,...);
+
+s32 IOS_IoctlvReboot(s32 fd,s32 ioctl,s32 cnt_in,s32 cnt_io,ioctlv *argv);
+s32 IOS_IoctlvRebootBackground(s32 fd,s32 ioctl,s32 cnt_in,s32 cnt_io,ioctlv *argv);
+
+
+   }
+# 70 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/es.h" 1
+# 56 "/opt/devkitpro/libogc/include/ogc/es.h"
+   extern "C" {
+
+
+typedef u32 sigtype;
+typedef sigtype sig_header;
+typedef sig_header signed_blob;
+
+typedef u8 sha1[20];
+typedef u8 aeskey[16];
+
+typedef struct _sig_rsa2048 {
+ sigtype type;
+ u8 sig[256];
+ u8 fill[60];
+} __attribute__((packed)) sig_rsa2048;
+
+typedef struct _sig_rsa4096 {
+ sigtype type;
+ u8 sig[512];
+ u8 fill[60];
+} __attribute__((packed)) sig_rsa4096;
+
+typedef char sig_issuer[0x40];
+
+typedef struct _tiklimit {
+ u32 tag;
+ u32 value;
+} __attribute__((packed)) tiklimit;
+
+typedef struct _tikview {
+ u32 view;
+ u64 ticketid;
+ u32 devicetype;
+ u64 titleid;
+ u16 access_mask;
+ u8 reserved[0x3c];
+ u8 cidx_mask[0x40];
+ u16 padding;
+ tiklimit limits[8];
+} __attribute__((packed)) tikview;
+
+typedef struct _tik {
+ sig_issuer issuer;
+ u8 fill[63];
+ aeskey cipher_title_key;
+ u8 fill2;
+ u64 ticketid;
+ u32 devicetype;
+ u64 titleid;
+ u16 access_mask;
+ u8 reserved[0x3c];
+ u8 cidx_mask[0x40];
+ u16 padding;
+ tiklimit limits[8];
+} __attribute__((packed)) tik;
+
+typedef struct _tmd_content {
+ u32 cid;
+ u16 index;
+ u16 type;
+ u64 size;
+ sha1 hash;
+} __attribute__((packed)) tmd_content;
+
+typedef struct _tmd {
+ sig_issuer issuer;
+ u8 version;
+ u8 ca_crl_version;
+ u8 signer_crl_version;
+ u8 fill2;
+ u64 sys_version;
+ u64 title_id;
+ u32 title_type;
+ u16 group_id;
+ u16 zero;
+ u16 region;
+ u8 ratings[16];
+ u8 reserved[42];
+ u32 access_rights;
+ u16 title_version;
+ u16 num_contents;
+ u16 boot_index;
+ u16 fill3;
+
+
+ tmd_content contents[];
+} __attribute__((packed)) tmd;
+
+typedef struct _cert_header {
+ sig_issuer issuer;
+ u32 cert_type;
+ char cert_name[64];
+ u32 cert_id;
+} __attribute__((packed)) cert_header;
+
+typedef struct _cert_rsa2048 {
+ sig_issuer issuer;
+ u32 cert_type;
+ char cert_name[64];
+ u32 cert_id;
+ u8 modulus[256];
+ u32 exponent;
+ u8 pad[0x34];
+} __attribute__((packed)) cert_rsa2048;
+
+typedef struct _cert_rsa4096 {
+ sig_issuer issuer;
+ u32 cert_type;
+ char cert_name[64];
+ u32 cert_id;
+ u8 modulus[512];
+ u32 exponent;
+ u8 pad[0x34];
+} __attribute__((packed)) cert_rsa4096;
+# 204 "/opt/devkitpro/libogc/include/ogc/es.h"
+s32 __ES_Init(void);
+s32 __ES_Close(void);
+s32 __ES_Reset(void);
+s32 ES_GetTitleID(u64 *titleID);
+s32 ES_SetUID(u64 uid);
+s32 ES_GetDataDir(u64 titleID, char *filepath);
+s32 ES_GetNumTicketViews(u64 titleID, u32 *cnt);
+s32 ES_GetTicketViews(u64 titleID, tikview *views, u32 cnt);
+s32 ES_GetNumOwnedTitles(u32 *cnt);
+s32 ES_GetOwnedTitles(u64 *titles, u32 cnt);
+s32 ES_GetNumTitles(u32 *cnt);
+s32 ES_GetTitles(u64 *titles, u32 cnt);
+s32 ES_GetNumStoredTMDContents(const signed_blob *stmd, u32 tmd_size, u32 *cnt);
+s32 ES_GetStoredTMDContents(const signed_blob *stmd, u32 tmd_size, u32 *contents, u32 cnt);
+s32 ES_GetStoredTMDSize(u64 titleID, u32 *size);
+s32 ES_GetStoredTMD(u64 titleID, signed_blob *stmd, u32 size);
+s32 ES_GetTitleContentsCount(u64 titleID, u32 *num);
+s32 ES_GetTitleContents(u64 titleID, u8 *data, u32 size);
+s32 ES_GetTMDViewSize(u64 titleID, u32 *size);
+s32 ES_GetTMDView(u64 titleID, u8 *data, u32 size);
+s32 ES_GetNumSharedContents(u32 *cnt);
+s32 ES_GetSharedContents(sha1 *contents, u32 cnt);
+s32 ES_LaunchTitle(u64 titleID, const tikview *view);
+s32 ES_LaunchTitleBackground(u64 titleID, const tikview *view);
+s32 ES_Identify(const signed_blob *certificates, u32 certificates_size, const signed_blob *tmd, u32 tmd_size, const signed_blob *ticket, u32 ticket_size, u32 *keyid);
+s32 ES_AddTicket(const signed_blob *tik, u32 tik_size, const signed_blob *certificates, u32 certificates_size, const signed_blob *crl, u32 crl_size);
+s32 ES_DeleteTicket(const tikview *view);
+s32 ES_AddTitleTMD(const signed_blob *tmd, u32 tmd_size);
+s32 ES_AddTitleStart(const signed_blob *tmd, u32 tmd_size, const signed_blob *certificatess, u32 certificatess_size, const signed_blob *crl, u32 crl_size);
+s32 ES_AddContentStart(u64 titleID, u32 cid);
+s32 ES_AddContentData(s32 cid, u8 *data, u32 data_size);
+s32 ES_AddContentFinish(u32 cid);
+s32 ES_AddTitleFinish(void);
+s32 ES_AddTitleCancel(void);
+s32 ES_ImportBoot(const signed_blob *tik, u32 tik_size,const signed_blob *tik_certs, u32 tik_certs_size,const signed_blob *tmd, u32 tmd_size,const signed_blob *tmd_certs, u32 tmd_certs_size,const u8 *content, u32 content_size);
+s32 ES_OpenContent(u16 index);
+s32 ES_OpenTitleContent(u64 titleID, u16 index);
+s32 ES_ReadContent(s32 cfd, u8 *data, u32 data_size);
+s32 ES_SeekContent(s32 cfd, s32 where, s32 whence);
+s32 ES_CloseContent(s32 cfd);
+s32 ES_DeleteTitle(u64 titleID);
+s32 ES_DeleteTitleContent(u64 titleID);
+s32 ES_Encrypt(u32 keynum, u8 *iv, u8 *source, u32 size, u8 *dest);
+s32 ES_Decrypt(u32 keynum, u8 *iv, u8 *source, u32 size, u8 *dest);
+s32 ES_Sign(u8 *source, u32 size, u8 *sig, u8 *certs);
+s32 ES_GetDeviceCert(u8 *outbuf);
+s32 ES_GetDeviceID(u32 *device_id);
+s32 ES_GetBoot2Version(u32 *version);
+signed_blob *ES_NextCert(const signed_blob *certs);
+
+
+   }
+# 71 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/stm.h" 1
+# 47 "/opt/devkitpro/libogc/include/ogc/stm.h"
+   extern "C" {
+
+
+typedef void (*stmcallback)(u32 event);
+
+s32 __STM_Init();
+s32 __STM_Close();
+s32 STM_ShutdownToStandby();
+s32 STM_ShutdownToIdle();
+s32 STM_SetLedMode(u32 mode);
+s32 STM_RebootSystem();
+stmcallback STM_RegisterEventHandler(stmcallback newhandler);
+
+
+   }
+# 72 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/ios.h" 1
+# 45 "/opt/devkitpro/libogc/include/ogc/ios.h"
+   extern "C" {
+
+
+s32 __IOS_InitializeSubsystems(void);
+s32 __IOS_ShutdownSubsystems(void);
+s32 __IOS_LoadStartupIOS(void);
+s32 __IOS_LaunchNewIOS(int version);
+s32 IOS_GetPreferredVersion(void);
+s32 IOS_ReloadIOS(int version);
+s32 IOS_GetVersion();
+s32 IOS_GetRevision();
+s32 IOS_GetRevisionMajor();
+s32 IOS_GetRevisionMinor();
+
+
+   }
+# 73 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/usb.h" 1
+# 61 "/opt/devkitpro/libogc/include/ogc/usb.h"
+   extern "C" {
+
+
+typedef struct _usbendpointdesc
+{
+ u8 bLength;
+ u8 bDescriptorType;
+ u8 bEndpointAddress;
+ u8 bmAttributes;
+ u16 wMaxPacketSize;
+ u8 bInterval;
+} __attribute__((packed)) usb_endpointdesc;
+
+typedef struct _usbinterfacedesc
+{
+ u8 bLength;
+ u8 bDescriptorType;
+ u8 bInterfaceNumber;
+ u8 bAlternateSetting;
+ u8 bNumEndpoints;
+ u8 bInterfaceClass;
+ u8 bInterfaceSubClass;
+ u8 bInterfaceProtocol;
+ u8 iInterface;
+ u8 *extra;
+ u8 extra_size;
+ struct _usbendpointdesc *endpoints;
+} __attribute__((packed)) usb_interfacedesc;
+
+typedef struct _usbconfdesc
+{
+ u8 bLength;
+ u8 bDescriptorType;
+ u16 wTotalLength;
+ u8 bNumInterfaces;
+ u8 bConfigurationValue;
+ u8 iConfiguration;
+ u8 bmAttributes;
+ u8 bMaxPower;
+ struct _usbinterfacedesc *interfaces;
+} __attribute__((packed)) usb_configurationdesc;
+
+typedef struct _usbdevdesc
+{
+ u8 bLength;
+ u8 bDescriptorType;
+ u16 bcdUSB;
+ u8 bDeviceClass;
+ u8 bDeviceSubClass;
+ u8 bDeviceProtocol;
+ u8 bMaxPacketSize0;
+ u16 idVendor;
+ u16 idProduct;
+ u16 bcdDevice;
+ u8 iManufacturer;
+ u8 iProduct;
+ u8 iSerialNumber;
+ u8 bNumConfigurations;
+ struct _usbconfdesc *configurations;
+} __attribute__((packed)) usb_devdesc;
+
+typedef s32 (*usbcallback)(s32 result,void *usrdata);
+
+s32 USB_Initialize();
+s32 USB_Deinitialize();
+
+s32 USB_OpenDevice(const char *device,u16 vid,u16 pid,s32 *fd);
+s32 USB_CloseDevice(s32 *fd);
+s32 USB_CloseDeviceAsync(s32 *fd,usbcallback cb,void *usrdata);
+
+s32 USB_GetDescriptors(s32 fd, usb_devdesc *udd);
+void USB_FreeDescriptors(usb_devdesc *udd);
+
+s32 USB_GetDeviceDescription(s32 fd,usb_devdesc *devdesc);
+s32 USB_DeviceRemovalNotifyAsync(s32 fd,usbcallback cb,void *userdata);
+
+void USB_SuspendDevice(s32 fd);
+void USB_ResumeDevice(s32 fd);
+
+s32 USB_ReadIntrMsg(s32 fd,u8 bEndpoint,u16 wLength,void *rpData);
+s32 USB_ReadIntrMsgAsync(s32 fd,u8 bEndpoint,u16 wLength,void *rpData,usbcallback cb,void *usrdata);
+
+s32 USB_ReadBlkMsg(s32 fd,u8 bEndpoint,u16 wLength,void *rpData);
+s32 USB_ReadBlkMsgAsync(s32 fd,u8 bEndpoint,u16 wLength,void *rpData,usbcallback cb,void *usrdata);
+
+s32 USB_ReadCtrlMsg(s32 fd,u8 bmRequestType,u8 bmRequest,u16 wValue,u16 wIndex,u16 wLength,void *rpData);
+s32 USB_ReadCtrlMsgAsync(s32 fd,u8 bmRequestType,u8 bmRequest,u16 wValue,u16 wIndex,u16 wLength,void *rpData,usbcallback cb,void *usrdata);
+
+s32 USB_WriteIntrMsg(s32 fd,u8 bEndpoint,u16 wLength,void *rpData);
+s32 USB_WriteIntrMsgAsync(s32 fd,u8 bEndpoint,u16 wLength,void *rpData,usbcallback cb,void *usrdata);
+
+s32 USB_WriteBlkMsg(s32 fd,u8 bEndpoint,u16 wLength,void *rpData);
+s32 USB_WriteBlkMsgAsync(s32 fd,u8 bEndpoint,u16 wLength,void *rpData,usbcallback cb,void *usrdata);
+
+s32 USB_WriteCtrlMsg(s32 fd,u8 bmRequestType,u8 bmRequest,u16 wValue,u16 wIndex,u16 wLength,void *rpData);
+s32 USB_WriteCtrlMsgAsync(s32 fd,u8 bmRequestType,u8 bmRequest,u16 wValue,u16 wIndex,u16 wLength,void *rpData,usbcallback cb,void *usrdata);
+
+s32 USB_GetConfiguration(s32 fd, u8 *configuration);
+s32 USB_SetConfiguration(s32 fd, u8 configuration);
+s32 USB_SetAlternativeInterface(s32 fd, u8 interface, u8 alternateSetting);
+s32 USB_ClearHalt(s32 fd, u8 endpointAddress);
+s32 USB_GetDeviceList(const char *devpath,void *descr_buffer,u8 num_descr,u8 b0,u8 *cnt_descr);
+
+
+   }
+# 74 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/isfs.h" 1
+# 19 "/opt/devkitpro/libogc/include/ogc/isfs.h"
+   extern "C" {
+
+
+typedef struct _fstats
+{
+ u32 file_length;
+ u32 file_pos;
+} fstats;
+
+typedef s32 (*isfscallback)(s32 result,void *usrdata);
+
+s32 ISFS_Initialize();
+s32 ISFS_Deinitialize();
+
+s32 ISFS_Open(const char *filepath,u8 mode);
+s32 ISFS_OpenAsync(const char *filepath,u8 mode,isfscallback cb,void *usrdata);
+s32 ISFS_Close(s32 fd);
+s32 ISFS_CloseAsync(s32 fd,isfscallback cb,void *usrdata);
+s32 ISFS_Delete(const char *filepath);
+s32 ISFS_DeleteAsync(const char *filepath,isfscallback cb,void *usrdata);
+s32 ISFS_ReadDir(const char *filepath,char *name_list,u32 *num);
+s32 ISFS_ReadDirAsync(const char *filepath,char *name_list,u32 *num,isfscallback cb,void *usrdata);
+s32 ISFS_CreateFile(const char *filepath,u8 attributes,u8 owner_perm,u8 group_perm,u8 other_perm);
+s32 ISFS_CreateFileAsync(const char *filepath,u8 attributes,u8 owner_perm,u8 group_perm,u8 other_perm,isfscallback cb,void *usrdata);
+s32 ISFS_Write(s32 fd,const void *buffer,u32 length);
+s32 ISFS_WriteAsync(s32 fd,const void *buffer,u32 length,isfscallback cb,void *usrdata);
+s32 ISFS_Read(s32 fd,void *buffer,u32 length);
+s32 ISFS_ReadAsync(s32 fd,void *buffer,u32 length,isfscallback cb,void *usrdata);
+s32 ISFS_Seek(s32 fd,s32 where,s32 whence);
+s32 ISFS_SeekAsync(s32 fd,s32 where,s32 whence,isfscallback cb,void *usrdata);
+s32 ISFS_CreateDir(const char *filepath,u8 attributes,u8 owner_perm,u8 group_perm,u8 other_perm);
+s32 ISFS_CreateDirAsync(const char *filepath,u8 attributes,u8 owner_perm,u8 group_perm,u8 other_perm,isfscallback cb,void *usrdata);
+s32 ISFS_GetStats(void *stats);
+s32 ISFS_GetStatsAsync(void *stats,isfscallback cb,void *usrdata);
+s32 ISFS_GetFileStats(s32 fd,fstats *status);
+s32 ISFS_GetFileStatsAsync(s32 fd,fstats *status,isfscallback cb,void *usrdata);
+s32 ISFS_GetAttr(const char *filepath,u32 *ownerID,u16 *groupID,u8 *attributes,u8 *ownerperm,u8 *groupperm,u8 *otherperm);
+s32 ISFS_GetAttrAsync(const char *filepath,u32 *ownerID,u16 *groupID,u8 *attributes,u8 *ownerperm,u8 *groupperm,u8 *otherperm,isfscallback cb,void *usrdata);
+s32 ISFS_Rename(const char *filepathOld,const char *filepathNew);
+s32 ISFS_RenameAsync(const char *filepathOld,const char *filepathNew,isfscallback cb,void *usrdata);
+s32 ISFS_SetAttr(const char *filepath,u32 ownerID,u16 groupID,u8 attributes,u8 ownerperm,u8 groupperm,u8 otherperm);
+s32 ISFS_SetAttrAsync(const char *filepath,u32 ownerID,u16 groupID,u8 attributes,u8 ownerperm,u8 groupperm,u8 otherperm,isfscallback cb,void *usrdata);
+s32 ISFS_GetUsage(const char* filepath, u32* usage1, u32* usage2);
+s32 ISFS_GetUsageAsync(const char* filepath, u32* usage1, u32* usage2,isfscallback cb,void *usrdata);
+
+
+   }
+# 75 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/conf.h" 1
+# 47 "/opt/devkitpro/libogc/include/ogc/conf.h"
+   extern "C" {
+
+
+enum {
+ CONF_BIGARRAY = 1,
+ CONF_SMALLARRAY,
+ CONF_BYTE,
+ CONF_SHORT,
+ CONF_LONG,
+ CONF_BOOL = 7
+};
+
+enum {
+ CONF_VIDEO_NTSC = 0,
+ CONF_VIDEO_PAL,
+ CONF_VIDEO_MPAL
+};
+
+enum {
+ CONF_REGION_JP = 0,
+ CONF_REGION_US = 1,
+ CONF_REGION_EU = 2,
+ CONF_REGION_KR = 4,
+ CONF_REGION_CN = 5
+};
+
+enum {
+ CONF_AREA_JPN = 0,
+ CONF_AREA_USA,
+ CONF_AREA_EUR,
+ CONF_AREA_AUS,
+ CONF_AREA_BRA,
+ CONF_AREA_TWN,
+ CONF_AREA_ROC,
+ CONF_AREA_KOR,
+ CONF_AREA_HKG,
+ CONF_AREA_ASI,
+ CONF_AREA_LTN,
+ CONF_AREA_SAF,
+ CONF_AREA_CHN
+};
+
+enum {
+ CONF_SHUTDOWN_STANDBY = 0,
+ CONF_SHUTDOWN_IDLE
+};
+
+enum {
+ CONF_LED_OFF = 0,
+ CONF_LED_DIM,
+ CONF_LED_BRIGHT
+};
+
+enum {
+ CONF_SOUND_MONO = 0,
+ CONF_SOUND_STEREO,
+ CONF_SOUND_SURROUND
+};
+
+enum {
+ CONF_LANG_JAPANESE = 0,
+ CONF_LANG_ENGLISH,
+ CONF_LANG_GERMAN,
+ CONF_LANG_FRENCH,
+ CONF_LANG_SPANISH,
+ CONF_LANG_ITALIAN,
+ CONF_LANG_DUTCH,
+ CONF_LANG_SIMP_CHINESE,
+ CONF_LANG_TRAD_CHINESE,
+ CONF_LANG_KOREAN
+};
+
+enum {
+ CONF_ASPECT_4_3 = 0,
+ CONF_ASPECT_16_9
+};
+
+enum {
+ CONF_SENSORBAR_BOTTOM = 0,
+ CONF_SENSORBAR_TOP
+};
+
+
+
+
+typedef struct _conf_pad_device conf_pad_device;
+
+struct _conf_pad_device {
+ u8 bdaddr[6];
+ char name[0x40];
+} __attribute__((packed));
+
+typedef struct _conf_pads conf_pads;
+
+struct _conf_pads {
+ u8 num_registered;
+ conf_pad_device registered[10];
+ conf_pad_device active[4];
+ conf_pad_device balance_board;
+ conf_pad_device unknown;
+} __attribute__((packed));
+
+s32 CONF_Init(void);
+s32 CONF_GetLength(const char *name);
+s32 CONF_GetType(const char *name);
+s32 CONF_Get(const char *name, void *buffer, u32 length);
+s32 CONF_GetShutdownMode(void);
+s32 CONF_GetIdleLedMode(void);
+s32 CONF_GetProgressiveScan(void);
+s32 CONF_GetEuRGB60(void);
+s32 CONF_GetIRSensitivity(void);
+s32 CONF_GetSensorBarPosition(void);
+s32 CONF_GetPadSpeakerVolume(void);
+s32 CONF_GetPadMotorMode(void);
+s32 CONF_GetSoundMode(void);
+s32 CONF_GetLanguage(void);
+s32 CONF_GetCounterBias(u32 *bias);
+s32 CONF_GetScreenSaverMode(void);
+s32 CONF_GetDisplayOffsetH(s8 *offset);
+s32 CONF_GetPadDevices(conf_pads *pads);
+s32 CONF_GetNickName(u8 *nickname);
+s32 CONF_GetAspectRatio(void);
+s32 CONF_GetEULA(void);
+s32 CONF_GetParentalPassword(s8 *password);
+s32 CONF_GetParentalAnswer(s8 *answer);
+s32 CONF_GetWiiConnect24(void);
+s32 CONF_GetRegion(void);
+s32 CONF_GetArea(void);
+s32 CONF_GetVideo(void);
+
+
+   }
+# 76 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/usbstorage.h" 1
+
+
+
+
+
+
+   extern "C" {
+
+
+
+# 1 "/opt/devkitpro/libogc/include/ogc/cond.h" 1
+# 45 "/opt/devkitpro/libogc/include/ogc/cond.h"
+extern "C" {
+
+
+
+
+
+
+typedef u32 cond_t;
+# 61 "/opt/devkitpro/libogc/include/ogc/cond.h"
+s32 LWP_CondInit(cond_t *cond);
+# 71 "/opt/devkitpro/libogc/include/ogc/cond.h"
+s32 LWP_CondWait(cond_t cond,mutex_t mutex);
+# 80 "/opt/devkitpro/libogc/include/ogc/cond.h"
+s32 LWP_CondSignal(cond_t cond);
+# 89 "/opt/devkitpro/libogc/include/ogc/cond.h"
+s32 LWP_CondBroadcast(cond_t cond);
+# 100 "/opt/devkitpro/libogc/include/ogc/cond.h"
+s32 LWP_CondTimedWait(cond_t cond,mutex_t mutex,const struct timespec *abstime);
+# 109 "/opt/devkitpro/libogc/include/ogc/cond.h"
+s32 LWP_CondDestroy(cond_t cond);
+
+
+ }
+# 12 "/opt/devkitpro/libogc/include/ogc/usbstorage.h" 2
+# 1 "/opt/devkitpro/libogc/include/ogc/disc_io.h" 1
+# 33 "/opt/devkitpro/libogc/include/ogc/disc_io.h"
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 1 3
+# 17 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+extern "C" {
+# 45 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef signed char int8_t ;
+typedef unsigned char uint8_t ;
+
+
+
+
+typedef signed char int_least8_t;
+typedef unsigned char uint_least8_t;
+
+
+
+
+typedef signed short int16_t;
+typedef unsigned short uint16_t;
+# 71 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef int16_t int_least16_t;
+typedef uint16_t uint_least16_t;
+# 83 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef signed int int32_t;
+typedef unsigned int uint32_t;
+# 101 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef int32_t int_least32_t;
+typedef uint32_t uint_least32_t;
+# 123 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef signed long long int64_t;
+typedef unsigned long long uint64_t;
+# 133 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef int64_t int_least64_t;
+typedef uint64_t uint_least64_t;
+# 163 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+  typedef signed int int_fast8_t;
+  typedef unsigned int uint_fast8_t;
+
+
+
+
+  typedef signed int int_fast16_t;
+  typedef unsigned int uint_fast16_t;
+
+
+
+
+  typedef signed int int_fast32_t;
+  typedef unsigned int uint_fast32_t;
+# 217 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+  typedef int_least64_t int_fast64_t;
+  typedef uint_least64_t uint_fast64_t;
+
+
+
+
+
+
+
+  typedef long long int intmax_t;
+# 235 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+  typedef long long unsigned int uintmax_t;
+# 247 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+typedef signed int intptr_t;
+typedef unsigned int uintptr_t;
+# 398 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdint.h" 3
+}
+# 34 "/opt/devkitpro/libogc/include/ogc/disc_io.h" 2
+# 44 "/opt/devkitpro/libogc/include/ogc/disc_io.h"
+typedef uint32_t sec_t;
+
+typedef bool (* FN_MEDIUM_STARTUP)(void) ;
+typedef bool (* FN_MEDIUM_ISINSERTED)(void) ;
+typedef bool (* FN_MEDIUM_READSECTORS)(sec_t sector, sec_t numSectors, void* buffer) ;
+typedef bool (* FN_MEDIUM_WRITESECTORS)(sec_t sector, sec_t numSectors, const void* buffer) ;
+typedef bool (* FN_MEDIUM_CLEARSTATUS)(void) ;
+typedef bool (* FN_MEDIUM_SHUTDOWN)(void) ;
+
+struct DISC_INTERFACE_STRUCT {
+ unsigned long ioType ;
+ unsigned long features ;
+ FN_MEDIUM_STARTUP startup ;
+ FN_MEDIUM_ISINSERTED isInserted ;
+ FN_MEDIUM_READSECTORS readSectors ;
+ FN_MEDIUM_WRITESECTORS writeSectors ;
+ FN_MEDIUM_CLEARSTATUS clearStatus ;
+ FN_MEDIUM_SHUTDOWN shutdown ;
+} ;
+
+typedef struct DISC_INTERFACE_STRUCT DISC_INTERFACE ;
+# 13 "/opt/devkitpro/libogc/include/ogc/usbstorage.h" 2
+# 26 "/opt/devkitpro/libogc/include/ogc/usbstorage.h"
+typedef struct
+{
+ u8 configuration;
+ u32 interface;
+ u32 altInterface;
+
+ u8 ep_in;
+ u8 ep_out;
+
+ u8 max_lun;
+ u32 *sector_size;
+
+ s32 usb_fd;
+
+ mutex_t lock;
+ cond_t cond;
+ s32 retval;
+
+ u32 tag;
+ u8 suspended;
+
+ u8 *buffer;
+} usbstorage_handle;
+
+s32 USBStorage_Initialize();
+
+s32 USBStorage_Open(usbstorage_handle *dev, const char *bus, u16 vid, u16 pid);
+s32 USBStorage_Close(usbstorage_handle *dev);
+s32 USBStorage_Reset(usbstorage_handle *dev);
+
+s32 USBStorage_GetMaxLUN(usbstorage_handle *dev);
+s32 USBStorage_MountLUN(usbstorage_handle *dev, u8 lun);
+s32 USBStorage_Suspend(usbstorage_handle *dev);
+
+s32 USBStorage_ReadCapacity(usbstorage_handle *dev, u8 lun, u32 *sector_size, u32 *n_sectors);
+s32 USBStorage_Read(usbstorage_handle *dev, u8 lun, u32 sector, u16 n_sectors, u8 *buffer);
+s32 USBStorage_Write(usbstorage_handle *dev, u8 lun, u32 sector, u16 n_sectors, const u8 *buffer);
+
+
+
+extern const DISC_INTERFACE __io_usbstorage;
+
+
+   }
+# 77 "/opt/devkitpro/libogc/include/gccore.h" 2
+
+# 1 "/opt/devkitpro/libogc/include/ogc/wiilaunch.h" 1
+# 62 "/opt/devkitpro/libogc/include/ogc/wiilaunch.h"
+   extern "C" {
+
+
+s32 WII_Initialize(void);
+s32 WII_ReturnToMenu(void);
+s32 WII_ReturnToSettings(void);
+s32 WII_ReturnToSettingsPage(const char *page);
+s32 WII_LaunchTitle(u64 titleID);
+s32 WII_LaunchTitleWithArgs(u64 titleID, int launchcode, ...);
+s32 WII_OpenURL(const char *url);
+
+
+   }
+# 79 "/opt/devkitpro/libogc/include/gccore.h" 2
+# 99 "/opt/devkitpro/libogc/include/gccore.h"
+   extern "C" {
+# 138 "/opt/devkitpro/libogc/include/gccore.h"
+s32 depackrnc1_ulen(void *packed);
+s32 depackrnc1(void *packed,void *unpacked);
+
+void depackrnc2(void *packed,void *unpacked);
+
+
+   }
+# 10 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+# 1 "/opt/devkitpro/libogc/include/ogcsys.h" 1
+# 32 "/opt/devkitpro/libogc/include/ogcsys.h"
+ extern "C" {
+
+
+time_t time(time_t *timer);
+int nanosleep(struct timespec *tb);
+
+
+ }
+# 11 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 1 3
+# 34 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 35 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 2 3
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stdarg.h" 1 3 4
+# 43 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 38 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 2 3
+# 48 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+extern "C" {
+
+typedef __FILE FILE;
+# 59 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+typedef _fpos_t fpos_t;
+
+
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/stdio.h" 1 3
+# 9 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/stdio.h" 3
+     extern void __flockfile(FILE *fp);
+# 18 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/stdio.h" 3
+     extern void __funlockfile(FILE *fp);
+# 66 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 2 3
+# 170 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+FILE * tmpfile (void);
+char * tmpnam (char *);
+int fclose (FILE *);
+int fflush (FILE *);
+FILE * freopen (const char *, const char *, FILE *);
+void setbuf (FILE *, char *);
+int setvbuf (FILE *, char *, int, size_t);
+int fprintf (FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+int fscanf (FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)));
+
+int printf (const char *, ...) __attribute__ ((__format__ (__printf__, 1, 2)));
+
+int scanf (const char *, ...) __attribute__ ((__format__ (__scanf__, 1, 2)));
+
+int sscanf (const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)));
+
+int vfprintf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int vprintf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 1, 0)));
+
+int vsprintf (char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int fgetc (FILE *);
+char * fgets (char *, int, FILE *);
+int fputc (int, FILE *);
+int fputs (const char *, FILE *);
+int getc (FILE *);
+int getchar (void);
+char * gets (char *);
+int putc (int, FILE *);
+int putchar (int);
+int puts (const char *);
+int ungetc (int, FILE *);
+size_t fread (void *, size_t _size, size_t _n, FILE *);
+size_t fwrite (const void * , size_t _size, size_t _n, FILE *);
+
+
+
+int fgetpos (FILE *, fpos_t *);
+
+int fseek (FILE *, long, int);
+
+
+
+int fsetpos (FILE *, const fpos_t *);
+
+long ftell ( FILE *);
+void rewind (FILE *);
+void clearerr (FILE *);
+int feof (FILE *);
+int ferror (FILE *);
+void perror (const char *);
+
+FILE * fopen (const char *_name, const char *_type);
+int sprintf (char *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+int remove (const char *);
+int rename (const char *, const char *);
+
+
+
+
+
+
+int fseeko (FILE *, off_t, int);
+off_t ftello ( FILE *);
+
+
+int asiprintf (char **, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+char * asniprintf (char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+char * asnprintf (char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int asprintf (char **, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+
+int diprintf (int, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+
+int fcloseall (void);
+int fiprintf (FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+int fiscanf (FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)));
+
+int iprintf (const char *, ...) __attribute__ ((__format__ (__printf__, 1, 2)));
+
+int iscanf (const char *, ...) __attribute__ ((__format__ (__scanf__, 1, 2)));
+
+int siprintf (char *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+int siscanf (const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)));
+
+int snprintf (char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int sniprintf (char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+char * tempnam (const char *, const char *);
+int vasiprintf (char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+char * vasniprintf (char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+char * vasnprintf (char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int vasprintf (char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int vdiprintf (int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int vfiprintf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int vfiscanf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+int vfscanf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+int viprintf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 1, 0)));
+
+int viscanf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 1, 0)));
+
+int vscanf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 1, 0)));
+
+int vsiprintf (char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int vsiscanf (const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+int vsniprintf (char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int vsnprintf (char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int vsscanf (const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 310 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+FILE * fdopen (int, const char *);
+
+int fileno (FILE *);
+int getw (FILE *);
+int pclose (FILE *);
+FILE * popen (const char *, const char *);
+int putw (int, FILE *);
+void setbuffer (FILE *, char *, int);
+int setlinebuf (FILE *);
+int getc_unlocked (FILE *);
+int getchar_unlocked (void);
+void flockfile (FILE *);
+int ftrylockfile (FILE *);
+void funlockfile (FILE *);
+int putc_unlocked (int, FILE *);
+int putchar_unlocked (int);
+# 335 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+int dprintf (int, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+
+FILE * fmemopen (void *, size_t, const char *);
+
+
+FILE * open_memstream (char **, size_t *);
+
+int vdprintf (int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+# 352 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+int _asiprintf_r (struct _reent *, char **, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+char * _asniprintf_r (struct _reent *, char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)));
+
+char * _asnprintf_r (struct _reent *, char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)));
+
+int _asprintf_r (struct _reent *, char **, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _diprintf_r (struct _reent *, int, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _dprintf_r (struct _reent *, int, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _fclose_r (struct _reent *, FILE *);
+int _fcloseall_r (struct _reent *);
+FILE * _fdopen_r (struct _reent *, int, const char *);
+int _fflush_r (struct _reent *, FILE *);
+char * _fgets_r (struct _reent *, char *, int, FILE *);
+int _fiprintf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _fiscanf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)));
+
+FILE * _fmemopen_r (struct _reent *, void *, size_t, const char *);
+FILE * _fopen_r (struct _reent *, const char *, const char *);
+int _fprintf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _fputc_r (struct _reent *, int, FILE *);
+int _fputs_r (struct _reent *, const char *, FILE *);
+size_t _fread_r (struct _reent *, void *, size_t _size, size_t _n, FILE *);
+int _fscanf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)));
+
+int _fseek_r (struct _reent *, FILE *, long, int);
+long _ftell_r (struct _reent *, FILE *);
+size_t _fwrite_r (struct _reent *, const void * , size_t _size, size_t _n, FILE *);
+int _getc_r (struct _reent *, FILE *);
+int _getc_unlocked_r (struct _reent *, FILE *);
+int _getchar_r (struct _reent *);
+int _getchar_unlocked_r (struct _reent *);
+char * _gets_r (struct _reent *, char *);
+int _iprintf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+int _iscanf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)));
+
+int _mkstemp_r (struct _reent *, char *);
+char * _mktemp_r (struct _reent *, char *);
+FILE * _open_memstream_r (struct _reent *, char **, size_t *);
+void _perror_r (struct _reent *, const char *);
+int _printf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)));
+
+int _putc_r (struct _reent *, int, FILE *);
+int _putc_unlocked_r (struct _reent *, int, FILE *);
+int _putchar_unlocked_r (struct _reent *, int);
+int _putchar_r (struct _reent *, int);
+int _puts_r (struct _reent *, const char *);
+int _remove_r (struct _reent *, const char *);
+int _rename_r (struct _reent *, const char *_old, const char *_new);
+
+int _scanf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)));
+
+int _siprintf_r (struct _reent *, char *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _siscanf_r (struct _reent *, const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)));
+
+int _sniprintf_r (struct _reent *, char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)));
+
+int _snprintf_r (struct _reent *, char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)));
+
+int _sprintf_r (struct _reent *, char *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+int _sscanf_r (struct _reent *, const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)));
+
+char * _tempnam_r (struct _reent *, const char *, const char *);
+FILE * _tmpfile_r (struct _reent *);
+char * _tmpnam_r (struct _reent *, char *);
+int _ungetc_r (struct _reent *, int, FILE *);
+int _vasiprintf_r (struct _reent *, char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+char * _vasniprintf_r (struct _reent*, char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)));
+
+char * _vasnprintf_r (struct _reent*, char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)));
+
+int _vasprintf_r (struct _reent *, char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vdiprintf_r (struct _reent *, int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vdprintf_r (struct _reent *, int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vfiprintf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vfiscanf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)));
+
+int _vfprintf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vfscanf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)));
+
+int _viprintf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int _viscanf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+int _vprintf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)));
+
+int _vscanf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+int _vsiprintf_r (struct _reent *, char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vsiscanf_r (struct _reent *, const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)));
+
+int _vsniprintf_r (struct _reent *, char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)));
+
+int _vsnprintf_r (struct _reent *, char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)));
+
+int _vsprintf_r (struct _reent *, char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+int _vsscanf_r (struct _reent *, const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)));
+
+
+ssize_t __getdelim (char **, size_t *, int, FILE *);
+ssize_t __getline (char **, size_t *, FILE *);
+# 494 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+int __srget_r (struct _reent *, FILE *);
+int __swbuf_r (struct _reent *, int, FILE *);
+# 509 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+FILE *funopen (const void * __cookie, int (*__readfn)(void * __cookie, char *__buf, int __n), int (*__writefn)(void * __cookie, const char *__buf, int __n), fpos_t (*__seekfn)(void * __cookie, fpos_t __off, int __whence), int (*__closefn)(void * __cookie));
+# 521 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+typedef ssize_t cookie_read_function_t(void *__cookie, char *__buf, size_t __n);
+typedef ssize_t cookie_write_function_t(void *__cookie, const char *__buf,
+     size_t __n);
+
+
+
+
+typedef int cookie_seek_function_t(void *__cookie, off_t *__off, int __whence);
+
+typedef int cookie_close_function_t(void *__cookie);
+typedef struct
+{
+
+
+  cookie_read_function_t *read;
+  cookie_write_function_t *write;
+  cookie_seek_function_t *seek;
+  cookie_close_function_t *close;
+} cookie_io_functions_t;
+FILE *fopencookie (void *__cookie, const char *__mode, cookie_io_functions_t __functions);
+# 669 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdio.h" 3
+}
+# 12 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdlib.h" 1 3
+# 14 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdlib.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 15 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdlib.h" 2 3
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/machine/stdlib.h" 1 3
+# 18 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdlib.h" 2 3
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/alloca.h" 1 3
+# 20 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdlib.h" 2 3
+
+
+
+
+
+
+extern "C" {
+
+typedef struct
+{
+  int quot;
+  int rem;
+} div_t;
+
+typedef struct
+{
+  long quot;
+  long rem;
+} ldiv_t;
+
+
+typedef struct
+{
+  long long int quot;
+  long long int rem;
+} lldiv_t;
+# 57 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/stdlib.h" 3
+extern int __mb_cur_max;
+
+
+
+void abort (void) __attribute__ ((noreturn));
+int abs (int);
+int atexit (void (*__func)(void));
+double atof (const char *__nptr);
+
+float atoff (const char *__nptr);
+
+int atoi (const char *__nptr);
+int _atoi_r (struct _reent *, const char *__nptr);
+long atol (const char *__nptr);
+long _atol_r (struct _reent *, const char *__nptr);
+void * bsearch (const void * __key, const void * __base, size_t __nmemb, size_t __size, int (* _compar) (const void *, const void *));
+
+
+
+
+void * calloc (size_t __nmemb, size_t __size);
+div_t div (int __numer, int __denom);
+void exit (int __status) __attribute__ ((noreturn));
+void free (void *);
+char * getenv (const char *__string);
+char * _getenv_r (struct _reent *, const char *__string);
+char * _findenv (const char *, int *);
+char * _findenv_r (struct _reent *, const char *, int *);
+long labs (long);
+ldiv_t ldiv (long __numer, long __denom);
+void * malloc (size_t __size);
+int mblen (const char *, size_t);
+int _mblen_r (struct _reent *, const char *, size_t, _mbstate_t *);
+int mbtowc (wchar_t *, const char *, size_t);
+int _mbtowc_r (struct _reent *, wchar_t *, const char *, size_t, _mbstate_t *);
+int wctomb (char *, wchar_t);
+int _wctomb_r (struct _reent *, char *, wchar_t, _mbstate_t *);
+size_t mbstowcs (wchar_t *, const char *, size_t);
+size_t _mbstowcs_r (struct _reent *, wchar_t *, const char *, size_t, _mbstate_t *);
+size_t wcstombs (char *, const wchar_t *, size_t);
+size_t _wcstombs_r (struct _reent *, char *, const wchar_t *, size_t, _mbstate_t *);
+
+
+int mkstemp (char *);
+char * mktemp (char *);
+
+
+void qsort (void * __base, size_t __nmemb, size_t __size, int(*_compar)(const void *, const void *));
+int rand (void);
+void * realloc (void * __r, size_t __size);
+void srand (unsigned __seed);
+double strtod (const char *__n, char **__end_PTR);
+double _strtod_r (struct _reent *,const char *__n, char **__end_PTR);
+float strtof (const char *__n, char **__end_PTR);
+
+
+
+
+
+
+long strtol (const char *__n, char **__end_PTR, int __base);
+long _strtol_r (struct _reent *,const char *__n, char **__end_PTR, int __base);
+unsigned long strtoul (const char *__n, char **__end_PTR, int __base);
+unsigned long _strtoul_r (struct _reent *,const char *__n, char **__end_PTR, int __base);
+
+int system (const char *__string);
+
+
+long a64l (const char *__input);
+char * l64a (long __input);
+char * _l64a_r (struct _reent *,long __input);
+int on_exit (void (*__func)(int, void *),void * __arg);
+void _Exit (int __status) __attribute__ ((noreturn));
+int putenv (char *__string);
+int _putenv_r (struct _reent *, char *__string);
+int setenv (const char *__string, const char *__value, int __overwrite);
+int _setenv_r (struct _reent *, const char *__string, const char *__value, int __overwrite);
+
+char * gcvt (double,int,char *);
+char * gcvtf (float,int,char *);
+char * fcvt (double,int,int *,int *);
+char * fcvtf (float,int,int *,int *);
+char * ecvt (double,int,int *,int *);
+char * ecvtbuf (double, int, int*, int*, char *);
+char * fcvtbuf (double, int, int*, int*, char *);
+char * ecvtf (float,int,int *,int *);
+char * dtoa (double, int, int, int *, int*, char**);
+int rand_r (unsigned *__seed);
+
+double drand48 (void);
+double _drand48_r (struct _reent *);
+double erand48 (unsigned short [3]);
+double _erand48_r (struct _reent *, unsigned short [3]);
+long jrand48 (unsigned short [3]);
+long _jrand48_r (struct _reent *, unsigned short [3]);
+void lcong48 (unsigned short [7]);
+void _lcong48_r (struct _reent *, unsigned short [7]);
+long lrand48 (void);
+long _lrand48_r (struct _reent *);
+long mrand48 (void);
+long _mrand48_r (struct _reent *);
+long nrand48 (unsigned short [3]);
+long _nrand48_r (struct _reent *, unsigned short [3]);
+unsigned short *
+       seed48 (unsigned short [3]);
+unsigned short *
+       _seed48_r (struct _reent *, unsigned short [3]);
+void srand48 (long);
+void _srand48_r (struct _reent *, long);
+long long atoll (const char *__nptr);
+long long _atoll_r (struct _reent *, const char *__nptr);
+long long llabs (long long);
+lldiv_t lldiv (long long __numer, long long __denom);
+long long strtoll (const char *__n, char **__end_PTR, int __base);
+long long _strtoll_r (struct _reent *, const char *__n, char **__end_PTR, int __base);
+unsigned long long strtoull (const char *__n, char **__end_PTR, int __base);
+unsigned long long _strtoull_r (struct _reent *, const char *__n, char **__end_PTR, int __base);
+
+
+void cfree (void *);
+void unsetenv (const char *__string);
+void _unsetenv_r (struct _reent *, const char *__string);
+
+
+
+
+char * _dtoa_r (struct _reent *, double, int, int, int *, int*, char**);
+
+void * _malloc_r (struct _reent *, size_t);
+void * _calloc_r (struct _reent *, size_t, size_t);
+void _free_r (struct _reent *, void *);
+void * _realloc_r (struct _reent *, void *, size_t);
+void _mstats_r (struct _reent *, char *);
+
+int _system_r (struct _reent *, const char *);
+
+void __eprintf (const char *, const char *, unsigned int, const char *);
+
+}
+# 13 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/string.h" 1 3
+# 14 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/string.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 15 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/string.h" 2 3
+
+
+
+
+
+extern "C" {
+
+void * memchr (const void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void * memcpy (void *, const void *, size_t);
+void * memmove (void *, const void *, size_t);
+void * memset (void *, int, size_t);
+char *strcat (char *, const char *);
+char *strchr (const char *, int);
+int strcmp (const char *, const char *);
+int strcoll (const char *, const char *);
+char *strcpy (char *, const char *);
+size_t strcspn (const char *, const char *);
+char *strerror (int);
+size_t strlen (const char *);
+char *strncat (char *, const char *, size_t);
+int strncmp (const char *, const char *, size_t);
+char *strncpy (char *, const char *, size_t);
+char *strpbrk (const char *, const char *);
+char *strrchr (const char *, int);
+size_t strspn (const char *, const char *);
+char *strstr (const char *, const char *);
+
+
+char *strtok (char *, const char *);
+
+
+size_t strxfrm (char *, const char *, size_t);
+
+
+char *strtok_r (char *, const char *, char **);
+
+int bcmp (const void *, const void *, size_t);
+void bcopy (const void *, void *, size_t);
+void bzero (void *, size_t);
+int ffs (int);
+char *index (const char *, int);
+void * memccpy (void *, const void *, int, size_t);
+void * mempcpy (void *, const void *, size_t);
+
+
+
+char *rindex (const char *, int);
+char *stpcpy (char *, const char *);
+char *stpncpy (char *, const char *, size_t);
+int strcasecmp (const char *, const char *);
+char *strcasestr (const char *, const char *);
+char *strdup (const char *);
+char *_strdup_r (struct _reent *, const char *);
+char *strndup (const char *, size_t);
+char *_strndup_r (struct _reent *, const char *, size_t);
+char *strerror_r (int, char *, size_t);
+size_t strlcat (char *, const char *, size_t);
+size_t strlcpy (char *, const char *, size_t);
+int strncasecmp (const char *, const char *, size_t);
+size_t strnlen (const char *, size_t);
+char *strsep (char **, const char *);
+char *strlwr (char *);
+char *strupr (char *);
+# 102 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/string.h" 3
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/string.h" 1 3
+# 103 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/string.h" 2 3
+
+}
+# 14 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/unistd.h" 1 3
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/unistd.h" 1 3
+
+
+
+
+extern "C" {
+
+
+
+
+
+
+
+# 1 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/include/stddef.h" 1 3 4
+# 14 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/unistd.h" 2 3
+
+extern char **environ;
+
+void _exit (int __status ) __attribute__ ((noreturn));
+
+int access (const char *__path, int __amode );
+unsigned alarm (unsigned __secs );
+int chdir (const char *__path );
+int chmod (const char *__path, mode_t __mode );
+
+int chown (const char *__path, uid_t __owner, gid_t __group );
+
+
+
+
+int close (int __fildes );
+
+
+
+char *ctermid (char *__s );
+char *cuserid (char *__s );
+
+
+
+int dup (int __fildes );
+int dup2 (int __fildes, int __fildes2 );
+
+
+
+int execl (const char *__path, const char *, ... );
+int execle (const char *__path, const char *, ... );
+int execlp (const char *__file, const char *, ... );
+int execv (const char *__path, char * const __argv[] );
+int execve (const char *__path, char * const __argv[], char * const __envp[] );
+int execvp (const char *__file, char * const __argv[] );
+
+
+
+int fchmod (int __fildes, mode_t __mode );
+
+int fchown (int __fildes, uid_t __owner, gid_t __group );
+
+pid_t fork (void );
+long fpathconf (int __fd, int __name );
+int fsync (int __fd);
+int fdatasync (int __fd);
+char *getcwd (char *__buf, size_t __size );
+
+
+
+
+gid_t getegid (void );
+uid_t geteuid (void );
+gid_t getgid (void );
+
+int getgroups (int __gidsetsize, gid_t __grouplist[] );
+
+
+
+char *getlogin (void );
+
+
+
+char *getpass (const char *__prompt);
+size_t getpagesize (void);
+
+
+
+pid_t getpgid (pid_t);
+pid_t getpgrp (void );
+pid_t getpid (void );
+pid_t getppid (void );
+
+
+
+
+uid_t getuid (void );
+
+
+
+
+
+
+int isatty (int __fildes );
+
+int lchown (const char *__path, uid_t __owner, gid_t __group );
+
+int link (const char *__path1, const char *__path2 );
+int nice (int __nice_value );
+
+off_t lseek (int __fildes, off_t __offset, int __whence );
+# 113 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/unistd.h" 3
+long pathconf (const char *__path, int __name );
+int pause (void );
+
+
+
+int pipe (int __fildes[2] );
+ssize_t pread (int __fd, void *__buf, size_t __nbytes, off_t __offset);
+ssize_t pwrite (int __fd, const void *__buf, size_t __nbytes, off_t __offset);
+int read (int __fd, void *__buf, size_t __nbyte );
+
+
+
+
+int rmdir (const char *__path );
+
+
+
+void * sbrk (ptrdiff_t __incr);
+
+
+
+
+
+int setgid (gid_t __gid );
+
+
+
+
+int setpgid (pid_t __pid, pid_t __pgid );
+int setpgrp (void );
+
+
+
+
+pid_t setsid (void );
+
+int setuid (uid_t __uid );
+
+
+
+
+unsigned sleep (unsigned int __seconds );
+void swab (const void *, void *, ssize_t);
+long sysconf (int __name );
+pid_t tcgetpgrp (int __fildes );
+int tcsetpgrp (int __fildes, pid_t __pgrp_id );
+char *ttyname (int __fildes );
+
+
+
+int unlink (const char *__path );
+int usleep (useconds_t __useconds);
+int vhangup (void );
+int write (int __fd, const void *__buf, size_t __nbyte );
+
+
+
+
+
+
+extern char *optarg;
+extern int optind, opterr, optopt;
+int getopt(int, char * const [], const char *);
+extern int optreset;
+
+
+
+pid_t vfork (void );
+
+extern char *suboptarg;
+int getsubopt(char **, char * const *, char **);
+# 205 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/unistd.h" 3
+int ftruncate (int __fd, off_t __length);
+int truncate (const char *, off_t __length);
+# 226 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/unistd.h" 3
+int readlink (const char *__path, char *__buf, int __buflen);
+int symlink (const char *__name1, const char *__name2);
+# 449 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/sys/unistd.h" 3
+}
+# 5 "/opt/devkitpro/devkitPPC/lib/gcc/powerpc-gekko/4.2.4/../../../../powerpc-gekko/include/unistd.h" 2 3
+# 15 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+# 1 "/opt/devkitpro/libogc/include/wiiuse/wpad.h" 1
+# 35 "/opt/devkitpro/libogc/include/wiiuse/wpad.h"
+# 1 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h" 1
+# 9 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+# 1 "/opt/devkitpro/libogc/include/bte/bte.h" 1
+
+
+
+
+# 1 "/opt/devkitpro/libogc/include/bte/bd_addr.h" 1
+# 39 "/opt/devkitpro/libogc/include/bte/bd_addr.h"
+   extern "C" {
+
+
+struct bd_addr {
+  u8 addr[6];
+};
+# 76 "/opt/devkitpro/libogc/include/bte/bd_addr.h"
+   }
+# 6 "/opt/devkitpro/libogc/include/bte/bte.h" 2
+# 70 "/opt/devkitpro/libogc/include/bte/bte.h"
+   extern "C" {
+
+
+struct l2cap_pcb;
+struct ctrl_req_t;
+
+struct inquiry_info
+{
+ struct bd_addr bdaddr;
+ u8 cod[3];
+};
+
+struct inquiry_info_ex
+{
+ struct bd_addr bdaddr;
+ u8 cod[3];
+ u8 psrm;
+ u8 psm;
+ u16 co;
+};
+
+struct linkkey_info
+{
+ struct bd_addr bdaddr;
+ u8 key[16];
+};
+
+struct bte_pcb
+{
+ u8 err;
+ u32 state;
+ void *cbarg;
+
+ struct ctrl_req_t *ctrl_req_head;
+ struct ctrl_req_t *ctrl_req_tail;
+
+ lwpq_t cmdq;
+
+ struct bd_addr bdaddr;
+
+ struct l2cap_pcb *out_pcb;
+ struct l2cap_pcb *in_pcb;
+
+
+ s32 (*recv)(void *arg,void *buffer,u16 len);
+ s32 (*conn_cfm)(void *arg,struct bte_pcb *pcb,u8 err);
+ s32 (*disconn_cfm)(void *arg,struct bte_pcb *pcb,u8 err);
+};
+
+typedef s32 (*btecallback)(s32 result,void *userdata);
+
+void BTE_Init();
+void BTE_Shutdown();
+s32 BTE_InitCore(btecallback cb);
+s32 BTE_ApplyPatch(btecallback cb);
+s32 BTE_InitSub(btecallback cb);
+s32 BTE_ReadStoredLinkKey(struct linkkey_info *keys,u8 max_cnt,btecallback cb);
+void (*BTE_SetDisconnectCallback(void (*callback)(struct bd_addr *bdaddr,u8 reason)))(struct bd_addr *bdaddr,u8 reason);
+
+struct bte_pcb* bte_new();
+void bte_arg(struct bte_pcb *pcb,void *arg);
+void bte_received(struct bte_pcb *pcb, s32 (*recv)(void *arg,void *buffer,u16 len));
+void bte_disconnected(struct bte_pcb *pcb,s32 (disconn_cfm)(void *arg,struct bte_pcb *pcb,u8 err));
+
+s32 bte_registerdeviceasync(struct bte_pcb *pcb,struct bd_addr *bdaddr,s32 (*conn_cfm)(void *arg,struct bte_pcb *pcb,u8 err));
+
+s32 bte_disconnect(struct bte_pcb *pcb);
+
+
+
+s32 bte_inquiry(struct inquiry_info *info,u8 max_cnt,u8 flush);
+s32 bte_inquiry_ex(struct inquiry_info_ex *info,u8 max_cnt,u8 flush);
+
+
+s32 bte_sendmessage(struct bte_pcb *pcb,void *message,u16 len);
+s32 bte_sendmessageasync(struct bte_pcb *pcb,void *message,u16 len,s32 (*sent)(void *arg,struct bte_pcb *pcb,u8 err));
+
+
+   }
+# 10 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h" 2
+# 101 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+typedef enum ir_position_t {
+ WIIUSE_IR_ABOVE,
+ WIIUSE_IR_BELOW
+} ir_position_t;
+# 179 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+typedef unsigned char ubyte;
+typedef char sbyte;
+typedef unsigned short uword;
+typedef short sword;
+typedef unsigned int uint;
+typedef char sint;
+
+
+struct wiimote_t;
+struct vec3b_t;
+struct orient_t;
+struct gforce_t;
+
+
+ typedef void (*wii_event_cb)(struct wiimote_t*, int event);
+# 209 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+typedef void (*wiiuse_data_cb)(struct wiimote_t* wm, ubyte* data, unsigned short len);
+
+typedef enum data_req_s
+{
+ REQ_READY = 0,
+ REQ_SENT,
+ REQ_DONE
+} data_req_s;
+
+
+
+
+
+struct data_req_t {
+ lwp_node node;
+ ubyte data[48];
+ unsigned int len;
+ data_req_s state;
+ wiiuse_data_cb cb;
+ struct data_req_t *next;
+};
+
+typedef void (*cmd_blk_cb)(struct wiimote_t *wm,ubyte *data,uword len);
+
+typedef enum cmd_blk_s
+{
+ CMD_READY = 0,
+ CMD_SENT,
+ CMD_DONE
+} cmd_blk_s;
+
+struct cmd_blk_t
+{
+ lwp_node node;
+
+ ubyte data[48];
+ uint len;
+
+ cmd_blk_s state;
+ cmd_blk_cb cb;
+
+ struct cmd_blk_t *next;
+};
+
+
+
+
+
+
+typedef struct vec2b_t {
+ ubyte x, y;
+} vec2b_t;
+
+
+
+
+
+
+typedef struct vec3b_t {
+ ubyte x, y, z;
+} vec3b_t;
+
+
+
+
+
+typedef struct vec3w_t {
+ uword x, y, z;
+} vec3w_t;
+
+
+
+
+
+
+typedef struct vec3f_t {
+ float x, y, z;
+} vec3f_t;
+# 295 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+typedef struct orient_t {
+ float roll;
+ float pitch;
+ float yaw;
+
+ float a_roll;
+ float a_pitch;
+} orient_t;
+
+
+
+
+
+
+typedef struct gforce_t {
+ float x, y, z;
+} gforce_t;
+
+
+
+
+
+
+typedef struct accel_t {
+ struct vec3w_t cal_zero;
+ struct vec3w_t cal_g;
+
+ float st_roll;
+ float st_pitch;
+ float st_alpha;
+} accel_t;
+
+
+
+
+
+
+typedef struct ir_dot_t {
+ ubyte visible;
+
+ short rx;
+ short ry;
+
+ ubyte size;
+} ir_dot_t;
+
+
+typedef struct fdot_t {
+ float x,y;
+} fdot_t;
+
+typedef struct sb_t {
+ fdot_t dots[2];
+ fdot_t acc_dots[2];
+ fdot_t rot_dots[2];
+ float angle;
+ float off_angle;
+ float score;
+} sb_t;
+
+
+
+
+
+typedef enum aspect_t {
+ WIIUSE_ASPECT_4_3,
+ WIIUSE_ASPECT_16_9
+} aspect_t;
+
+
+
+
+
+
+typedef struct ir_t {
+ struct ir_dot_t dot[4];
+ ubyte num_dots;
+
+ int state;
+
+ int raw_valid;
+ sb_t sensorbar;
+ float ax;
+ float ay;
+ float distance;
+ float z;
+ float angle;
+
+ int smooth_valid;
+ float sx;
+ float sy;
+ float error_cnt;
+ float glitch_cnt;
+
+ int valid;
+ float x;
+ float y;
+ enum aspect_t aspect;
+ enum ir_position_t pos;
+ unsigned int vres[2];
+ int offset[2];
+
+} ir_t;
+# 415 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+typedef struct joystick_t {
+ struct vec2b_t max;
+ struct vec2b_t min;
+ struct vec2b_t center;
+ struct vec2b_t pos;
+
+ float ang;
+ float mag;
+} joystick_t;
+
+
+
+
+
+
+typedef struct nunchuk_t {
+ struct accel_t accel_calib;
+ struct joystick_t js;
+
+ int* flags;
+
+ ubyte btns;
+ ubyte btns_last;
+ ubyte btns_held;
+ ubyte btns_released;
+
+ struct vec3w_t accel;
+ struct orient_t orient;
+ struct gforce_t gforce;
+} nunchuk_t;
+
+
+
+
+
+
+typedef struct classic_ctrl_t {
+ short btns;
+ short btns_last;
+ short btns_held;
+ short btns_released;
+
+ ubyte rs_raw;
+ ubyte ls_raw;
+
+ float r_shoulder;
+ float l_shoulder;
+
+ struct joystick_t ljs;
+ struct joystick_t rjs;
+} classic_ctrl_t;
+
+
+
+
+
+
+typedef struct guitar_hero_3_t {
+ short btns;
+ short btns_last;
+ short btns_held;
+ short btns_released;
+
+ ubyte wb_raw;
+ float whammy_bar;
+
+ struct joystick_t js;
+} guitar_hero_3_t;
+
+
+
+
+
+typedef struct wii_board_t {
+ float tl;
+ float tr;
+ float bl;
+ float br;
+ short rtl;
+ short rtr;
+ short rbl;
+ short rbr;
+ short ctl[3];
+ short ctr[3];
+ short cbl[3];
+ short cbr[3];
+ float x;
+ float y;
+} wii_board_t;
+
+
+
+
+
+typedef struct expansion_t {
+ int type;
+
+ union {
+  struct nunchuk_t nunchuk;
+  struct classic_ctrl_t classic;
+  struct guitar_hero_3_t gh3;
+   struct wii_board_t wb;
+ };
+} expansion_t;
+
+
+
+
+
+
+typedef enum win_bt_stack_t {
+ WIIUSE_STACK_UNKNOWN,
+ WIIUSE_STACK_MS,
+ WIIUSE_STACK_BLUESOLEIL
+} win_bt_stack_t;
+
+
+
+
+
+
+typedef struct wiimote_state_t {
+ unsigned short btns;
+
+ struct ir_t ir;
+ struct vec3w_t accel;
+ struct expansion_t exp;
+} wiimote_state_t;
+
+
+
+
+
+
+typedef enum WIIUSE_EVENT_TYPE {
+ WIIUSE_NONE = 0,
+ WIIUSE_EVENT,
+ WIIUSE_STATUS,
+ WIIUSE_CONNECT,
+ WIIUSE_DISCONNECT,
+ WIIUSE_UNEXPECTED_DISCONNECT,
+ WIIUSE_READ_DATA,
+ WIIUSE_WRITE_DATA,
+ WIIUSE_NUNCHUK_INSERTED,
+ WIIUSE_NUNCHUK_REMOVED,
+ WIIUSE_CLASSIC_CTRL_INSERTED,
+ WIIUSE_CLASSIC_CTRL_REMOVED,
+ WIIUSE_GUITAR_HERO_3_CTRL_INSERTED,
+  WIIUSE_GUITAR_HERO_3_CTRL_REMOVED,
+  WIIUSE_WII_BOARD_INSERTED,
+  WIIUSE_WII_BOARD_REMOVED
+} WIIUSE_EVENT_TYPE;
+
+
+
+
+
+typedef struct wiimote_t {
+ const int unid;
+# 583 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+  const lwp_queue cmdq;
+  const struct bd_addr bdaddr;
+  const char bdaddr_str[18];
+  const struct bte_pcb *sock;
+  const wii_event_cb event_cb;
+
+
+
+
+
+
+
+ const int state;
+ const ubyte leds;
+
+ const ubyte battery_level;
+
+
+
+
+ const int flags;
+
+ const ubyte handshake_state;
+ const ubyte expansion_state;
+
+ const struct data_req_t* data_req;
+
+ const struct cmd_blk_t *cmd_head;
+ const struct cmd_blk_t *cmd_tail;
+
+ const struct accel_t accel_calib;
+ const struct expansion_t exp;
+
+ const struct vec3w_t accel;
+ const struct orient_t orient;
+ const struct gforce_t gforce;
+
+ const struct ir_t ir;
+
+ const unsigned short btns;
+ const unsigned short btns_last;
+ const unsigned short btns_held;
+ const unsigned short btns_released;
+
+ const struct wiimote_state_t lstate;
+
+ const WIIUSE_EVENT_TYPE event;
+ const ubyte event_buf[32];
+} wiimote;
+
+
+
+
+
+
+typedef struct wiimote_listen_t {
+ const struct bd_addr bdaddr;
+ const struct bte_pcb *sock;
+ const struct wiimote_t *(*assign_cb)(struct bd_addr *bdaddr);
+ const struct wiimote_t *wm;
+} wiimote_listen;
+# 667 "/opt/devkitpro/libogc/include/wiiuse/wiiuse.h"
+extern "C" {
+
+
+
+ extern const char* wiiuse_version();
+
+
+
+
+ extern int wiiuse_register(struct wiimote_listen_t *wml, struct bd_addr *bdaddr, struct wiimote_t *(*assign_cb)(struct bd_addr *bdaddr));
+ extern struct wiimote_t** wiiuse_init(int wiimotes, wii_event_cb event_cb);
+ extern void wiiuse_sensorbar_enable(int enable);
+
+
+ extern void wiiuse_disconnected(struct wiimote_t* wm);
+ extern void wiiuse_cleanup(struct wiimote_t** wm, int wiimotes);
+ extern void wiiuse_rumble(struct wiimote_t* wm, int status);
+ extern void wiiuse_toggle_rumble(struct wiimote_t* wm);
+ extern void wiiuse_set_leds(struct wiimote_t* wm, int leds,cmd_blk_cb cb);
+ extern void wiiuse_motion_sensing(struct wiimote_t* wm, int status);
+ extern int wiiuse_read_data(struct wiimote_t* wm, ubyte* buffer, unsigned int offset, unsigned short len, cmd_blk_cb cb);
+ extern int wiiuse_write_data(struct wiimote_t *wm,unsigned int addr,ubyte *data,ubyte len,cmd_blk_cb cb);
+ extern void wiiuse_status(struct wiimote_t *wm,cmd_blk_cb cb);
+ extern struct wiimote_t* wiiuse_get_by_id(struct wiimote_t** wm, int wiimotes, int unid);
+ extern int wiiuse_set_flags(struct wiimote_t* wm, int enable, int disable);
+ extern float wiiuse_set_smooth_alpha(struct wiimote_t* wm, float alpha);
+ extern void wiiuse_set_bluetooth_stack(struct wiimote_t** wm, int wiimotes, enum win_bt_stack_t type);
+ extern void wiiuse_resync(struct wiimote_t* wm);
+ extern void wiiuse_set_timeout(struct wiimote_t** wm, int wiimotes, ubyte normal_timeout, ubyte exp_timeout);
+ extern int wiiuse_write_streamdata(struct wiimote_t *wm,ubyte *data,ubyte len,cmd_blk_cb cb);
+
+
+ extern int wiiuse_find(struct wiimote_t** wm, int max_wiimotes, int timeout);
+ extern int wiiuse_connect(struct wiimote_t** wm, int wiimotes);
+ extern void wiiuse_disconnect(struct wiimote_t* wm);
+
+
+ extern int wiiuse_poll(struct wiimote_t** wm, int wiimotes);
+
+
+ extern void wiiuse_set_ir_mode(struct wiimote_t *wm);
+ extern void wiiuse_set_ir(struct wiimote_t* wm, int status);
+ extern void wiiuse_set_ir_vres(struct wiimote_t* wm, unsigned int x, unsigned int y);
+ extern void wiiuse_set_ir_position(struct wiimote_t* wm, enum ir_position_t pos);
+ extern void wiiuse_set_aspect_ratio(struct wiimote_t* wm, enum aspect_t aspect);
+ extern void wiiuse_set_ir_sensitivity(struct wiimote_t* wm, int level);
+
+
+}
+# 36 "/opt/devkitpro/libogc/include/wiiuse/wpad.h" 2
+
+
+
+enum {
+ WPAD_CHAN_ALL = -1,
+ WPAD_CHAN_0,
+ WPAD_CHAN_1,
+ WPAD_CHAN_2,
+ WPAD_CHAN_3,
+ WPAD_BALANCE_BOARD,
+ WPAD_MAX_WIIMOTES,
+};
+# 90 "/opt/devkitpro/libogc/include/wiiuse/wpad.h"
+enum {
+ WPAD_EXP_NONE = 0,
+ WPAD_EXP_NUNCHUK,
+ WPAD_EXP_CLASSIC,
+ WPAD_EXP_GUITARHERO3,
+  WPAD_EXP_WIIBOARD,
+ WPAD_EXP_UNKNOWN = 255
+};
+
+enum {
+ WPAD_FMT_BTNS = 0,
+ WPAD_FMT_BTNS_ACC,
+ WPAD_FMT_BTNS_ACC_IR
+};
+
+enum {
+ WPAD_STATE_DISABLED,
+ WPAD_STATE_ENABLING,
+ WPAD_STATE_ENABLED
+};
+# 136 "/opt/devkitpro/libogc/include/wiiuse/wpad.h"
+   extern "C" {
+
+
+typedef struct _wpad_data
+{
+ s16 err;
+
+ u32 data_present;
+
+ u32 btns_h;
+ u32 btns_l;
+ u32 btns_d;
+ u32 btns_u;
+
+ struct ir_t ir;
+ struct vec3w_t accel;
+ struct orient_t orient;
+ struct gforce_t gforce;
+ struct expansion_t exp;
+} WPADData;
+
+typedef void (*WPADDataCallback)(s32 chan, const WPADData *data);
+typedef void (*WPADShutdownCallback)(s32 chan);
+
+s32 WPAD_Init();
+s32 WPAD_ReadEvent(s32 chan, WPADData *data);
+s32 WPAD_DroppedEvents(s32 chan);
+s32 WPAD_Flush(s32 chan);
+s32 WPAD_ReadPending(s32 chan, WPADDataCallback datacb);
+s32 WPAD_SetDataFormat(s32 chan, s32 fmt);
+s32 WPAD_SetVRes(s32 chan,u32 xres,u32 yres);
+s32 WPAD_GetStatus();
+s32 WPAD_Probe(s32 chan,u32 *type);
+s32 WPAD_SetEventBufs(s32 chan, WPADData *bufs, u32 cnt);
+s32 WPAD_Disconnect(s32 chan);
+void WPAD_Shutdown();
+void WPAD_SetIdleTimeout(u32 seconds);
+void WPAD_SetPowerButtonCallback(WPADShutdownCallback cb);
+void WPAD_SetBatteryDeadCallback(WPADShutdownCallback cb);
+s32 WPAD_ScanPads();
+s32 WPAD_Rumble(s32 chan, int status);
+s32 WPAD_SetIdleThresholds(s32 chan, s32 btns, s32 ir, s32 accel, s32 js, s32 wb);
+WPADData *WPAD_Data(int chan);
+u32 WPAD_ButtonsUp(int chan);
+u32 WPAD_ButtonsDown(int chan);
+u32 WPAD_ButtonsHeld(int chan);
+void WPAD_IR(int chan, struct ir_t *ir);
+void WPAD_Orientation(int chan, struct orient_t *orient);
+void WPAD_GForce(int chan, struct gforce_t *gforce);
+void WPAD_Accel(int chan, struct vec3w_t *accel);
+void WPAD_Expansion(int chan, struct expansion_t *exp);
+
+
+   }
+# 16 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+
+# 1 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/input.h" 1
+# 18 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/input.h"
+enum
+{
+ TRIGGER_SIMPLE,
+ TRIGGER_HELD,
+ TRIGGER_BUTTON_ONLY,
+ TRIGGER_BUTTON_ONLY_IN_FOCUS
+};
+
+typedef struct _paddata {
+ u16 btns_d;
+ u16 btns_u;
+ u16 btns_h;
+ s8 stickX;
+ s8 stickY;
+ s8 substickX;
+ s8 substickY;
+ u8 triggerL;
+ u8 triggerR;
+} PADData;
+
+class GuiTrigger
+{
+ public:
+  GuiTrigger();
+  ~GuiTrigger();
+  void SetSimpleTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
+  void SetHeldTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
+  void SetButtonOnlyTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
+  void SetButtonOnlyInFocusTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
+  s8 WPAD_Stick(u8 right, int axis);
+  bool Left();
+  bool Right();
+  bool Up();
+  bool Down();
+
+  u8 type;
+  s32 chan;
+  WPADData wpad;
+  PADData pad;
+};
+
+extern GuiTrigger userInput[4];
+extern int rumbleRequest[4];
+
+void ShutoffRumble();
+void DoRumble(int i);
+# 18 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp" 2
+
+
+static unsigned int *xfb[2] = { __null, __null };
+static int whichfb = 0;
+static GXRModeObj *vmode;
+static unsigned char gp_fifo[256 * 1024] __attribute__((aligned(32)));
+static Mtx GXmodelView2D;
+int screenheight;
+int screenwidth;
+
+
+
+
+
+
+static void
+UpdatePadsCB ()
+{
+
+ WPAD_ScanPads();
+
+ PAD_ScanPads();
+
+ for(int i=3; i >= 0; i--)
+ {
+
+  memcpy(&userInput[i].wpad, WPAD_Data(i), sizeof(WPADData));
+
+
+  userInput[i].chan = i;
+  userInput[i].pad.btns_d = PAD_ButtonsDown(i);
+  userInput[i].pad.btns_u = PAD_ButtonsUp(i);
+  userInput[i].pad.btns_h = PAD_ButtonsHeld(i);
+  userInput[i].pad.stickX = PAD_StickX(i);
+  userInput[i].pad.stickY = PAD_StickY(i);
+  userInput[i].pad.substickX = PAD_SubStickX(i);
+  userInput[i].pad.substickY = PAD_SubStickY(i);
+  userInput[i].pad.triggerL = PAD_TriggerL(i);
+  userInput[i].pad.triggerR = PAD_TriggerR(i);
+ }
+}
+
+
+
+
+
+
+static void
+StartGX ()
+{
+ GXColor background = { 0, 0, 0, 0xff };
+
+
+ memset (&gp_fifo, 0, 256 * 1024);
+
+
+ GX_Init (&gp_fifo, 256 * 1024);
+ GX_SetCopyClear (background, 0x00ffffff);
+
+ GX_SetDispCopyGamma (0);
+ GX_SetCullMode (0);
+}
+
+
+
+
+
+
+void
+ResetVideo_Menu()
+{
+ Mtx44 p;
+ f32 yscale;
+ u32 xfbHeight;
+
+ VIDEO_Configure (vmode);
+ VIDEO_Flush();
+ VIDEO_WaitVSync();
+ if (vmode->viTVMode & 1)
+  VIDEO_WaitVSync();
+ else
+  while (VIDEO_GetNextField())
+   VIDEO_WaitVSync();
+
+
+ GXColor background = {0, 0, 0, 255};
+ GX_SetCopyClear (background, 0x00ffffff);
+
+ yscale = GX_GetYScaleFactor(vmode->efbHeight,vmode->xfbHeight);
+ xfbHeight = GX_SetDispCopyYScale(yscale);
+ GX_SetScissor(0,0,vmode->fbWidth,vmode->efbHeight);
+ GX_SetDispCopySrc(0,0,vmode->fbWidth,vmode->efbHeight);
+ GX_SetDispCopyDst(vmode->fbWidth,xfbHeight);
+ GX_SetCopyFilter(vmode->aa,vmode->sample_pattern,1,vmode->vfilter);
+ GX_SetFieldMode(vmode->field_rendering,((vmode->viHeight==2*vmode->xfbHeight)?1:0));
+
+ if (vmode->aa)
+  GX_SetPixelFmt(2, 0);
+ else
+  GX_SetPixelFmt(0, 0);
+
+
+
+ GX_ClearVtxDesc();
+ GX_InvVtxCache ();
+ GX_InvalidateTexAll();
+
+ GX_SetVtxDesc(13, 0);
+ GX_SetVtxDesc(9, 1);
+ GX_SetVtxDesc (11, 1);
+
+ GX_SetVtxAttrFmt (0, 9, 1, 4, 0);
+ GX_SetVtxAttrFmt (0, 11, 1, 5, 0);
+ GX_SetVtxAttrFmt(0, 13, 1, 4, 0);
+ GX_SetZMode (0, 3, 1);
+
+ GX_SetNumChans(1);
+ GX_SetNumTexGens(1);
+ GX_SetTevOp (0, 4);
+ GX_SetTevOrder(0, 0x0, 0, 4);
+ GX_SetTexCoordGen(0x0, 1, 4, 60);
+
+ ps_guMtxIdentity(GXmodelView2D);
+ ps_guMtxTransApply (GXmodelView2D, GXmodelView2D, 0.0F, 0.0F, -50.0F);
+ GX_LoadPosMtxImm(GXmodelView2D,0);
+
+ guOrtho(p,0,479,0,639,0,300);
+ GX_LoadProjectionMtx(p, 1);
+
+ GX_SetViewport(0,0,vmode->fbWidth,vmode->efbHeight,0,1);
+ GX_SetBlendMode(1, 4, 5, 0);
+ GX_SetAlphaUpdate(1);
+}
+# 159 "/home/muzer/Other/installdev/Wiiiiii/Compile/shopmii/source/video.cpp"
+void
+InitVideo ()
+{
+ VIDEO_Init();
+ vmode = VIDEO_GetPreferredMode(__null);
+
+
+ if(CONF_GetAspectRatio() == CONF_ASPECT_16_9)
+ {
+  vmode->viWidth = 720 -12;
+  vmode->viXOrigin = ((720 - vmode->viWidth) / 2) + 2;
+ }
+
+ VIDEO_Configure (vmode);
+
+ screenheight = 480;
+ screenwidth = vmode->fbWidth;
+
+
+ xfb[0] = (u32 *) (void*)((u32)(SYS_AllocateFramebuffer (vmode)) + ((0xC0000000) - (0x80000000)));
+ xfb[1] = (u32 *) (void*)((u32)(SYS_AllocateFramebuffer (vmode)) + ((0xC0000000) - (0x80000000)));
+
+
+ CON_Init (xfb[0], 20, 64, vmode->fbWidth, vmode->xfbHeight, vmode->fbWidth * 2);
+
+
+ VIDEO_ClearFrameBuffer (vmode, xfb[0], (0x00800080));
+ VIDEO_ClearFrameBuffer (vmode, xfb[1], (0x00800080));
+ VIDEO_SetNextFramebuffer (xfb[0]);
+
+
+ VIDEO_SetPostRetraceCallback ((VIRetraceCallback)UpdatePadsCB);
+
+ VIDEO_SetBlack (0);
+ VIDEO_Flush ();
+ VIDEO_WaitVSync ();
+ if (vmode->viTVMode & 1)
+  VIDEO_WaitVSync ();
+
+ StartGX();
+ ResetVideo_Menu();
+
+}
+
+
+
+
+
+
+void StopGX()
+{
+ GX_AbortFrame();
+ GX_Flush();
+
+ VIDEO_SetBlack(1);
+ VIDEO_Flush();
+}
+
+
+
+
+
+
+void Menu_Render()
+{
+ GX_DrawDone ();
+
+ whichfb ^= 1;
+ GX_SetZMode(1, 3, 1);
+ GX_SetColorUpdate(1);
+ GX_CopyDisp(xfb[whichfb],1);
+ VIDEO_SetNextFramebuffer(xfb[whichfb]);
+ VIDEO_Flush();
+ VIDEO_WaitVSync();
+}
+
+
+
+
+
+
+void Menu_DrawImg(f32 xpos, f32 ypos, u16 width, u16 height, u8 data[],
+ f32 degrees, f32 scaleX, f32 scaleY, u8 alpha)
+{
+ if(data == __null)
+  return;
+
+ GXTexObj texObj;
+
+ GX_InitTexObj(&texObj, data, width,height, 0x6,0, 0,0);
+ GX_LoadTexObj(&texObj, 0);
+ GX_InvalidateTexAll();
+
+ GX_SetTevOp (0, 0);
+ GX_SetVtxDesc (13, 1);
+
+ Mtx m,m1,m2, mv;
+ width *=.5;
+ height*=.5;
+ ps_guMtxIdentity (m1);
+ ps_guMtxScaleApply(m1,m1,scaleX,scaleY,1.0);
+ Vector axis = (Vector) {0 , 0, 1 };
+ ps_guMtxRotAxisRad(m2,&axis,( (degrees) * 0.01745329252f ));
+ ps_guMtxConcat(m2,m1,m);
+
+ ps_guMtxTransApply(m,m, xpos+width,ypos+height,0);
+ ps_guMtxConcat (GXmodelView2D, m, mv);
+ GX_LoadPosMtxImm (mv, 0);
+
+ GX_Begin(0x80, 0,4);
+ GX_Position3f32(-width, -height, 0);
+ GX_Color4u8(0xFF,0xFF,0xFF,alpha);
+ GX_TexCoord2f32(0, 0);
+
+ GX_Position3f32(width, -height, 0);
+ GX_Color4u8(0xFF,0xFF,0xFF,alpha);
+ GX_TexCoord2f32(1, 0);
+
+ GX_Position3f32(width, height, 0);
+ GX_Color4u8(0xFF,0xFF,0xFF,alpha);
+ GX_TexCoord2f32(1, 1);
+
+ GX_Position3f32(-width, height, 0);
+ GX_Color4u8(0xFF,0xFF,0xFF,alpha);
+ GX_TexCoord2f32(0, 1);
+ GX_End();
+ GX_LoadPosMtxImm (GXmodelView2D, 0);
+
+ GX_SetTevOp (0, 4);
+ GX_SetVtxDesc (13, 0);
+}
+
+
+
+
+
+
+void Menu_DrawRectangle(f32 x, f32 y, f32 width, f32 height, GXColor color, u8 filled)
+{
+ u8 fmt;
+ long n;
+ int i;
+ f32 x2 = x+width;
+ f32 y2 = y+height;
+ Vector v[] = {{x,y,0.0f}, {x2,y,0.0f}, {x2,y2,0.0f}, {x,y2,0.0f}, {x,y,0.0f}};
+
+ if(!filled)
+ {
+  fmt = 0xB0;
+  n = 5;
+ }
+ else
+ {
+  fmt = 0xA0;
+  n = 4;
+ }
+
+ GX_Begin(fmt, 0, n);
+ for(i=0; i<n; i++)
+ {
+  GX_Position3f32(v[i].x, v[i].y, v[i].z);
+  GX_Color4u8(color.r, color.g, color.b, color.a);
+ }
+ GX_End();
+}
