@@ -1,0 +1,1 @@
+This is a frontend to the shop channel, basically. It will exist in two parts: Server and client. Server will grab required data from vc-reviews.com, wiiware-world.com and other sources every week, and parse them into a database\_xx.txt file. Client will be the wii, will download the database and parse that into a lovely interface to browse the shop.
